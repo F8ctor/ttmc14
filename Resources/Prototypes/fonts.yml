@@ -1,5 +1,5 @@
 - type: font
-  id: Pixeled
+  id: Default
   path: /Fonts/Pixeled.ttf #TST
 
 - type: font
