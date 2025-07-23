@@ -1,6 +1,6 @@
 - type: font
-  id: Default
-  path: /Fonts/NotoSans/NotoSans-Regular.ttf
+  id: Pixeled
+  path: /Fonts/Pixeled.ttf #TST
 
 - type: font
   id: DefaultItalic
