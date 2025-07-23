@@ -1,47 +1,47 @@
 - type: font
   id: Default
-  path: /Fonts/Pixeled.ttf #Мне пох лол
+  path: /Fonts/Minecraftia-Regular.ttf #Мне пох лол
 
 - type: font
   id: DefaultItalic
-  path: /Fonts/Pixeled.ttf
+  path: /Fonts/Minecraftia-Regular.ttf
 
 - type: font
   id: DefaultBold
-  path: /Fonts/Pixeled.ttf
+  path: /Fonts/Minecraftia-Regular.ttf
 
 - type: font
   id: DefaultBoldItalic
-  path: /Fonts/Pixeled.ttf
+  path: /Fonts/Minecraftia-Regular.ttf
 
 - type: font
   id: NotoSansDisplay
-  path: /Fonts/Pixeled.ttf
+  path: /Fonts/Minecraftia-Regular.ttf
 
 - type: font
   id: NotoSansDisplayItalic
-  path: /Fonts/Pixeled.ttf
+  path: /Fonts/Minecraftia-Regular.ttf
 
 - type: font
   id: NotoSansDisplayBold
-  path: /Fonts/Pixeled.ttf
+  path: /Fonts/Minecraftia-Regular.ttf
 
 - type: font
   id: NotoSansDisplayBoldItalic
-  path: /Fonts/Pixeled.ttf
+  path: /Fonts/Minecraftia-Regular.ttf
 
 - type: font
   id: BoxRound
-  path: /Fonts/Boxfont-round/Boxfont Round.ttf
+  path: /Fonts/Minecraftia-Regular.ttf
 
 - type: font
   id: AnimalSilence
-  path: /Fonts/Animal Silence.otf
+  path: /Fonts/Minecraftia-Regular.ttf
 
 - type: font
   id: Monospace
-  path: /Fonts/Pixeled.ttf
+  path: /Fonts/Minecraftia-Regular.ttf
 
 - type: font
   id: Emoji
-  path: /Fonts/NotoEmoji.ttf
+  path: /Fonts/Minecraftia-Regular.ttf
