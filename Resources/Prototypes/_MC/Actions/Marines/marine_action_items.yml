@@ -1,0 +1,14 @@
+- type: entity
+  parent: ActionMarineBase
+  id: MCActionToggleMeson
+  name: Toggle meson optical scanner
+  components:
+  - type: Action
+    icon:
+      sprite: _MC/Clothing/Eyes/Glasses/meson.rsi
+      state: icon
+    iconOn:
+      sprite: _MC/Clothing/Eyes/Glasses/meson.rsi
+      state: icon_on
+  - type: InstantAction
+    event: !type:ToggleActionEvent

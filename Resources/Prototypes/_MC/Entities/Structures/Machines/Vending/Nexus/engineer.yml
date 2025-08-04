@@ -24,15 +24,12 @@
       - id: CMSheetMetal10
         name: Metal x10
         points: 2
-        recommended: true
       - id: CMSheetPlasteel10
         name: Plasteel x10
         points: 4
-        recommended: true
       - id: CMSandbagEmpty25
         name: sandbags x25
         points: 5
-        recommended: true
       # TL-182 deployable shield
       # Deployable floodlight
       # Pack of Razorburn grenades
