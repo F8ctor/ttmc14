@@ -8,7 +8,8 @@
   },
   "states": [
     {
-      "name": "icon"
+      "name": "icon",
+      "directions": 1
     },
     {
       "name": "equipped-EYES",
@@ -49,7 +50,7 @@
       ]
     },
     {
-      "name": "icon-on",
+      "name": "icon_on",
       "delays": [
         [
           0.6,

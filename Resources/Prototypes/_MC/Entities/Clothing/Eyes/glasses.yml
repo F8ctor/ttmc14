@@ -85,7 +85,7 @@
     - EYES
 
 - type: entity
-  parent: BaseToggleClothing
+  parent: [ BaseToggleClothing, ClothingEyesBase ]
   id: MCGlassesHudMeson
   name: optical meson scanner
   description: Used to shield the user's eyes from harmful electromagnetic emissions, also used as general safety goggles. Not adequate as welding protection.
@@ -98,21 +98,22 @@
     sprite: _MC/Clothing/Eyes/Glasses/meson.rsi
     slots:
     - EYES
+  - type: MCArmor # "защищает AGA"
+    laser: 75
+    energy: 75
   - type: ItemToggle
     activated: true
     soundActivate:
       path: /Audio/_MC/Toggle/nightvision/googles_on.ogg
     soundDeactivate:
       path: /Audio/_MC/Toggle/nightvision/googles_off.ogg
-  - type: NightVisionItem
-    actionId: MCActionToggleMeson
+  - type: ToggleClothing
+    action: MCActionToggleMeson
   - type: RMCItemToggleClothingVisuals
   - type: GenericVisualizer
     visuals:
       enum.ToggleableVisuals.Enabled:
         enum.ToggleableVisuals.Layer:
-          True: {state: icon-on}
+          True: {state: icon_on}
           False: {state: icon}
   - type: Appearance
-  # - type: ItemToggleRequiresSkill
-  # - type: ItemToggleDeactivateUnskilled
