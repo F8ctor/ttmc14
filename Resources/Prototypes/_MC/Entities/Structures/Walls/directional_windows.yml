@@ -1,0 +1,33 @@
+﻿# Rocks
+
+- type: entity
+  parent: CMBaseWall
+  id: MCWallBasalt
+  name: rock
+  description: Massive columns comprised of anicent sedimentary rocks loom before you.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Structures/Walls/hybrisa_rock.rsi
+    state: rock
+  - type: Icon
+    sprite: _RMC14/Structures/Walls/hybrisa_rock.rsi
+    state: rock
+  - type: IconSmooth
+    key: walls
+    base: rock
+
+- type: entity
+  parent: CMBaseWallInvincible
+  id: MCWallBasaltInvincible
+  name: rock
+  description: Massive columns comprised of anicent sedimentary rocks loom before you.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Structures/Walls/hybrisa_rock.rsi
+    state: rock
+  - type: Icon
+    sprite: _RMC14/Structures/Walls/hybrisa_rock.rsi
+    state: rock
+  - type: IconSmooth
+    key: walls
+    base: rock
