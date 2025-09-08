@@ -42,7 +42,6 @@
         RMCSkillLeadership: 2
         RMCSkillCqc: 1
         RMCSkillSmartGun: -4
-        RMCSkillFireman: 1
     - type: JobPrefix
       prefix: mc-job-prefix-pilot-officer
     - type: TacticalMapIcon

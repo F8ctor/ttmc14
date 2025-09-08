@@ -39,7 +39,6 @@
         RMCSkillLeadership: 1
         RMCSkillSmartGun: 0
         RMCSkillFirearms: 1
-        RMCSkillFireman: 1
     - type: SquadArmorWearer
     - type: JobPrefix
       prefix: mc-job-prefix-smartgunner
