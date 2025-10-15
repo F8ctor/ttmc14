@@ -33,6 +33,7 @@
   - !type:AddComponentSpecial
     components:
     - type: MarineOrders
+    - type: MCSendOrders
     - type: Skills
       skills:
         RMCSkillMedical: 2
@@ -75,4 +76,4 @@
   - type: SpawnPoint
     job_id: MCSO
   - type: Sprite
-    state: medic_spawn
+    state: io
