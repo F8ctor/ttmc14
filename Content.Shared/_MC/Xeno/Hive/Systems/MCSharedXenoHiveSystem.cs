@@ -1,15 +1,17 @@
-﻿using Content.Shared._MC.Xeno.Hive.Components;
-using Content.Shared._RMC14.Xenonids;
+﻿using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Hive;
+using Content.Shared.Chat;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._MC.Xeno.Hive.Systems;
 
-public abstract class MCSharedXenoHiveSystem : MCEntitySystemSingleton<MCXenoHiveSingletonComponent>
+public abstract partial class MCSharedXenoHiveSystem : MCEntitySystemSingleton<MCXenoHiveSingletonComponent>
 {
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly MobStateSystem _mobState = null!;
+    [Dependency] private readonly SharedChatSystem _chat = null!;
+    [Dependency] private readonly SharedXenoHiveSystem _rmcHive = null!;
 
     [ViewVariables]
     public EntityUid? DefaultHive => Inst.Comp.DefaultHive;
@@ -23,14 +25,17 @@ public abstract class MCSharedXenoHiveSystem : MCEntitySystemSingleton<MCXenoHiv
 
         _hiveQuery = GetEntityQuery<HiveComponent>();
         _hiveMemberQuery = GetEntityQuery<HiveMemberComponent>();
+
+        InitializeRuler();
     }
+
 
     public void SetCanEvolveWithoutLeader(Entity<HiveComponent?> entity, bool value)
     {
         if (!Resolve(entity, ref entity.Comp))
             return;
 
-        entity.Comp.CanEvolveWithoutLeader = value;
+        entity.Comp.CanEvolveWithoutRuler = value;
         Dirty(entity);
     }
 
@@ -43,21 +48,13 @@ public abstract class MCSharedXenoHiveSystem : MCEntitySystemSingleton<MCXenoHiv
         Dirty(entity);
     }
 
-    public bool HasLeader(EntityUid hive)
+    public void SetCanLarvaPoints(Entity<HiveComponent?> entity, bool value)
     {
-        var query = EntityQueryEnumerator<XenoComponent, HiveMemberComponent, MCXenoHiveLeaderComponent>();
-        while (query.MoveNext(out var uid, out _, out var hiveMemberComponent, out _))
-        {
-            if (_mobState.IsDead(uid))
-                continue;
+        if (!Resolve(entity, ref entity.Comp))
+            return;
 
-            if (hiveMemberComponent.Hive != uid)
-                continue;
-
-            return true;
-        }
-
-        return false;
+        entity.Comp.CanLarvaPoints = value;
+        Dirty(entity);
     }
 
     public Dictionary<int, int> GetTiers(EntityUid hive)
@@ -77,6 +74,21 @@ public abstract class MCSharedXenoHiveSystem : MCEntitySystemSingleton<MCXenoHiv
         }
 
         return result;
+    }
+
+    public void AddBurrowedLarva(EntityUid hive, int count)
+    {
+        if (!TryComp<HiveComponent>(hive, out var hiveComponent))
+            return;
+
+        _rmcHive.AddBurrowedLarvaCount((hive, hiveComponent), count);
+    }
+
+    public int GetBurrowedLarvaCount(EntityUid hive)
+    {
+        return TryComp<HiveComponent>(hive, out var hiveComponent)
+            ? hiveComponent.BurrowedLarva
+            : 0;
     }
 
     public int GetLiving(EntityUid hive, int minTier = 1)

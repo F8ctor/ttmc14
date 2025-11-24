@@ -19,7 +19,13 @@ public sealed partial class HiveComponent
     public bool CanCollapse = true;
 
     [DataField, AutoNetworkedField]
-    public bool CanEvolveWithoutLeader;
+    public bool CanLarvaPoints = true;
+
+    [DataField, AutoNetworkedField]
+    public bool CanEvolveWithoutRuler;
+
+    [DataField, AutoNetworkedField]
+    public List<EntityUid> Rulers = new();
 
     [DataField, AutoNetworkedField]
     public List<EntProtoId> CaseEvolutionBlock = new()

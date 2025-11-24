@@ -6,6 +6,7 @@ using Content.Server.GameTicking;
 using Content.Server.Maps;
 using Content.Server.Mind;
 using Content.Server.Players.PlayTimeTracking;
+using Content.Server.Preferences.Managers;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
@@ -15,6 +16,7 @@ using Content.Shared._MC.Shuttle.Events;
 using Content.Shared._RMC14.Marines;
 using Content.Shared._RMC14.Spawners;
 using Content.Shared._RMC14.Xenonids;
+using Content.Shared._RMC14.Xenonids.Evolution;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Coordinates;
 using Content.Shared.GameTicking;
@@ -27,19 +29,23 @@ using Robust.Server.Player;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server._MC.Rules.Crash;
 
 public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponent>
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IBanManager _bans = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IServerPreferencesManager _preferences = default!;
 
     [Dependency] private readonly XenoSystem _rmcXeno = default!;
     [Dependency] private readonly SharedXenoHiveSystem _rmcHive = default!;
     [Dependency] private readonly RMCPowerSystem _rmcPower = default!;
+    [Dependency] private readonly XenoEvolutionSystem _rmcEvolution = default!;
 
     [Dependency] private readonly PlayTimeTrackingSystem _playTime = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
@@ -49,6 +55,9 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
 
     [Dependency] private readonly MCXenoHiveSystem _mcXenoHive = default!;
     [Dependency] private readonly MCXenoSpawnSystem _mcXenoSpawn = default!;
+
+    private readonly TimeSpan _updateSpawnXenosDelay = TimeSpan.FromSeconds(10);
+    private TimeSpan _nextUpdateSpawnXenos;
 
     public override void Initialize()
     {
@@ -66,9 +75,46 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
         SubscribeLocalEvent<MarineComponent, ComponentRemove>(OnCompRemove);
     }
 
+    protected override void OnStartAttempt(Entity<MCCrashRuleComponent, GameRuleComponent> gameRule, RoundStartAttemptEvent ev)
+    {
+        if (ev.Forced || ev.Cancelled)
+            return;
+
+        var query = QueryAllRules();
+        while (query.MoveNext(out _, out var distress, out _))
+        {
+            var xenoCandidates = 0;
+            foreach (var player in ev.Players)
+            {
+                if (!_preferences.TryGetCachedPreferences(player.UserId, out var preferences))
+                    continue;
+
+                var profile = (HumanoidCharacterProfile) preferences.GetProfile(preferences.SelectedCharacterIndex);
+                if (profile.JobPriorities.TryGetValue(distress.XenoSelectableJob, out var xenoPriority) && xenoPriority > JobPriority.Never
+                    || profile.JobPriorities.TryGetValue(distress.ShrikeJob, out var shrikePriority) && shrikePriority > JobPriority.Never)
+                    xenoCandidates++;
+            }
+
+            if (xenoCandidates >= 1)
+                continue;
+
+            var msg = $"Невозможно запустить крушение. Требуется как минимум 1 ксено-игрок, но у нас есть {xenoCandidates}.";
+
+            ChatManager.SendAdminAnnouncement(msg);
+            ChatManager.DispatchServerAnnouncement(msg);
+            ev.Cancel();
+        }
+    }
+
     protected override void ActiveTick(EntityUid uid, MCCrashRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
         base.ActiveTick(uid, component, gameRule, frameTime);
+
+        if (_timing.CurTime > _nextUpdateSpawnXenos)
+        {
+            _nextUpdateSpawnXenos = _timing.CurTime + _updateSpawnXenosDelay;
+            UpdateSpawnXenos();
+        }
 
         if (component is not IRuleRecalculatePower recalculatePower)
             return;
@@ -80,6 +126,47 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
 
         recalculatePower.PowerRecalculated = true;
         Dirty(uid, component);
+    }
+
+    private void UpdateSpawnXenos()
+    {
+        if (_mcXenoHive.DefaultHive is not {} hive)
+            return;
+
+        var ration = GetJobPointDifference() / 10f;
+
+#if !FULL_RELEASE
+        Log.Info($"Ration {ration}");
+#endif
+
+        if (ration >= 1)
+        {
+            _mcXenoHive.AddBurrowedLarva(hive, 1);
+            return;
+        }
+
+        var totalXenos = _mcXenoHive.GetLiving(hive, 0) + _mcXenoHive.GetBurrowedLarvaCount(hive);
+        if (totalXenos >= 2)
+            return;
+
+        _mcXenoHive.AddBurrowedLarva(hive, 1);
+    }
+
+    private float GetJobPointDifference()
+    {
+        if (_mcXenoHive.DefaultHive is not {} hive)
+            return 0;
+
+        var burrowed = _mcXenoHive.GetBurrowedLarvaCount(hive);
+        var xenos = _mcXenoHive.GetLiving(hive, 0);
+        var marines = GetLiving<MarineComponent>();
+        var marinePoints = marines * 3.55f;
+
+#if !FULL_RELEASE
+        Log.Info($"Burrowed: {burrowed}, Xenos {xenos}, Marines {marines}, Marines points {marinePoints}");
+#endif
+
+        return marinePoints - (xenos + burrowed) * 10f;
     }
 
     private void OnRoundEndMessage(RoundEndMessageEvent ev)
@@ -129,6 +216,7 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
             {
                 _mcXenoHive.SetCanEvolveWithoutLeader(_mcXenoHive.DefaultHive.Value, true);
                 _mcXenoHive.SetCanCollapse(_mcXenoHive.DefaultHive.Value, false);
+                _mcXenoHive.SetCanLarvaPoints(_mcXenoHive.DefaultHive.Value, false);
             }
 
             StartBioscan();
@@ -282,6 +370,9 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
                 ev.PlayerPool.Remove(player);
                 GameTicker.PlayerJoinGame(player);
                 var xenoEnt = SpawnXenoEnt(ent);
+
+                if (TryComp<XenoEvolutionComponent>(xenoEnt, out var xenoEvolution))
+                    _rmcEvolution.SetPoints((xenoEnt, xenoEvolution), 100);
 
                 if (!_mind.TryGetMind(playerId, out var mind))
                     mind = _mind.CreateMind(playerId);
