@@ -1,0 +1,46 @@
+﻿<buttons:MCASRSRequestButton
+    xmlns="https://spacestation14.io"
+    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:buttons="clr-namespace:Content.Client._MC.ASRS.UI.Buttons"
+    Orientation="Horizontal">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True"  Margin="0 0 0 4">
+        <PanelContainer HorizontalExpand="True" VerticalExpand="True"  Margin="8">
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#121111" />
+            </PanelContainer.PanelOverride>
+
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="8">
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 8">
+                    <RichTextLabel Text="{Loc 'asrs-ui-order'}" Margin="0 0 16 0" />
+
+                    <BoxContainer Name="DeliveryInteractionContainer" Orientation="Horizontal" HorizontalExpand="True" Align="End">
+                        <Button Text="{Loc 'asrs-ui-delivery'}" Name="DeliveryButton" StyleClasses="ButtonSquare" Margin="0 0 8 0" />
+                    </BoxContainer>
+
+                    <BoxContainer Name="InteractionContainer" Orientation="Horizontal" HorizontalExpand="True" Align="End">
+                        <Button Text="{Loc 'asrs-ui-approve'}" Name="ApproveButton" StyleClasses="ButtonSquare" Margin="0 0 8 0" />
+                        <Button Text="{Loc 'asrs-ui-deny'}" Name="DenyButton" StyleClasses="ButtonSquare" />
+                    </BoxContainer>
+                </BoxContainer>
+
+                <cc:HSeparator Margin="0 0 0 8" />
+
+                <GridContainer Columns="2">
+                    <RichTextLabel Text="{Loc 'asrs-ui-requested-by'}" />
+                    <RichTextLabel Name="RequesterLabel" />
+                    <RichTextLabel Text="{Loc 'asrs-ui-reason-label'}" />
+                    <RichTextLabel Name="ReasonLabel" />
+                    <RichTextLabel Text="{Loc 'asrs-ui-total-cost'}" />
+                    <RichTextLabel Name="TotalCostLabel" />
+                </GridContainer>
+
+                <cc:HSeparator Margin="0 8" />
+
+                <RichTextLabel Text="{Loc 'asrs-ui-contents'}" Margin="0 0 0 4"/>
+
+                <BoxContainer Name="Container" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" />
+            </BoxContainer>
+        </PanelContainer>
+    </BoxContainer>
+</buttons:MCASRSRequestButton>

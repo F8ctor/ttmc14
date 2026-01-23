@@ -1,0 +1,69 @@
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoSelectReagent
+  name: Select Reagent
+  description: Selects which reagent to use for reagent slash and noxious gas. Hemodile slows targets down, multiplied by each other xeno-based toxin. Transvitox converts burns to toxin, and causes additional toxin damage when they take brute damage, both effects multiplied by other xeno-based toxins. Ozelomelyn purges all medicines from their system rapidly and causes minor toxin damage. Acid is transparent but causes major burn damage.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Xeno/toxins.rsi
+      state: empty
+    useDelay: 0.1
+  - type: InstantAction
+    event: !type:MCXenoReagentSelectorActionEvent
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoReagentSlash
+  name: Reagent Slash (100)
+  description: For a short duration the next 3 slashes made will inject a small amount of selected toxin.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/defiler.rsi
+      state: reagent_slash
+    useDelay: 6
+  - type: InstantAction
+    event: !type:MCXenoReagentSlashActionEvent
+  - type: XenoActionPlasma
+    cost: 100
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoEmitNeurogas
+  name: Emit Noxious Gas (200)
+  description: Channel for 3 seconds to emit a cloud of noxious smoke, based on selected reagent, that follows the Defiler. You must remain stationary while channeling; moving will cancel the ability but will still cost plasma.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/defiler.rsi
+      state: emit_neurogas
+    useDelay: 40
+  - type: InstantAction
+    event: !type:MCXenoEmitNeurogasActionEvent
+  - type: XenoActionPlasma
+    cost: 200
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoDefile
+  name: Defile (100)
+  description: Channel to inject an adjacent target with an accelerant that violently reacts with xeno toxins, releasing gas and dealing heavy tox damage in proportion to the amount in their system.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/defiler.rsi
+      state: defiler_sting
+    useDelay: 20
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:MCXenoDefileActionEvent
+  - type: ActionBlockIfResting
+  - type: XenoActionPlasma
+    cost: 100

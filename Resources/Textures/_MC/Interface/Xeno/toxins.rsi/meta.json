@@ -8,16 +8,37 @@
   },
   "states": [
     {
-      "name": "ozelomelyn"
+      "name": "icon",
+      "delays": [
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5 
+        ]
+      ]
+    },
+    {
+      "name": "acid"
+    },
+    {
+      "name": "empty"
     },
     {
       "name": "hemodile"
     },
     {
-      "name": "transvitox"
+      "name": "neurotoxin"
     },
     {
-      "name": "neurotoxin"
+      "name": "ozelomelyn"
+    },
+    {
+      "name": "sanguinal"
+    },
+    {
+      "name": "transvitox"
     }
   ]
 }

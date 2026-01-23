@@ -38,28 +38,6 @@
       speed: 40
 
 - type: entity
-  parent: MCXenoProjectile
-  id: MCXenoProjectileHeavyPassthrough
-  name: acid splash
-  components:
-  - type: Sprite
-    layers:
-    - state: xeno_acid_strong
-      shader: unshaded
-  - type: Projectile
-    impactEffect: null
-    damage:
-      types:
-        MCBurn: 30
-  - type: XenoProjectile
-    deleteOnFriendlyXeno: false
-  - type: ProjectileMaxRange
-    max: 5
-  - type: MCXenoSpawnAcidSprayOnTerminating
-    spawn: MCXenoAcidSpraySpit
-  - type: MCXenoProjectileTargetingTurf
-
-- type: entity
   parent: ActionXenoBase
   id: MCActionXenoToggleXenoSpitToxLossPraetorian
   name: toxin splash
@@ -73,37 +51,27 @@
   - type: InstantAction
     event: !type:MCXenoSpitToggleActionEvent
       projectileId: MCXenoProjectileHeavyToxLoss
-      plasmaCost: 180
+      plasmaCost: 100
       delay: 1
       speed: 40
 
-# accurate_range = 5
-# accuracy_var_low = 3
-# accuracy_var_high = 3
 - type: entity
-  parent: MCXenoProjectile
-  id: MCXenoProjectileHeavyToxLoss
-  name: toxin splash
+  parent: ActionXenoBase
+  id: MCActionXenoToggleXenoSpitToxLossRetrogradePraetorian
+  name: toxin splash retrograde
   components:
-  - type: Sprite
-    layers:
-    - state: neurotoxin
-      shader: unshaded
-  - type: Projectile
-    impactEffect: null
-    damage:
-      types:
-        MCToxin: 20
-  - type: MCStaminaDamageOnCollide
-    damage: 15
-  - type: XenoProjectile
-    deleteOnFriendlyXeno: false
-  - type: ProjectileMaxRange
-    max: 7
-  - type: XenoSlowingSpitProjectile
-    armorResistsKnockdown: false
-    slow: 1.5
-    paralyze: 0
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/spits.rsi
+      state: shift_spit_neurotoxin
+    useDelay: 0.1
+  - type: InstantAction
+    event: !type:MCXenoSpitToggleActionEvent
+      projectileId: MCXenoProjectileHeavyToxLoss
+      plasmaCost: 180
+      delay: 1
+      speed: 40
 
 - type: entity
   parent: ActionXenoBase
@@ -141,11 +109,85 @@
     repeat: true
     checkCanAccess: false
     range: 15
+  - type: EntityTargetAction
   - type: WorldTargetAction
     event: !type:MCXenoScatterSpitActionEvent
   - type: XenoActionPlasma
     cost: 280
   - type: ActionBlockIfResting
+
+# projectiles
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoProjectileHeavyPassthrough
+  name: acid splash
+  components:
+  - type: Sprite
+    layers:
+    - state: xeno_acid_strong
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBurn: 30
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: false
+  - type: ProjectileMaxRange
+    max: 5
+  - type: MCXenoSpawnAcidSprayOnTerminating
+    spawn: MCXenoAcidSpraySpit
+  - type: MCXenoProjectileTargetingTurf
+
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoProjectileHeavyToxLoss
+  name: toxin splash
+  components:
+  - type: Sprite
+    layers:
+    - state: neurotoxin
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types: null
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: false
+  - type: ProjectileMaxRange
+    max: 10
+  - type: MCXenoProjectileInject
+    reagents:
+    - ReagentId: MCNeurotoxin
+      Quantity: 10
+  - type: MCXenoSpawnAcidSprayOnTerminating
+    spawn: MCSmokeXenoNeurotoxinLiteSpitHeavy
+  - type: MCXenoProjectileTargetingTurf
+
+# accurate_range = 5
+# accuracy_var_low = 3
+# accuracy_var_high = 3
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoProjectileHeavyToxLossRetrograde
+  name: toxin splash
+  components:
+  - type: Sprite
+    layers:
+    - state: neurotoxin
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCToxin: 20
+  - type: MCStaminaDamageOnCollide
+    damage: 15
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: false
+  - type: ProjectileMaxRange
+    max: 7
+  - type: XenoSlowingSpitProjectile
+    armorResistsKnockdown: false
+    slow: 1.5
+    paralyze: 0
 
 - type: entity
   parent: MCXenoProjectile
@@ -156,18 +198,18 @@
     - state: xeno_acid_normal
       shader: unshaded
   - type: Projectile
-    impactEffect: null
     damage:
       types:
         MCBurn: 15
   - type: XenoProjectile
     deleteOnFriendlyXeno: false
   - type: ProjectileMaxRange
-    max: 5
+    max: 7
   - type: MCXenoSpawnAcidSprayOnTerminating
     spawn: MCXenoAcidHeavyScatterPraetorian
   - type: MCXenoProjectileTargetingTurf
 
+# acid
 - type: entity
   parent: MCXenoAcidSpray
   id: MCXenoAcidHeavyScatterPraetorian

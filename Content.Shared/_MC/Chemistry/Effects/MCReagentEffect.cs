@@ -3,6 +3,7 @@ using Content.Shared._MC.Stamina;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Damage;
 using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using Content.Shared.Popups;
@@ -24,36 +25,72 @@ public abstract partial class MCReagentEffect : EntityEffect
     protected MCDamageableSystem MCDamageable;
     protected MCStaminaSystem MCStamina;
 
+    protected bool EffectProcessed;
+    protected bool DamagedProcessed;
+
     #endregion
+
+    private bool _initialized;
 
     protected abstract void Effect(EntityEffectReagentArgs args, Solution solution, ReagentPrototype reagent);
 
-    public override void Effect(EntityEffectBaseArgs args)
+    protected virtual void GetDamage(EntityUid uid, Solution solution, ReagentPrototype reagent, DamageSpecifier damage)
     {
-        Initialize(args);
-
-        if (args is not EntityEffectReagentArgs reagentArgs)
-            return;
-
-        if (reagentArgs.Source is not { } solution)
-            return;
-
-        if (reagentArgs.Reagent is not { } reagent)
-            return;
-
-        Effect(reagentArgs, solution, reagent);
     }
 
-    private void Initialize(EntityEffectBaseArgs args)
+    public override void Effect(EntityEffectBaseArgs args)
     {
+        EffectProcessed = true;
+
+        try
+        {
+            Initialize();
+
+            if (args is not EntityEffectReagentArgs reagentArgs)
+                return;
+
+            if (reagentArgs.Source is not { } solution)
+                return;
+
+            if (reagentArgs.Reagent is not { } reagent)
+                return;
+
+            Effect(reagentArgs, solution, reagent);
+        }
+        finally
+        {
+            EffectProcessed = false;
+        }
+    }
+
+    public void ProcessDamaged(EntityUid uid, Solution solution, ReagentPrototype reagent, DamageSpecifier damage)
+    {
+        if (EffectProcessed || DamagedProcessed)
+            return;
+
+        DamagedProcessed = true;
+        Initialize();
+        GetDamage(uid, solution, reagent, damage);
+        DamagedProcessed = false;
+    }
+
+    private void Initialize()
+    {
+        if (_initialized)
+            return;
+
+        var entityManager = IoCManager.Resolve<IEntityManager>();
+
         // ReSharper disable NullCoalescingConditionIsAlwaysNotNullAccordingToAPIContract
         RobustRandom ??= IoCManager.Resolve<IRobustRandom>();
-        Popup ??= args.EntityManager.System<SharedPopupSystem>();
-        Bloodstream ??= args.EntityManager.System<SharedBloodstreamSystem>();
-        MCSolutionTicker ??= args.EntityManager.System<MCSolutionTickerSystem>();
-        MCDamageable ??= args.EntityManager.System<MCDamageableSystem>();
-        MCStamina ??= args.EntityManager.System<MCStaminaSystem>();
+        Popup ??= entityManager.System<SharedPopupSystem>();
+        Bloodstream ??= entityManager.System<SharedBloodstreamSystem>();
+        MCSolutionTicker ??= entityManager.System<MCSolutionTickerSystem>();
+        MCDamageable ??= entityManager.System<MCDamageableSystem>();
+        MCStamina ??= entityManager.System<MCStaminaSystem>();
         // ReSharper restore NullCoalescingConditionIsAlwaysNotNullAccordingToAPIContract
+
+        _initialized = true;
     }
 
     protected static void Purge(Solution solution, ProtoId<ReagentPrototype>[] reagentIds, FixedPoint2 amount)
@@ -67,5 +104,10 @@ public abstract partial class MCReagentEffect : EntityEffect
     protected static void Purge(Solution solution, ProtoId<ReagentPrototype> reagentId, FixedPoint2 amount)
     {
         solution.RemoveReagent(reagentId, amount);
+    }
+
+    protected static bool HasReagent(Solution solution, string reagentId)
+    {
+        return solution.ContainsReagent(reagentId, null);
     }
 }

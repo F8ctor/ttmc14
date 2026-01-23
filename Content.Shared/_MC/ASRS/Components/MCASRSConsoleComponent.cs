@@ -1,7 +1,9 @@
 ﻿using System.Linq;
+using Content.Shared._MC.Beacon.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._MC.ASRS.Components;
 
@@ -11,14 +13,30 @@ public sealed partial class MCASRSConsoleComponent : Component
     [DataField, AutoNetworkedField, AlwaysPushInheritance]
     public List<MCASRSCategory> Categories = new();
 
-    [DataField, AutoNetworkedField, AlwaysPushInheritance]
+    [DataField, AutoNetworkedField]
+    public ProtoId<MCBeaconCategoryPrototype> DeliveryCategory = "Supply";
+
+    [DataField, AutoNetworkedField]
+    public int RequestsLimit = 15;
+
+    [DataField, AutoNetworkedField]
+    public int RequestsHistoryLimit = 25;
+
+    #region Requests
+
+    [ViewVariables, AutoNetworkedField]
     public List<MCASRSRequest> Requests = new();
 
-    [DataField, AutoNetworkedField, AlwaysPushInheritance]
-    public List<MCASRSRequest> ApprovedRequests = new();
+    [ViewVariables, AutoNetworkedField]
+    public List<MCASRSRequest> RequestsAwaitingDelivery = new();
 
-    [DataField, AutoNetworkedField, AlwaysPushInheritance]
-    public List<MCASRSRequest> DenyRequests = new();
+    [ViewVariables, AutoNetworkedField]
+    public List<MCASRSRequest> RequestsApprovedHistory = new();
+
+    [ViewVariables, AutoNetworkedField]
+    public List<MCASRSRequest> RequestsDenyHistory = new();
+
+    #endregion
 
     [AutoNetworkedField]
     public List<MCASRSEntry> CachedEntries = new();
@@ -28,7 +46,7 @@ public sealed partial class MCASRSConsoleComponent : Component
 public sealed partial class MCASRSCategory
 {
     [DataField]
-    public string Name = string.Empty;
+    public LocId Name = string.Empty;
 
     [DataField]
     public List<MCASRSEntry> Entries = new();
@@ -38,20 +56,20 @@ public sealed partial class MCASRSCategory
 public sealed partial class MCASRSEntry
 {
     [DataField]
-    public string? Name;
+    public SpriteSpecifier.Rsi? Icon;
+
+    [DataField]
+    public LocId? Name;
 
     [DataField]
     public int Cost;
-
-    [DataField]
-    public EntProtoId? Crate;
 
     [DataField]
     public List<EntProtoId> Entities = new();
 
     private bool Equals(MCASRSEntry other)
     {
-        return Name == other.Name && Cost == other.Cost && Crate == other.Crate && Entities.SequenceEqual(other.Entities);
+        return Name == other.Name && Cost == other.Cost && Entities.SequenceEqual(other.Entities);
     }
 
     public override bool Equals(object? obj)
@@ -66,7 +84,6 @@ public sealed partial class MCASRSEntry
 
         hash.Add(Name);
         hash.Add(Cost);
-        hash.Add(Crate);
 
         foreach (var v in Entities)
         {

@@ -38,8 +38,8 @@
     - type: RMCConstructionItem
       buildable:
       - RMCBarbedWireBuild
-      - RMCMetalBarricadeBuild
-      - RMCMetalBarricadeFoldableBuild
+      - MCMetalBarricadeBuild # mc-changes
+      - MCMetalBarricadeFoldingBuild # mc-changes
       - RMCHandrailBuild
       # - RMCDividerConstruction
       # APC frame
@@ -52,11 +52,11 @@
       # Airlock assembly
       # large airlock assembly
       - RMCDividerConstruction
-      # Bed
-      # Chair
+      - RMCBedBuild
+      - RMCChairBuild
       - RMCComfyChairList
-      # squad chairs
-      # office chairs
+      - RMCSquadChairList
+      - RMCOfficeChairList
       # stool
       - RMCDividerConstruction
       # computer frame
@@ -67,7 +67,7 @@
     - type: RMCConstructionUpgradeItem
       whitelist:
         tags:
-        - RMCMetalBarricade
+        - MCMetalBarricade # mc-changes
         - RMCPlasteelBarricade
     - type: Material
     - type: PhysicalComposition

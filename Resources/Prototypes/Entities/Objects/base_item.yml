@@ -4,6 +4,7 @@
   id: BaseItem
   abstract: true
   components:
+  - type: CEZPhysics # mc-changes [z-levels]
   - type: Item
     size: Small
   - type: Animateable
@@ -45,6 +46,7 @@
   - type: Pullable
   - type: DamageExaminable
   - type: RMCItemPickup
+  - type: RMCMesonsNonviewable
 
 - type: entity
   name: "storage item"

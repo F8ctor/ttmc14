@@ -1,10 +1,12 @@
 - type: entity
   parent:
   - MCXenoUnactiveBase
-  - MCXenoAI
+  - MCXenoComponentAI
   - CMXenoDeveloped
   - RMCXenoSpeechSounds
   - RMCXenoCommendationReceiver
   - RMCXenoMobCollision
   id: MCXenoMinion
   abstract: true
+  components:
+  - type: InputMover

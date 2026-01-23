@@ -1,0 +1,137 @@
+- type: entity
+  parent: MCSmoke
+  id: MCSmokeXeno
+  abstract: true
+  components:
+  - type: MCEdgeSpreader
+    delay: 0.1
+  - type: TimedDespawn
+    lifetime: 6
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 6
+
+- type: entity
+  parent: MCSmokeXeno
+  id: MCSmokeXenoNeurotoxin
+  name: smoke xeno neurotoxin
+  components:
+  - type: Sprite
+    color: "#ffbf58"
+  - type: MCSmokeReagent
+    reagents:
+    - ReagentId: MCNeurotoxin
+      Quantity: 7
+  - type: Occluder
+
+- type: entity
+  parent: MCSmokeXeno
+  id: MCSmokeXenoNeurotoxinLite
+  name: smoke xeno neurotoxin lite
+  components:
+  - type: Sprite
+    color: "#ffbf583c"
+  - type: MCSmokeReagent
+    reagents:
+    - ReagentId: MCNeurotoxin
+      Quantity: 7
+
+- type: entity
+  parent: MCSmokeTile
+  id: MCSmokeXenoNeurotoxinLiteSpitHeavy
+  name: smoke xeno neurotoxin lite
+  components:
+  - type: Sprite
+    color: "#ffbf583c"
+  - type: MCSmokeReagent
+    reagents:
+    - ReagentId: MCNeurotoxin
+      Quantity: 7
+  - type: TimedDespawn
+    lifetime: 1.25
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 1.25
+
+- type: entity
+  parent: MCSmokeXeno
+  id: MCSmokeXenoHemodile
+  name: smoke xeno hemodile
+  components:
+  - type: Sprite
+    color: "#0287A1"
+  - type: MCSmokeReagent
+    reagents:
+    - ReagentId: MCHemodile
+      Quantity: 7
+  - type: Occluder
+
+- type: entity
+  parent: MCSmokeXeno
+  id: MCSmokeXenoTransvitox
+  name: smoke xeno transvitox
+  components:
+  - type: Sprite
+    color: "#abf775"
+  - type: MCSmokeReagent
+    reagents:
+    - ReagentId: MCTransvitox
+      Quantity: 7
+  - type: Occluder
+
+- type: entity
+  parent: MCSmokeXeno
+  id: MCSmokeXenoSanguinal
+  name: smoke xeno sanguinal
+  components:
+  - type: Sprite
+    color: "#bb0a1e"
+  - type: MCSmokeReagent
+    reagents:
+    - ReagentId: MCSanguinal
+      Quantity: 7
+  - type: Occluder
+
+- type: entity
+  parent: MCSmokeXeno
+  id: MCSmokeXenoOzelomelyn
+  name: smoke xeno ozelomelyn
+  components:
+  - type: Sprite
+    color: "#f1ddcf"
+  - type: MCSmokeReagent
+    reagents:
+    - ReagentId: MCOzelomelyn
+      Quantity: 7
+  - type: Occluder
+
+# Acid
+- type: entity
+  parent: MCSmokeXeno
+  id: MCSmokeXenoAcid
+  name: smoke xeno acid
+  components:
+  - type: Tag
+    tags:
+    - MCSmoke
+    - MCDamageAcid
+    - HideContextMenu
+  - type: Sprite
+    color: "#86B028"
+  - type: MCSmokeDamage
+    damage:
+      types:
+        MCBurn: 25
+  - type: Occluder
+
+- type: entity
+  parent: MCSmokeXenoAcid
+  id: MCSmokeXenoAcidLight
+  name: smoke xeno acid light
+  components:
+  - type: Sprite
+    color: "#85b0285e"
+  - type: MCSmokeDamage
+    damage:
+      types:
+        MCBurn: 25
+  - type: MCTimedDespawnDisappearanceVisuals
+    maxAlpha: 0.36

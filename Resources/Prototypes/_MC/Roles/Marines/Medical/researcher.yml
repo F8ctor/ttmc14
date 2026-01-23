@@ -32,6 +32,8 @@
   special:
   - !type:AddComponentSpecial
     components:
+    - type: CMVendorUser
+      points: 45
     - type: Skills
       skills:
         RMCSkillMedical: 4
@@ -44,7 +46,7 @@
       prefix: mc-job-prefix-researcher
     - type: TacticalMapIcon
       icon:
-        sprite: _MC/Interface/job_icons.rsi
+        sprite: /Textures/_MC/Interface/job_icons.rsi
         state: researcher
 
 - type: playTimeTracker

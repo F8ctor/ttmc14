@@ -39,6 +39,7 @@
   description: Boo!
   categories: [ HideSpawnMenu ]
   components:
+  - type: CEZLevelGhostMover
   - type: Sprite
     sprite: Mobs/Ghosts/ghost_human.rsi
     color: "#fff8"
@@ -93,6 +94,12 @@
     marines: true
     xenos: true
   - type: ViewIntelObjectives
+  - type: VentSight
+  - type: IgnoreInteractionRange
+    whitelist:
+      components:
+      - Ladder
+    range: 15
 
 # proto for player ghosts specifically
 - type: entity

@@ -27,21 +27,28 @@
     baseFireModes:
     - FullAuto
     recoilUnwielded: 4
-    scatterWielded: 6
-    scatterUnwielded: 20
+    scatterWielded: -2
+    scatterUnwielded: 12 # default value
     baseFireRate: 4
+    modifiers:
+      FullAuto:
+        useBurstScatterMult: false
+        unwieldedScatterMultiplier: 1
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1.2
     accuracyMultiplierUnwielded: 0.6
   - type: RMCWeaponDamageFalloff
     falloffMultiplier: 0.5
   - type: WieldDelay
-    baseDelay: 0.6
-  - type: WieldableSpeedModifiers
-    base: 0.700
-    light: 1
-    medium: 1
-    heavy: 1
+    baseDelay: 0.8
+  - type: MCAimedShoot
+    aimSpeedModifier: 0.95
+    aimFireModifier: 0.625
+    delay: 0.15
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBrute: 20
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -85,9 +92,9 @@
           # - TODO: PP-7 Plasma Pistol
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 0.7, -0.0225
-      rmc-aslot-rail: -0.3, 0.05
-      rmc-aslot-underbarrel: 0.0, -0.31
+      rmc-aslot-barrel: 0.4375, 0
+      rmc-aslot-rail: -0.375, 0.09375
+      rmc-aslot-underbarrel: 0, -0.125
 
 - type: entity
   parent: MCMagazineRifle
@@ -111,9 +118,9 @@
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar21.rsi
     layers:
     - state: base
-      map: ["enum.GunVisualLayers.Base"]
+      map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: Appearance
 
 - type: entity

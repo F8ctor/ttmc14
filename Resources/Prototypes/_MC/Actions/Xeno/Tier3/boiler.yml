@@ -4,18 +4,58 @@
   name: Spray Acid (250)
   description: Spray a line of dangerous acid at your target.
   components:
-  - type: WorldTargetAction
+  - type: Action
     itemIconStyle: NoItem
     icon:
       sprite: _MC/Interface/Actions/Xeno/boiler.rsi
-      state: spray_acid
-    event: !type:XenoSprayAcidActionEvent
+      state: spray_acid_line
     useDelay: 9
-    range: 15
   - type: TargetAction
     range: 15
+  - type: WorldTargetAction
+    event: !type:XenoSprayAcidActionEvent
   - type: XenoActionPlasma
     cost: 250
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoCreateGlob
+  name: Create bomb (200)
+  description: Creates a Boiler Bombard.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/boiler.rsi
+      state: create_bomb_count_0
+    useDelay: 1.5
+  - type: InstantAction
+    event: !type:MCXenoCreateGlobActionEvent
+      statePrefix: create_bomb_count_
+  - type: XenoActionPlasma
+    cost: 200
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoBombard
+  name: Bombard
+  description: Launch a glob of acid
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/boiler.rsi
+      state: bombard
+    useDelay: 27
+  - type: TargetAction
+    targetingIndicator: true
+    checkCanAccess: false
+    repeat: true
+    range: 30
+  - type: EntityTargetAction
+  - type: WorldTargetAction
+    event: !type:MCXenoBombardLaunchActionEvent
   - type: ActionBlockIfResting
 
 - type: entity
@@ -31,3 +71,122 @@
       state: toggle_long_range
   - type: InstantAction
     event: !type:MCXenoZoomActionEvent
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoAcidShroud
+  name: Acid Shroud (200)
+  description: Create a smokescreen of gas, setting your Bombard on a longer cooldown. Does not require or consume a reserved globule.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/boiler.rsi
+      state: acid_shroud
+    useDelay: 30
+  - type: InstantAction
+    event: !type:MCXenoAcidShroudActionEvent
+  - type: XenoActionPlasma
+    cost: 200
+
+# Projectiles
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoProjectileGlob
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+    - state: boiler_gas
+      shader: unshaded
+  - type: CMArmorPiercing
+    amount: 40
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: false
+  - type: ProjectileMaxRange
+    max: 30
+  - type: MCXenoProjectileTargetingTurf
+  - type: XenoSlowingSpitProjectile
+    paralyze: 1
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+        - BarricadeImpassable
+        - XenoProjectileImpassable
+
+- type: entity
+  parent: MCXenoProjectileGlob
+  id: MCXenoProjectileGlobAcid
+  name: glob of acid
+  components:
+  - type: Sprite
+    layers:
+    - state: boiler_gas
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBurn: 50
+  - type: MCXenoSpawnAcidSprayOnTerminating
+    spawn: MCSmokeXenoAcid
+
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoProjectileGlobNeurotoxin
+  name: glob of neurotoxin
+  components:
+  - type: Sprite
+    layers:
+    - state: boiler_gas2
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types: null
+  - type: MCStaminaDamageOnCollide
+    damage: 50
+  - type: MCXenoProjectileInject
+    reagents:
+    - ReagentId: MCNeurotoxin
+      Quantity: 30
+  - type: MCXenoSpawnAcidSprayOnTerminating
+    spawn: MCSmokeXenoNeurotoxinBoiler
+
+# Smoke
+- type: entity
+  parent: MCSmokeXeno
+  id: MCSmokeXenoAcidBoiler
+  components:
+  - type: Tag
+    tags:
+    - MCSmoke
+    - MCDamageAcid
+    - HideContextMenu
+  - type: Sprite
+    color: "#86B028"
+  - type: MCSmokeDamage
+    damage:
+      types:
+        MCBurn: 40
+  - type: MCTimedDespawnDisappearanceVisuals
+    maxAlpha: 0.36
+
+- type: entity
+  parent: MCSmokeXeno
+  id: MCSmokeXenoNeurotoxinBoiler
+  components:
+  - type: Sprite
+    color: "#ffbf58"
+  - type: MCSmokeReagent
+    reagents:
+    - ReagentId: MCNeurotoxin
+      Quantity: 7
+  - type: MCTimedDespawnDisappearanceVisuals
+    maxAlpha: 0.36

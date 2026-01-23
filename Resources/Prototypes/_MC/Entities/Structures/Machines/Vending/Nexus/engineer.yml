@@ -1,5 +1,5 @@
 - type: entity
-  parent: ColMarTechBase
+  parent: MCMachineVending
   id: MCMachineVendingNexusEngineer
   name: NEXUS automated engineering equipment rack
   description: An automated equipment rack hooked up to a colossal storage of engineering-related goods.
@@ -45,12 +45,18 @@
       # Hand-held cell charger
       # Large recharger powercell
       # Recharger powercell
-      - id: RMCPowerCellHigh
-        points: 1
       - id: RMCWeldingGoggles
         points: 2
       - id: RMCVisorWelding
         points: 2
+    - name: Power cells
+      entries:
+      - id: MCPowerCellHigh
+        points: 1
+      - id: MCPowerCellSuper
+        points: 5
+      - id: MCPowerCellHyper
+        points: 8
     - name: Explosives
       entries:
       # EX-62 Genghis incendiary charge
@@ -79,7 +85,8 @@
         points: 4 # Это оправдывает цену
       - id: MCTankFlamer
         points: 2 # КАКИЕ НАХУЙ 4 ПОИНТА НА ЭТУ ХУЙНЮ!?
-      # Supply beacon
+      - id: MCBeaconSupply
+        points: 5
     - name: Mining
       entries: []
     - name: Artillery
@@ -110,6 +117,7 @@
     state: icon
   - type: CMVendorBundle
     bundle:
+    - MCBeaconSupply
     - RMCExplosivePlastic
     - RMCPowerCellHigh
     - CMAPCElectronics

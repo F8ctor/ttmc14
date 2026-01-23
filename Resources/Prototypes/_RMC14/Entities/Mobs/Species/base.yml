@@ -1,17 +1,29 @@
-- type: entity
+﻿- type: entity
   save: false
   parent: BaseMobSpecies
-  id: CMBaseMobSpeciesOrganic
+  id: RMCBaseMobSpeciesOrganic
   abstract: true
   name: Urist C.M. McHands
   suffix: RMC14
   components:
   # mc-changes-start
+  # [z-levels]
+  - type: CEZPhysics
+  - type: MCZLevelHitStun
+  # [solution]
   - type: MCSolutionTicker
+  - type: MCSolutionEventProvider
+  # [armor]
   - type: MCArmor
     showExamine: false
+  # [xeno-human-effect]
   - type: MCXenoToxicStacks
   - type: MCXenoPsydrainable
+  # [stamina]
+  - type: MCStamina
+  - type: MCStaminaActive
+  # Hud's
+  - type: MCXenoHudToxins
   # mc-changes-end
   - type: Fixtures
     fixtures:
@@ -39,8 +51,7 @@
   - type: SolutionContainerManager
   - type: InjectableSolution
     solution: chemicals
-  - type: MCStamina
-  - type: MCStaminaActive
+  # - type: RMCStamina
   - type: Bloodstream
     bloodReagent: Blood
     bloodMaxVolume: 560
@@ -49,10 +60,9 @@
     bloodRefreshAmount: 0.15
     bloodlossDamage:
       types:
-        Bloodloss: 0.5
+        MCOxygen: 5 # mc-changes
     bloodlossHealDamage:
-      types:
-        Bloodloss: -1
+      types: null   # mc-changes
     damageBleedModifiers: CMBloodlossHuman
   - type: Woundable
   - type: StatusEffects
@@ -76,6 +86,10 @@
     - Blinded
     - Deaf
     - Unconscious
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: rmc-patting-success-generic
+    messagePerceivedByOthers: rmc-patting-success-generic-others
   - type: Blindable
   - type: Tag
     tags:
@@ -117,14 +131,20 @@
     fireSpread: false
     canResistFire: true
     firestackFade: 1
-    resistDuration: 5
+    resistDuration: 5 # mc-changes
     damage:
       types:
         MCBurn: 1 # mc-changes
+  - type: RMCRevivable
+  - type: RMCMedicalExamine
   - type: FireVisuals
-    sprite: Mobs/Effects/onfire.rsi
-    normalState: Generic_mob_burning
-    alternateState: Standing
+    sprite: _RMC14/Mobs/Effects/on_fire.rsi
+    normalState: standing_weak
+    alternateState: standing_medium
+    fireStackAlternateState: 14 # 15 stacks or above uses alternate state
+    lightRadiusPerStack: 0.2 # Around 15 stacks to reach 3 radius
+    maxLightRadius: 3
+  - type: RMCFireColor
   - type: MeleeWeapon
     soundHit:
       collection: Punch
@@ -133,7 +153,7 @@
     attackRate: 1
     damage:
       types:
-        Blunt: 5
+        MCBrute: 5 # mc-changes
   - type: CMSurgeryTarget
   - type: UserInterface
     interfaces:
@@ -148,6 +168,7 @@
       enum.HolocardChangeUIKey.Key:
         type: HolocardChangeBoundUserInterface
         interactionRange: 0
+        requireInputValidation: false
       enum.CMMobStateActionsUI.Key:
         type: CMGhostActionBui
         requireInputValidation: false
@@ -168,9 +189,6 @@
   - type: ShortExamine
   - type: MaxDamage
     max: 719 # TODO RMC14 this should be per part and smaller
-  - type: Perishable
-    rotAfter: 300
-    ignoreTemperature: true
   - type: AtmosExposed
   - type: Temperature
     heatDamageThreshold: 325
@@ -308,7 +326,7 @@
   - type: TacticalMapUser
     actionId: RMCActionOpenTacticalMapMarine
     marines: true
-    liveUpdate: true
+    liveUpdate: true # mc-changes
   - type: EmoteCooldown
   - type: FiremanCarriable
   - type: CanFiremanCarry
@@ -339,7 +357,7 @@
     superSlowModifier: 4
   - type: RMCHandEmotes
   - type: RMCBuckleDrawDepth
-  # - type: RMCObstacleSlamming
+  # - type: RMCObstacleSlamming # mc-changes
   - type: AllowPullWhileDeadAndInfected
   - type: DamageOnPulledWhileCrit
     damage:
@@ -383,7 +401,7 @@
   - type: XenoToggleChargingParalyze
   - type: RMCMobStateDrawDepth
     drawDepths:
-      Dead: DeadMobs
+      Dead: BelowMobs
   - type: IVDripTarget
   - type: FixedIdentity
     name: rmc-host
@@ -395,3 +413,7 @@
       components:
       - Xeno
   - type: RMCHealthIcons
+  - type: RMCMesonsNonviewable
+    xenoVisible: true
+  - type: RMCActionOrder
+    id: RMCBaseMobSpeciesOrganic

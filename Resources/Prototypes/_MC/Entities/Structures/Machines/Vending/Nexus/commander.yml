@@ -1,5 +1,5 @@
 - type: entity
-  parent: ColMarTechBase
+  parent: MCMachineVending
   id: MCMachineVendingNexusCommander
   name: NEXUS automated commander equipment rack
   description: An automated equipment rack hooked up to a colossal storage of basic cat-herding devices.
@@ -38,7 +38,7 @@
         points: 5
       - id: RMCExplosivePlastic
         points: 2
-    - name: Weapons
+    - name: Flamer
       entries:
       - id: MCWeaponFlamer
         points: 10

@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared._MC.Xeno.Weeds;
 using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Damage;
@@ -10,6 +9,7 @@ using Content.Shared._RMC14.NightVision;
 using Content.Shared._RMC14.Rules;
 using Content.Shared._RMC14.Tackle;
 using Content.Shared._RMC14.Vendors;
+using Content.Shared._RMC14.Weapons.Melee;
 using Content.Shared._RMC14.Xenonids.Construction.Nest;
 using Content.Shared._RMC14.Xenonids.Devour;
 using Content.Shared._RMC14.Xenonids.Egg;
@@ -21,12 +21,14 @@ using Content.Shared._RMC14.Xenonids.Parasite;
 using Content.Shared._RMC14.Xenonids.Pheromones;
 using Content.Shared._RMC14.Xenonids.Plasma;
 using Content.Shared._RMC14.Xenonids.Rest;
+using Content.Shared._RMC14.Xenonids.ScissorCut;
 using Content.Shared._RMC14.Xenonids.Weeds;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
 using Content.Shared.Atmos;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Chat;
+using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
@@ -93,7 +95,7 @@ public sealed partial class XenoSystem : EntitySystem
     private EntityQuery<XenoPlasmaComponent> _xenoPlasmaQuery;
     private EntityQuery<XenoRecoveryPheromonesComponent> _xenoRecoveryQuery;
     private EntityQuery<VictimInfectedComponent> _victimInfectedQuery;
-    private EntityQuery<MCXenoWeedsRegenerationComponent> _mcWeedsRegenerationQuery; // mc-changes
+    private EntityQuery<_MC.Xeno.Constructions.Weeds.MCXenoWeedsRegenerationComponent> _mcWeedsRegenerationQuery; // mc-changes
 
     private float _xenoDamageDealtMultiplier;
     private float _xenoDamageReceivedMultiplier;
@@ -113,7 +115,7 @@ public sealed partial class XenoSystem : EntitySystem
         _xenoPlasmaQuery = GetEntityQuery<XenoPlasmaComponent>();
         _xenoRecoveryQuery = GetEntityQuery<XenoRecoveryPheromonesComponent>();
         _victimInfectedQuery = GetEntityQuery<VictimInfectedComponent>();
-        _mcWeedsRegenerationQuery = GetEntityQuery<MCXenoWeedsRegenerationComponent>(); // mc-changes
+        _mcWeedsRegenerationQuery = GetEntityQuery<_MC.Xeno.Constructions.Weeds.MCXenoWeedsRegenerationComponent>(); // mc-changes
 
         SubscribeLocalEvent<XenoComponent, MapInitEvent>(OnXenoMapInit, before: [typeof(SharedXenoPheromonesSystem)]);
         SubscribeLocalEvent<XenoComponent, GetAccessTagsEvent>(OnXenoGetAdditionalAccess);
@@ -122,6 +124,8 @@ public sealed partial class XenoSystem : EntitySystem
         SubscribeLocalEvent<XenoComponent, HealthScannerAttemptTargetEvent>(OnXenoHealthScannerAttemptTarget);
         SubscribeLocalEvent<XenoComponent, GetDefaultRadioChannelEvent>(OnXenoGetDefaultRadioChannel);
         SubscribeLocalEvent<XenoComponent, AttackAttemptEvent>(OnXenoAttackAttempt);
+        SubscribeLocalEvent<XenoComponent, MeleeAttackAttemptEvent>(OnXenoMeleeAttackAttempt);
+        SubscribeLocalEvent<XenoComponent, XenoHealAttemptEvent>(OnHealAttempt);
         SubscribeLocalEvent<XenoComponent, UserOpenActivatableUIAttemptEvent>(OnXenoOpenActivatableUIAttempt);
         SubscribeLocalEvent<XenoComponent, GetMeleeDamageEvent>(OnXenoGetMeleeDamage);
         SubscribeLocalEvent<XenoComponent, DamageModifyEvent>(OnXenoDamageModify);
@@ -135,6 +139,7 @@ public sealed partial class XenoSystem : EntitySystem
         SubscribeLocalEvent<XenoComponent, CMDisarmEvent>(OnLeaderDisarmed,
             before: [typeof(SharedHandsSystem), typeof(SharedStaminaSystem)],
             after: [typeof(TackleSystem)]);
+        SubscribeLocalEvent<XenoComponent, DisarmedEvent>(OnDisarmed, before: new[] { typeof(SharedHandsSystem) });
 
         SubscribeLocalEvent<XenoRegenComponent, MapInitEvent>(OnXenoRegenMapInit, before: [typeof(SharedXenoPheromonesSystem)]);
         SubscribeLocalEvent<XenoRegenComponent, DamageStateCritBeforeDamageEvent>(OnXenoRegenBeforeCritDamage, before: [typeof(SharedXenoPheromonesSystem)]);
@@ -220,10 +225,40 @@ public sealed partial class XenoSystem : EntitySystem
         }
 
         if (_xenoNestedQuery.HasComp(target) &&
-            _victimInfectedQuery.HasComp(target))
+            _victimInfectedQuery.HasComp(target) && !args.Disarm)
         {
             args.Cancel();
         }
+    }
+
+    private void OnXenoMeleeAttackAttempt(Entity<XenoComponent> xeno, ref MeleeAttackAttemptEvent args)
+    {
+        if (!TryComp<XenoNestComponent>(GetEntity(args.Target), out var nest) ||
+            nest.Nested == null ||
+            !_hive.FromSameHive(xeno.Owner, GetEntity(args.Target)))
+        {
+            return;
+        }
+
+        var attacker = GetNetEntity(xeno);
+        args.Target = GetNetEntity(nest.Nested.Value);
+
+        switch (args.Attack)
+        {
+            case LightAttackEvent attack:
+                args.Attack = new LightAttackEvent(args.Target, attacker, attack.Coordinates);
+                break;
+
+            case DisarmAttackEvent disarm:
+                args.Attack = new DisarmAttackEvent(args.Target, disarm.Coordinates);
+                break;
+        }
+    }
+
+    private void OnHealAttempt(Entity<XenoComponent> ent, ref XenoHealAttemptEvent args)
+    {
+        if (_rmcFlammable.IsOnFire(ent.Owner))
+            args.Cancelled = true;
     }
 
     private void OnXenoOpenActivatableUIAttempt(Entity<XenoComponent> ent, ref UserOpenActivatableUIAttemptEvent args)
@@ -325,19 +360,16 @@ public sealed partial class XenoSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!_hive.FromSameHive(ent.Owner, args.User))
+        if (!CanTackleOtherXeno(args.User, ent, out var time))
             return;
 
-        if (!_hiveLeader.IsLeader(args.User, out var leader))
-            return;
+        _stun.TryParalyze(ent, time, true);
+    }
 
-        if (_hiveLeader.IsLeader(ent.Owner, out _))
-            return;
-
-        if (HasComp<XenoEvolutionGranterComponent>(ent))
-            return;
-
-        _stun.TryParalyze(ent, leader.FriendlyStunTime, true);
+    private void OnDisarmed(Entity<XenoComponent> ent, ref DisarmedEvent args)
+    {
+        args.PopupPrefix = "disarm-action-shove-";
+        args.Handled = true;
     }
 
     private void OnXenoRegenMapInit(Entity<XenoRegenComponent> ent, ref MapInitEvent args)
@@ -381,19 +413,19 @@ public sealed partial class XenoSystem : EntitySystem
 
         FixedPoint2 multiplier;
         if (_mobState.IsCritical(xeno))
-            multiplier = xeno.Comp.RestHealMultiplier; // TODO RMC14
+            multiplier = xeno.Comp.CritHealMultiplier;
         else if (_standing.IsDown(xeno) || HasComp<XenoRestingComponent>(xeno))
             multiplier = xeno.Comp.RestHealMultiplier;
         else
             multiplier = xeno.Comp.StandHealingMultiplier;
 
         var passiveHeal = threshold.Value / 65 + xeno.Comp.FlatHealing;
-        var recovery = (CompOrNull<XenoRecoveryPheromonesComponent>(xeno)?.Multiplier ?? 0);
+        var recovery = CompOrNull<XenoRecoveryPheromonesComponent>(xeno)?.Multiplier ?? 0;
         if (!CanHeal(xeno))
             recovery = FixedPoint2.Zero;
 
         var recoveryHeal = (threshold.Value / 65) * (recovery / 2);
-        return (passiveHeal + recoveryHeal) * multiplier / 2; // TODO RMC14 add Strain based multiplier for Gardener Drone
+        return (passiveHeal + recoveryHeal) * multiplier / 2;
     }
 
     public void HealDamage(Entity<DamageableComponent?> xeno, FixedPoint2 amount)
@@ -424,7 +456,7 @@ public sealed partial class XenoSystem : EntitySystem
         _damageable.TryChangeDamage(xeno, heal, true, origin: xeno);
     }
 
-    public bool CanAbilityAttackTarget(EntityUid xeno, EntityUid target, bool canAttackBarricades = false)
+    public bool CanAbilityAttackTarget(EntityUid xeno, EntityUid target, bool canAttackBarricades = false, bool canAttackWindows = false)
     {
         if (xeno == target)
             return false;
@@ -445,6 +477,9 @@ public sealed partial class XenoSystem : EntitySystem
         if (canAttackBarricades && HasComp<BarricadeComponent>(target))
             return true;
 
+        if (canAttackWindows && HasComp<DestroyOnXenoPierceScissorComponent>(target))
+            return true;
+
         return HasComp<MarineComponent>(target) || HasComp<XenoComponent>(target);
     }
 
@@ -458,7 +493,7 @@ public sealed partial class XenoSystem : EntitySystem
     public int GetGroundXenosAlive()
     {
         var count = 0;
-        var xenos = EntityQueryEnumerator<ActorComponent, XenoComponent, MobStateComponent,  TransformComponent>();
+        var xenos = EntityQueryEnumerator<ActorComponent, XenoComponent, MobStateComponent, TransformComponent>();
         while (xenos.MoveNext(out _, out _, out var mobState, out var xform))
         {
             if (mobState.CurrentState == MobState.Dead)
@@ -471,6 +506,25 @@ public sealed partial class XenoSystem : EntitySystem
         }
 
         return count;
+    }
+
+    public bool CanTackleOtherXeno(EntityUid sourceXeno, EntityUid targetXeno, out TimeSpan time)
+    {
+        time = TimeSpan.Zero;
+        if (!_hive.FromSameHive(targetXeno, sourceXeno))
+            return false;
+
+        if (!_hiveLeader.IsLeader(sourceXeno, out var leader))
+            return false;
+
+        if (_hiveLeader.IsLeader(targetXeno, out _))
+            return false;
+
+        if (HasComp<XenoEvolutionGranterComponent>(targetXeno))
+            return false;
+
+        time = leader.FriendlyStunTime;
+        return true;
     }
 
     // mc-changes-start
@@ -541,7 +595,7 @@ public sealed partial class XenoSystem : EntitySystem
         return GetWeedsRegenerationComponent(entity, affectable)?.PlasmaModifier ?? 1f;
     }
 
-    private MCXenoWeedsRegenerationComponent? GetWeedsRegenerationComponent(Entity<XenoRegenComponent> entity,
+    private _MC.Xeno.Constructions.Weeds.MCXenoWeedsRegenerationComponent? GetWeedsRegenerationComponent(Entity<XenoRegenComponent> entity,
         AffectableByWeedsComponent? affectable)
     {
         affectable ??= _affectableQuery.CompOrNull(entity);

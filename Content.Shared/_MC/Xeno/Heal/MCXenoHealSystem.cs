@@ -1,5 +1,5 @@
 ﻿using Content.Shared._MC.Xeno.Hive.Systems;
-using Content.Shared._MC.Xeno.Weeds;
+using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.Damage;
 using Content.Shared._RMC14.Xenonids.Pheromones;
 using Content.Shared._RMC14.Xenonids.Rest;
@@ -29,13 +29,15 @@ public sealed class MCXenoHealSystem : MCEntitySystemSingleton<MCXenoHealSinglet
     [Dependency] private readonly MobThresholdSystem _mobThresholds = null!;
     [Dependency] private readonly DamageableSystem _damageable = null!;
 
-    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
     [Dependency] private readonly SharedRMCDamageableSystem _rmcDamageable = null!;
+    [Dependency] private readonly SharedRMCFlammableSystem _rmcFlammable = null!;
+
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
     private EntityQuery<DamageableComponent> _damageableQuery;
     private EntityQuery<AffectableByWeedsComponent> _rmcAffectableQuery;
     private EntityQuery<XenoRecoveryPheromonesComponent> _rmcXenoRecoveryPheromonesQuery;
-    private EntityQuery<MCXenoWeedsRegenerationComponent> _mcWeedsRegenerationQuery;
+    private EntityQuery<Constructions.Weeds.MCXenoWeedsRegenerationComponent> _mcWeedsRegenerationQuery;
     private EntityQuery<MCXenoHealCacheComponent> _mcXenoHealthCacheQuery;
 
     public override void Initialize()
@@ -45,7 +47,7 @@ public sealed class MCXenoHealSystem : MCEntitySystemSingleton<MCXenoHealSinglet
         _damageableQuery = GetEntityQuery<DamageableComponent>();
         _rmcAffectableQuery = GetEntityQuery<AffectableByWeedsComponent>();
         _rmcXenoRecoveryPheromonesQuery = GetEntityQuery<XenoRecoveryPheromonesComponent>();
-        _mcWeedsRegenerationQuery = GetEntityQuery<MCXenoWeedsRegenerationComponent>();
+        _mcWeedsRegenerationQuery = GetEntityQuery<Constructions.Weeds.MCXenoWeedsRegenerationComponent>();
         _mcXenoHealthCacheQuery = GetEntityQuery<MCXenoHealCacheComponent>();
 
         SubscribeLocalEvent<MCXenoHealComponent, DamageChangedEvent>(OnHealDamageChanged);
@@ -71,6 +73,9 @@ public sealed class MCXenoHealSystem : MCEntitySystemSingleton<MCXenoHealSinglet
                 continue;
 
             xenoHealComponent.RegenerationTimeNext = _timing.CurTime + TimeSpan.FromSeconds(UpdateFrequency);
+
+            if (_rmcFlammable.IsOnFire(uid))
+                return;
 
             var affectable = _rmcAffectableQuery.CompOrNull(uid);
             if (!affectable?.OnXenoWeeds ?? false)
@@ -133,11 +138,11 @@ public sealed class MCXenoHealSystem : MCEntitySystemSingleton<MCXenoHealSinglet
 
     public void Heal(EntityUid uid, float amount)
     {
-        var damage = _rmcDamageable.DistributeDamage(uid, BruteGroup, amount);
+        var damage = _rmcDamageable.DistributeDamageCached(uid, BruteGroup, amount);
         var totalHeal = damage.GetTotal();
         var leftover = amount - totalHeal;
         if (leftover > FixedPoint2.Zero)
-            damage = _rmcDamageable.DistributeDamage(uid, BurnGroup, leftover, damage);
+            damage = _rmcDamageable.DistributeDamageCached(uid, BurnGroup, leftover, damage);
         _damageable.TryChangeDamage(uid, -damage, true);
     }
 
@@ -205,7 +210,7 @@ public sealed class MCXenoHealSystem : MCEntitySystemSingleton<MCXenoHealSinglet
         return GetWeedsRegenerationComponent(entity)?.HealthModifier ?? 1f;
     }
 
-    private MCXenoWeedsRegenerationComponent? GetWeedsRegenerationComponent(Entity<AffectableByWeedsComponent?> entity)
+    private Constructions.Weeds.MCXenoWeedsRegenerationComponent? GetWeedsRegenerationComponent(Entity<AffectableByWeedsComponent?> entity)
     {
         entity.Comp ??= _rmcAffectableQuery.CompOrNull(entity);
         return entity.Comp?.LastWeedsEntity is null
