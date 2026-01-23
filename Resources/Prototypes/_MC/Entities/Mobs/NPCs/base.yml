@@ -1,0 +1,66 @@
+- type: randomHumanoidSettings
+  parent: RMCEventHumanoid
+  id: MCCorpse
+  components:
+  - type: MCXenoPsydrainable
+    available: false
+  - type: Damageable
+    damage:
+      types:
+        MCOxygen: 110
+        MCBrute: 140
+#  - type: Loadout # it seems that cm-ss13 doesnt use this loadout
+#    prototypes: [ RMCGearCorpse ]
+
+- type: startingGear
+  id: MCGearCorpse
+  equipment:
+    jumpsuit: CMJumpsuitColonist
+    back: CMSatchel
+    id: CMIDCardColonist
+    ears: CMHeadsetColony
+# TODO RMC14 random equipment and weapon
+
+- type: startingGear
+  id: MCGearScientist1
+  equipment:
+    jumpsuit: MCJumpsuitMarineResearcher
+    outerClothing: MCLabcoatBaseOpened
+    back: MCSatchelMarineStandard
+    shoes: MCShoesWhite
+    belt: MCBeltMedicBag
+
+- type: startingGear
+  id: MCGearScientist2
+  equipment:
+    jumpsuit: MCJumpsuitMarineResearcher
+    outerClothing: MCLabcoatBaseOpened
+    back: MCSatchelMarineStandard
+    mask: MCMaskSterile
+    shoes: MCShoesWhite
+    gloves: MCClothingHandsLatex
+    eyes: MCGlassesHudHealth
+
+- type: startingGear
+  id: MCGearScientist3
+  equipment:
+    jumpsuit: MCJumpsuitMarineResearcher
+    outerClothing: MCLabcoatBaseOpened
+    back: MCSatchelMarineStandard
+    belt: MCBeltMedical
+    mask: MCMaskSterile
+    shoes: MCShoesWhite
+    gloves:  
+
+- type: startingGear
+  id: MCGearDoctor1
+  equipment:
+    jumpsuit: MCJumpsuitMedicalScrubsPurple
+    outerClothing: MCLabcoatBaseOpened
+    back: MCSatchelMarineStandard
+    belt: MCBeltMedical
+    mask: MCMaskSterile
+    shoes: MCShoesWhite
+    gloves: MCClothingHandsLatex
+    head: MCHeadCapSurgPurple
+    eyes: MCGlassesHudHealth
