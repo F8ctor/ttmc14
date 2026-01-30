@@ -64,3 +64,12 @@
       path: /Audio/_RMC14/Effects/Cloak/cloak_scout_off.ogg
       params:
         variation: 0.09
+
+- type: entity
+  parent: MCSatchel
+  id: MCSatchelSOM
+  name: mining satchel
+  description: A satchel with origins dating back to the mining colonies.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Back/Satchels/SOM/satchel.rsi

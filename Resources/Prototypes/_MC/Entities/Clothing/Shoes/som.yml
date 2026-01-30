@@ -1,0 +1,30 @@
+- type: entity
+  parent: MCBootsBlack
+  id: MCBootsSOM
+  name: S11 combat shoes
+  description: Shoes with origins dating back to the old mining colonies. These were made for more than just walking.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Shoes/Boots/som.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Shoes/Boots/som.rsi
+
+- type: entity
+  parent: [ MCBootsSOM, MCClothingShoesSlotKnifeBase ]
+  id: MCBootsSOMFilled
+  suffix: Filled
+  components:
+  - type: ItemSlots
+    slots:
+      item:
+        name: mc-knife
+        insertSound: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg
+        whitelist:
+          tags:
+          - MCBayonet
+          - MCKnife
+          - MCMeleeWeaponValiKnife
+        startingItem: MCKnifeBayonetSOM
+  - type: CMItemSlots
+    startingItem: MCKnifeBayonetSOM

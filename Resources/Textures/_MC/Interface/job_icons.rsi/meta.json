@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/commit/7e8aea5e32b79c2213a0702c45f711d22150c01d",
+  "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/commit/7e8aea5e32b79c2213a0702c45f711d22150c01d, sa added by F8ctor (github)",
   "size": {
     "x": 7,
     "y": 7
@@ -617,6 +617,16 @@
     },
     {
       "name": "el_panel"
+    },
+    {
+      "name": "sa",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
     }
   ]
 }

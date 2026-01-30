@@ -1,0 +1,38 @@
+- type: entity
+  parent: MCClothingShoesSlotKnifeBase
+  id: MCBootsBlack
+  name: marine combat boots
+  description: Standard issue combat boots for combat scenarios or combat situations. All combat, all the time.
+  components:
+  - type: ItemSlots
+    slots:
+      item:
+        name: mc-knife
+        insertSound: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg
+        whitelist:
+          tags:
+          - MCBayonet
+          - MCKnife
+          - MCMeleeWeaponValiKnife
+  - type: CMItemSlots
+
+- type: entity
+  parent: MCBootsBlack
+  id: MCBootsBrown
+  description: Standard issue combat boots for combat scenarios or combat situations. All combat, all the time. These are brown.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Shoes/Boots/brown.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Shoes/Boots/brown.rsi
+
+- type: entity
+  parent: [ MCClothingShoesSlotKnifeBase, MCBootsBrown ]
+  id: MCBootsBrownFilled
+  suffix: Filled
+
+- type: entity
+  parent: [ MCClothingShoesSlotKnifeBase, MCBootsBlack ]
+  id: MCBootsBlackFilled
+  suffix: Filled

@@ -24,6 +24,31 @@
   - type: FixedItemSizeStorage
 
 - type: entity
+  parent: MCPouchStorage
+  # No VisualizerOpen
+  id: MCPouchConstructionSOM
+  name: construction pouch
+  description: It's designed to hold construction materials - glass/metal sheets, metal rods, barbed wire, cable coil, and empty sandbags. It also has a hook for an entrenching tool. Made with traditional SOM leather.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Pouches/construction_som.rsi
+    state: base
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,7,1 # 4 slots
+    whitelist:
+      tags:
+      - Sheet
+      - RodMetal1
+      - CableCoil
+      components:
+      - BarbedWire
+      - EntrenchingTool
+      - EmptySandbag
+  - type: FixedItemSizeStorage
+
+- type: entity
   parent: MCPouchConstruction
   id: MCPouchConstructionFill
   suffix: Fill

@@ -1,0 +1,14 @@
+- type: entity
+  parent: RMCHeadsetShip
+  id: MCHeadsetSOM
+  name: miners' headset
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/radio.rsi
+    state: som
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - MCEncryptionKeySOMCommon
+  - type: EncryptionKeyHolder
+    keySlots: 2

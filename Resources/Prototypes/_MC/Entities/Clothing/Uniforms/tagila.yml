@@ -1,5 +1,5 @@
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCTagilaPants
   name: factory pants
   description: The standard work uniform for factory employees.

@@ -1,8 +1,24 @@
-﻿
+
 - type: radioChannel
   id: MCPMCChannel
   name: chat-radio-pmc
   keycode: "г"
   frequency: 1492
   color: "#b17324"
+  longRange: true
+
+- type: radioChannel
+  id: MCSOMChannel
+  name: chat-radio-som
+  keycode: "й"
+  frequency: 1494
+  color: "#008000"
+  longRange: true
+
+- type: radioChannel
+  id: MCANSChannel
+  name: chat-radio-ans
+  keycode: "у"
+  frequency: 1496
+  color: "#780000"
   longRange: true

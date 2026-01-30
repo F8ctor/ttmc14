@@ -1,0 +1,265 @@
+- type: job
+  parent: MCJob
+  id: MCANSAssaultRifleman
+  name: mc-job-name-ans-assault-rifleman
+  description: mc-job-description-ans-assault-rifleman
+  playTimeTracker: MCANSAssaultRifleman
+  startingGear: MCGearANSAssaultRifleman
+  icon: MCANSAssaultRifleman
+  joinNotifyCrew: true
+  supervisors: mc-job-supervisors-ans
+  accessGroups: [ ANS ]
+  roleWeight: 1
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Skills
+      skills:
+        RMCSkillMedical: 1
+        RMCSkillEngineer: 1
+        RMCSkillConstruction: 1
+        RMCSkillPolice: 2
+        RMCSkillLeadership: 1
+        RMCSkillSmartGun: 2
+        RMCSkillFirearms: 2
+        RMCOverwatchConsole: 1
+        RMCSkillCqc: 2
+        RMCSkillFireman: 2
+        RMCSkillEndurance: 2
+        RMCSkillOverwatch: 2
+        RMCSkillJtac: 2
+        RMCSkillExecution: 2
+        RMCSkillIntel: 2
+        RMCSkillNavigations: 2
+        RMCSkillVehicles: 2
+    - type: JobPrefix
+      prefix: mc-job-prefix-ans-assault-rifleman
+
+- type: playTimeTracker
+  id: MCANSAssaultRifleman
+  isHumanoid: true
+
+- type: startingGear
+  id: MCGearANSAssaultRifleman
+  equipment:
+    id: MCDogtagANS
+    shoes: MCBootsANSFilled
+    jumpsuit: MCUniformANSCommon
+    gloves: MCClothingHandsANS
+    ears: MCHeadsetANS
+#    eyes:
+#    back:
+#    belt:
+
+- type: job
+  parent: MCJob
+  id: MCANSMedic
+  name: mc-job-name-ans-medic
+  description: mc-job-description-ans-medic
+  playTimeTracker: MCANSMedic
+  startingGear: MCGearANSMedic
+  icon: MCANSMedic
+  joinNotifyCrew: true
+  supervisors: mc-job-supervisors-ans
+  accessGroups: [ ANS ]
+  roleWeight: 1
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Skills
+      skills:
+        RMCSkillMedical: 3
+        RMCSkillSurgery: 3
+        RMCSkillEngineer: 1
+        RMCSkillConstruction: 1
+        RMCSkillPolice: 2
+        RMCSkillLeadership: 1
+        RMCOverwatchConsole: 1
+        RMCSkillFireman: 3
+        RMCSkillEndurance: 3
+        RMCSkillOverwatch: 2
+        RMCSkillJtac: 2
+        RMCSkillExecution: 1
+        RMCSkillIntel: 1
+        RMCSkillNavigations: 1
+        RMCSkillVehicles: 1
+    - type: JobPrefix
+      prefix: mc-job-prefix-ans-medic
+
+- type: playTimeTracker
+  id: MCANSMedic
+  isHumanoid: true
+
+- type: startingGear
+  id: MCGearANSMedic
+  equipment:
+    id: MCDogtagANS
+    shoes: MCBootsANSFilled
+    jumpsuit: MCUniformANSMedical
+    gloves: MCClothingHandsANSHealthanalyzer
+    ears: MCHeadsetANS
+    eyes: MCGlassesHudHealth
+#    back:
+#    belt:
+
+- type: job
+  parent: MCJob
+  id: MCANSEngineer
+  name: mc-job-name-ans-engineer
+  description: mc-job-description-ans-engineer
+  playTimeTracker: MCANSEngineer
+  startingGear: MCGearANSEngineer
+  icon: MCANSEngineer
+  joinNotifyCrew: true
+  supervisors: mc-job-supervisors-ans
+  accessGroups: [ ANS ]
+  roleWeight: 1
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Skills
+      skills:
+        RMCSkillMedical: 1
+        RMCSkillEngineer: 4
+        RMCSkillConstruction: 4
+        RMCSkillPolice: 2
+        RMCSkillPowerLoader: 4
+        RMCSkillLeadership: 1
+        RMCSkillSmartGun: 3
+        RMCSkillFirearms: 2
+        RMCOverwatchConsole: 4
+        RMCSkillCqc: 1
+        RMCSkillFireman: 2
+        RMCSkillEndurance: 2
+        RMCSkillOverwatch: 2
+        RMCSkillJtac: 2
+        RMCSkillExecution: 2
+        RMCSkillIntel: 2
+        RMCSkillNavigations: 2
+        RMCSkillVehicles: 2
+    - type: JobPrefix
+      prefix: mc-job-prefix-ans-engineer
+
+- type: playTimeTracker
+  id: MCANSEngineer
+  isHumanoid: true
+
+- type: startingGear
+  id: MCGearANSEngineer
+  equipment:
+    id: MCDogtagANS
+    shoes: MCBootsANSFilled
+    jumpsuit: MCUniformANSEngineer
+    gloves: MCClothingHandsANSInsulated
+    ears: MCHeadsetANS
+#    eyes:
+#    back:
+#    belt:
+
+- type: job
+  parent: MCJob
+  id: MCANSWeaponsSpecialist
+  name: mc-job-name-ans-weapons-specialist
+  description: mc-job-description-ans-weapons-specialist
+  playTimeTracker: MCANSWeaponsSpecialist
+  startingGear: MCGearANSWeaponsSpecialist
+  icon: MCANSWeaponsSpecialist
+  joinNotifyCrew: true
+  supervisors: mc-job-supervisors-ans
+  accessGroups: [ ANS ]
+  roleWeight: 1
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Skills
+      skills:
+        RMCSkillMedical: 2
+        RMCSkillEngineer: 2
+        RMCSkillConstruction: 2
+        RMCSkillPolice: 2
+        RMCSkillPowerLoader: 2
+        RMCSkillLeadership: 2
+        RMCSkillSmartGun: 4
+        RMCSkillFirearms: 4
+        RMCOverwatchConsole: 2
+        RMCSkillCqc: 2
+        RMCSkillFireman: 2
+        RMCSkillEndurance: 2
+        RMCSkillOverwatch: 2
+        RMCSkillJtac: 2
+        RMCSkillExecution: 2
+        RMCSkillIntel: 2
+        RMCSkillNavigations: 2
+        RMCSkillVehicles: 2
+    - type: JobPrefix
+      prefix: mc-job-prefix-ans-weapons-specialist
+
+- type: playTimeTracker
+  id: MCANSWeaponsSpecialist
+  isHumanoid: true
+
+- type: startingGear
+  id: MCGearANSWeaponsSpecialist
+  equipment:
+    id: MCDogtagANS
+    shoes: MCBootsANSFilled
+    jumpsuit: MCUniformANSSpecialist
+    gloves: MCClothingHandsANS
+    ears: MCHeadsetANS
+    eyes: MCGlassesM56Goggles #WIP
+#    back:
+#    belt:
+
+- type: job
+  parent: MCJob
+  id: MCANSCommander
+  name: mc-job-name-ans-commander
+  description: mc-job-description-ans-commander
+  playTimeTracker: MCANSCommander
+  startingGear: MCGearANSCommander
+  icon: MCANSCommander
+  joinNotifyCrew: true
+  accessGroups: [ ANS ]
+  roleWeight: 1
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Skills
+      skills:
+        RMCSkillMedical: 3
+        RMCSkillSurgery: 3
+        RMCSkillEngineer: 3
+        RMCSkillConstruction: 3
+        RMCSkillPolice: 3
+        RMCSkillPowerLoader: 3
+        RMCSkillLeadership: 4
+        RMCSkillSmartGun: 3
+        RMCSkillFirearms: 3
+        RMCOverwatchConsole: 3
+        RMCSkillCqc: 3
+        RMCSkillFireman: 3
+        RMCSkillEndurance: 3
+        RMCSkillOverwatch: 3
+        RMCSkillJtac: 4
+        RMCSkillExecution: 4
+        RMCSkillIntel: 4
+        RMCSkillNavigations: 4
+        RMCSkillVehicles: 4
+    - type: JobPrefix
+      prefix: mc-job-prefix-ans-commander
+
+- type: playTimeTracker
+  id: MCANSCommander
+  isHumanoid: true
+
+- type: startingGear
+  id: MCGearANSCommander
+  equipment:
+    id: MCIDCardANS
+    shoes: MCBootsANSFilled
+    jumpsuit: MCUniformANSCommander
+    gloves: MCClothingHandsANSCommander
+    ears: MCHeadsetANS
+    eyes: MCGlassesM56Goggles #WIP
+#    back:
+#    belt:

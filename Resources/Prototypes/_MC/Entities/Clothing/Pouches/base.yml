@@ -1,6 +1,7 @@
 - type: entity
   parent: Clothing
   id: MCPouchBase
+  categories: [ MCContent ]
   abstract: true
   components:
   - type: Sprite

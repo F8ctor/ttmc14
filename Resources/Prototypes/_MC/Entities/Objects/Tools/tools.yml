@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: HandLabeler
   id: MCHandLabeler
   categories: [ MCContent ]
@@ -10,3 +10,131 @@
       size: Normal
       sprite: _RMC14/Objects/Tools/hand_labeler.rsi
       storedRotation: 0
+
+- type: entity
+  parent: [ BaseItem, MCMeleeWeapon ]
+  id: MCWelder # Пока-что как заглушка без возможности пополнения топлива
+  categories: [ MCContent ]
+  name: blowtorch
+  description: Used for welding and repairing various things.
+  components:
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/Items/welder_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/welder_drop.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_RMC14/Handling/weldingtool_pickup.ogg
+      params:
+        volume: -4
+  - type: Sprite
+    sprite: _RMC14/Objects/Tools/welder.rsi
+    layers:
+    - state: icon
+      map: ["enum.ToggleableVisuals.Enabled"]
+    - state: welder_on
+      map: ["enum.ToggleableVisuals.Layer"]
+      visible: false
+      shader: unshaded
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Enabled:
+          True: { visible: false }
+          False: { visible: true }
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Item
+    size: Small
+    sprite: _RMC14/Objects/Tools/welder.rsi
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/_RMC14/Handling/weldingtool_on.ogg
+    soundDeactivate:
+      path: /Audio/_RMC14/Handling/weldingtool_off.ogg
+  - type: ItemToggleMeleeWeapon
+    activatedSoundOnHit:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+        volume: -10
+    activatedSoundOnHitNoDamage:
+      path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
+      params:
+        variation: 0.250
+        volume: -12
+    deactivatedSoundOnHitNoDamage:
+      collection: MetalThud
+    activatedDamage:
+        types:
+            MCBurn: 15
+  - type: ItemToggleSize
+    activatedSize: Large
+  - type: ItemToggleHot
+  - type: ComponentToggler
+    components:
+    - type: DisarmMalus
+      malus: 0.6
+  - type: ToggleableVisuals
+    spriteLayer: on
+    inhandVisuals:
+      left:
+      - state: inhand-left-on
+        shader: unshaded
+      right:
+      - state: inhand-right-on
+        shader: unshaded
+  - type: RequiresEyeProtection
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: MCNapalm
+          Quantity: 60 # 60 = 20 раз, ибо по 3 где-то в какой-то пизде находится расход
+        maxVol: 60
+  - type: UseDelay
+  - type: MeleeWeapon
+    wideAnimationRotation: -90
+    damage:
+      types:
+        MCBrute: 12
+    soundHit:
+      collection: GenericHit
+  - type: RefillableSolution
+    solution: Welder
+  - type: Tool
+    useSound:
+      collection: Welder
+    qualities: Welding
+  - type: Welder
+    fuelReagent: MCNapalm
+    fuelConsumption: 0
+    fuelLitCost: 0
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    color: orange
+    netsync: false
+  - type: ItemTogglePointLight
+  - type: Appearance
+  - type: IgnitionSource
+    temperature: 700
+  - type: Blowtorch
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Suitstorage
+  - type: Tag
+    tags:
+    - MCWelder
+
+- type: Tag
+  id: MCWelder

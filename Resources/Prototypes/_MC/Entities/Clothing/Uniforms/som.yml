@@ -1,0 +1,65 @@
+- type: entity
+  parent: MCFoldableUniformBase
+  id: MCUniformSOMCommon
+  name: SOM common uniform
+  description: The standard uniform of SOM military personnel. Its design shows a clear lineage from mining uniforms used in the old mining colonies.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Uniforms/Factions/SOM/common.rsi
+  - type: Clothing
+    sprite:
+
+- type: entity
+  parent: MCFoldableUniformBase
+  id: MCUniformSOMMedical
+  name: SOM medical uniform
+  description: The standard uniform of SOM military personnel. Its design shows a clear lineage from mining uniforms used in the old mining colonies. This one has medical markings.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Uniforms/Factions/SOM/medic.rsi
+  - type: Clothing
+    sprite:
+
+- type: entity
+  parent: MCFoldableUniformBase
+  id: MCUniformSOMVeteran
+  name: SOM veteran uniform
+  description: The standard uniform of SOM military personnel. Its design shows a clear lineage from mining uniforms used in the old mining colonies. This one has markings indicating specialist status.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Uniforms/Factions/SOM/veteran.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Uniforms/Factions/SOM/veteran.rsi
+
+- type: entity
+  parent: MCFoldableUniformBase
+  id: MCUniformSOMLeader
+  name: SOM leader uniform
+  description: The standard uniform of SOM military personnel. Its design shows a clear lineage from mining uniforms used in the old mining colonies. This one has leadership markings.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Uniforms/Factions/SOM/leader.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Uniforms/Factions/SOM/leader.rsi
+
+- type: entity
+  parent: MCUniformBase
+  id: MCUniformSOMOfficer
+  name: SOM officer uniform
+  description: The distinct black uniform of a SOM officer. Usually worn by junior officers
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Uniforms/Factions/SOM/officer.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Uniforms/Factions/SOM/officer.rsi
+
+- type: entity
+  parent: MCUniformBase
+  id: MCUniformSOMOfficerSenior
+  name: SOM senior officer uniform
+  description: The distinct jacketed black uniform of a SOM officer. Usually worn by senior officers
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Uniforms/Factions/SOM/senior_officer.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Uniforms/Factions/SOM/senior_officer.rsi

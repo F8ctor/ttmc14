@@ -1,4 +1,4 @@
-﻿# Medical Icon Labels MC
+# Medical Icon Labels MC
 mc-tricordrazine-container-label-text = Ti
 mc-bicaridine-container-label-text = Bi
 mc-kelotane-container-label-text = Ke
@@ -18,6 +18,7 @@ mc-sleeptoxin-container-label-text = An
 mc-quickclot-container-label-text = Qk
 mc-oxycodone-container-label-text = Ox
 mc-quickclotplus-container-label-text = Qk+
+mc-russian-red-container-label-text = Rr
 
 mc-combat-container-label-text = Cb
 mc-combatadv-container-label-text = Ca

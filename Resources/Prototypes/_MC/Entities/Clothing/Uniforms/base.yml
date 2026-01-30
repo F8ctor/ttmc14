@@ -1,0 +1,63 @@
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: MCUniformBase
+  categories: [ MCContent ]
+  components:
+  - type: Clothing
+    slots: [innerclothing]
+    equipSound:
+      path: /Audio/_RMC14/Handling/clothing_on.ogg
+    unequipSound:
+      path: /Audio/_RMC14/Handling/clothing_off.ogg
+  - type: WebbingClothing
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.UniformAccessoriesUi.Key:
+        type: UniformAccessoryBui
+  - type: Sprite
+    state: null
+    layers:
+    - state: icon
+    - map: [ "enum.WebbingVisualLayers.Base" ]
+
+- type: entity
+  abstract: true
+  parent: MCUniformBase
+  id: MCFoldableUniformBase
+  components:
+  - type: Foldable
+    canFoldInsideContainer: true
+    unfoldVerbText: rmc-jacket-verb-unfold
+    foldVerbText: rmc-jacket-verb-fold
+  - type: FoldableClothing
+    foldedEquippedPrefix: jacket
+
+- type: entity
+  abstract: true
+  parent: MCUniformBase
+  id: MCAlternateFoldableUniformBase
+  components:
+  - type: RMCClothingFoldable
+    types:
+    - name: rmc-jacket-verb
+      prefix: jacket
+      priority: 0
+      hideAccessories: true
+    - name: rmc-sleeves-verb
+      prefix: sleeves
+      priority: 1
+      blacklistedPrefix: jacket
+      blacklistPopup: rmc-sleeves-cannot
+
+- type: entity
+  abstract: true
+  parent: MCUniformBase
+  id: MCUniformSuitCoordsBase
+  components:
+  - type: SuitSensor
+    controlsLocked: true
+    randomMode: false
+    mode: SensorCords

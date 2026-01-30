@@ -15,3 +15,13 @@
       tags:
       - MCHandful
   - type: FixedItemSizeStorage
+
+- type: entity
+  parent: MCPouchShotgunShell
+  id: MCPouchShotgunShellSOM
+  name: shotgun shell pouch
+  description: A pouch specialized for holding shotgun ammo. Made with traditional SOM leather.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Pouches/shotshells_som.rsi
+    state: base

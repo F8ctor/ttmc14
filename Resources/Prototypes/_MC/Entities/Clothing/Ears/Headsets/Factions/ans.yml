@@ -1,0 +1,15 @@
+﻿- type: entity
+  parent: RMCHeadsetShip
+  id: MCHeadsetANS
+  name: ans radio headset
+  description: A standard military faction ANS radio headset.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/radio.rsi
+    state: ans
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - MCEncryptionKeyANSCommon
+  - type: EncryptionKeyHolder
+    keySlots: 1

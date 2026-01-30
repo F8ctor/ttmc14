@@ -25,6 +25,7 @@
   components:
   - type: Sprite
     sprite: _MC/Clothing/Pouches/firstaid_injector_icc.rsi
+    state: base
   - type: Storage
     maxItemSize: Normal
     grid:
@@ -42,11 +43,43 @@
   components:
   - type: Sprite
     sprite: _MC/Clothing/Pouches/firstaid_injector_som.rsi
+    state: base
 
 - type: entity
   parent: MCPouchMedicalInjector
   id: MCPouchMedicalInjectorCorpsmanFull
   suffix: Corpsman, Full
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCAutoInjectorCombatAdv
+      amount: 3
+    - id: MCAutoInjectorDexalinPlus
+    - id: MCAutoInjectorQuickClotPlus
+      amount: 2
+    - id: MCAutoInjectorParacetamol # временно вместо Peridaxon Plus
+      amount: 2
+
+- type: entity
+  parent: MCPouchMedicalInjectorSOM
+  id: MCPouchMedicalInjectorFirstAidSOMFull
+  suffix: FirstAid, Full
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCAutoInjectorBicaridine
+    - id: MCAutoInjectorKelotane
+    - id: MCAutoInjectorTramadol
+    - id: MCAutoInjectorTricordrazine
+    - id: MCAutoInjectorDylovene
+    - id: MCAutoInjectorInaprovaline
+    - id: MCAutoInjectorOxycodone # временно вместо Synaptizine
+    - id: MCAutoInjectorRussianRed
+
+- type: entity
+  parent: MCPouchMedicalInjectorSOM
+  id: MCPouchMedicalInjectorMedicSOMFull
+  suffix: Medic, Full
   components:
   - type: StorageFill
     contents:

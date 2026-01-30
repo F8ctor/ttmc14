@@ -1,6 +1,7 @@
 - type: entity
   parent: MCItem
   id: MCMPersonalStorage
+  categories: [ MCContent ]
   name: backpack
   description: You wear this on your back and put items into it.
   abstract: true
@@ -13,10 +14,6 @@
     - fiber
   - type: UseDelay
     delay: 0
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - Backpack
   - type: Sprite
     sprite: _RMC14/Objects/Clothing/Back/Backpacks/Civilians/standard.rsi
     layers:

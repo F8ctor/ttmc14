@@ -16,9 +16,9 @@
   description: Gloves with origins dating back to the old mining colonies. These ones appear to have an electrically insulating layer built into them.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Hands/Gloves/som.rsi
+    sprite: _MC/Clothing/Hands/Gloves/som_insulated.rsi
   - type: Clothing
-    sprite: _MC/Clothing/Hands/Gloves/som.rsi
+    sprite: _MC/Clothing/Hands/Gloves/som_insulated.rsi
   - type: Insulated
     coefficient: 0
 
@@ -32,15 +32,16 @@
     sprite: _MC/Clothing/Hands/Gloves/som_veteran.rsi
   - type: Clothing
     sprite: _MC/Clothing/Hands/Gloves/som_veteran.rsi
-  - type: CMArmor
-    melee: 30
-    bullet: 20
-    laser: 15
-    energy: 20
-    bomb: 15
-    bio: 5
-    fire: 15
-    acid: 15
+  - type: MCArmor
+    soft:
+      melee: 30
+      bullet: 20
+      laser: 15
+      energy: 20
+      bomb: 15
+      bio: 5
+      fire: 15
+      acid: 15
 
 - type: entity
   parent: MCClothingHands

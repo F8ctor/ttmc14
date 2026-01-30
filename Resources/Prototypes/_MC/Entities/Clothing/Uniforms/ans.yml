@@ -1,0 +1,59 @@
+- type: entity
+  parent: MCFoldableUniformBase
+  id: MCUniformANSCommon
+  name: ANS common uniform
+  description: The standard uniform of ANS military personnel. Its design is universally militaristic, symbolizing freedom through bloodshed.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Uniforms/Factions/ANS/common.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Uniforms/Factions/ANS/common.rsi
+
+- type: entity
+  parent: MCFoldableUniformBase
+  id: MCUniformANSMedical
+  name: ANS medical uniform
+  description: The standard uniform of ANS medical personnel. Its design is universally militaristic, symbolizing freedom through bloodshed.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Uniforms/Factions/ANS/medic.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Uniforms/Factions/ANS/medic.rsi
+
+- type: entity
+  parent: MCFoldableUniformBase
+  id: MCUniformANSEngineer
+  name: ANS engineer uniform
+  description: The work uniform was intended for conducting hazardous atomic experiments and provides no protection against chemical or radioactive exposure.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Uniforms/Factions/ANS/engineer.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Uniforms/Factions/ANS/engineer.rsi
+
+- type: entity
+  parent: MCUniformBase
+  id: MCUniformANSSpecialist
+  name: ANS weapons specialist uniform
+  description: This uniform is fused to the body, inseparable and it leaves an unsettling question unanswered - why?
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Uniforms/Factions/ANS/spec.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Uniforms/Factions/ANS/spec.rsi
+  - type: Unremoveable
+  - type: ClothingSpeedModifier
+    walkModifier: 1.25
+    sprintModifier: 1.25
+
+- type: entity
+  parent: MCUniformBase
+  id: MCUniformANSCommander
+  name: ANS commander uniform
+  description: Its strict, universally militaristic design suppresses individuality and emphasizes absolute submission to the ANS clan the refined uniform endows the commander with authority.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Uniforms/Factions/ANS/commander.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Uniforms/Factions/ANS/commander.rsi
+  - type: Appearance

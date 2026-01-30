@@ -1,0 +1,30 @@
+- type: entity
+  parent: MCBootsBlack
+  id: MCBootsANS
+  name: old model S11 combat shoes 
+  description: Outdated S11 model combat boots.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Shoes/Boots/ans.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Shoes/Boots/ans.rsi
+
+- type: entity
+  parent: [ MCBootsANS, MCClothingShoesSlotKnifeBase ]
+  id: MCBootsANSFilled
+  suffix: Filled
+  components:
+  - type: ItemSlots
+    slots:
+      item:
+        name: mc-knife
+        insertSound: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg
+        whitelist:
+          tags:
+          - MCBayonet
+          - MCKnife
+          - MCMeleeWeaponValiKnife
+        startingItem: MCKnifeBayonetSOM
+  - type: CMItemSlots
+    startingItem: MCKnifeBayonetSOM

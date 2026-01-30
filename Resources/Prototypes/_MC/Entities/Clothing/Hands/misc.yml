@@ -10,18 +10,19 @@
     sprite: _MC/Clothing/Hands/Gloves/Misc/black.rsi
   - type: Clothing
     sprite: _MC/Clothing/Hands/Gloves/Misc/black.rsi
-  - type: CMArmor
-    melee: 25
-    bullet: 15
-    laser: 10
-    energy: 15
-    bomb: 15
-    bio: 5
-    fire: 15
-    acid: 15
+  - type: MCArmor
+    soft:
+      melee: 25
+      bullet: 15
+      laser: 10
+      energy: 15
+      bomb: 15
+      bio: 5
+      fire: 15
+      acid: 15
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: MCClothingHands
   id: MCClothingHandsLatex
   name: latex gloves
   description: Sterile latex gloves.
@@ -42,7 +43,7 @@
   id: MCGlovesLatex
 
 - type: entity
-  parent: ClothingHandsBase
+  parent: MCClothingHands
   id: MCClothingHandsHealthanalyzer
   name: HF2 analyzer gloves
   description: Advanced medical gauntlets with a built-in health analyzer for quickly scanning patients via a simple touch or wave.

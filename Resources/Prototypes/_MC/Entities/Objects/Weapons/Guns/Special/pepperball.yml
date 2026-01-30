@@ -114,8 +114,6 @@
   - type: Projectile
     damage: {}
     soundHit: null
-  - type: MCStaminaDamageOnCollide
-    damage: 70
   - type: MCXenoPlasmaDamageOnHit
     amount: 25
     multiplier: 0.05

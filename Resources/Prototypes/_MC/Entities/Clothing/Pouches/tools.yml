@@ -33,6 +33,52 @@
   - type: FixedItemSizeStorage
 
 - type: entity
+  parent: MCPouchStorage
+  # No VisualizerOpen
+  id: MCPouchToolsSOM
+  name: tools pouch
+  description: It's designed to hold maintenance tools - screwdriver, wrench, cable coil, etc. It also has a hook for an entrenching tool. Made with traditional SOM leather.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Pouches/tools_som.rsi
+    state: base
+    maxItemSize: Normal
+    grid:
+    - 0,0,9,1 # 5 slots
+    whitelist:
+      tags:
+      - Crowbar
+      - Screwdriver
+      - Wrench
+      - Wirecutter
+      - CableCoil
+      - PowerCell
+      - Multitool
+      - Flashlight
+      - RMCExplosiveBreachingCharge
+      - CMFireExtinguisherPortable
+      components:
+      - Welder
+      - ComputerBoard
+      - MachineBoard
+      - LightReplacer
+      - EntrenchingTool
+  - type: FixedItemSizeStorage
+
+- type: entity
+  parent: MCPouchToolsSOM
+  id: MCPouchToolsSOMFill
+  suffix: Fill
+  components:
+  - type: StorageFill
+    contents:
+    - id: CMScrewdriver
+    - id: CMWirecutter
+    - id: MCWelder
+    - id: CMWrench
+    - id: CMCrowbar
+
+- type: entity
   parent: MCPouchTools
   id: MCPouchToolsFill
   suffix: Fill
@@ -41,6 +87,6 @@
     contents:
     - id: CMScrewdriver
     - id: CMWirecutter
-    - id: CMWelder
+    - id: MCWelder
     - id: CMWrench
     - id: CMCrowbar

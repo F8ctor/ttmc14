@@ -1,0 +1,75 @@
+- type: entity
+  parent:
+  - MCPouchStorage
+  - MCPouchVisualizerOpen
+  id: MCPouchFirstAid
+  name: first-aid pouch
+  description: Standard marine first-aid pouch. It can contain most common medical supplies.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Pouches/firstaid.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,11,1 # 6 slots
+    whitelist:
+      tags:
+      - MCPill # /obj/item/reagent_containers/pill
+      - MCPacketPills
+      - MCPillCanister # /obj/item/storage/pill_bottle
+      - MCHealingItem # /obj/item/stack/medical
+      - MCHypospray # /obj/item/reagent_containers/hypospray
+      - MCAutoInjector
+  - type: FixedItemSizeStorage
+
+- type: entity
+  parent: MCPouchFirstAid
+  id: MCPouchFirstAidFill
+  suffix: Fill
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCPacketPillsBicaridine
+    - id: MCPacketPillsKelotane
+    - id: MCPacketPillsTramadol
+    - id: MCPacketPillsTricordrazine
+    - id: MCSplint
+    - id: MCAutoInjectorInaprovaline
+
+- type: entity
+  parent: MCPouchStorage
+  # No VisualizerOpen
+  id: MCPouchFirstAidSOM
+  name: mining first aid pouch
+  description: A basic first aid pouch originally used by miners due to dangerous working conditions on the mining colonies. This one is marked as belonging to the SOM.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Pouches/firstaid_som.rsi
+    state: base
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,11,1 # 6 slots
+    whitelist:
+      tags:
+      - MCPill # /obj/item/reagent_containers/pill
+      - MCPacketPills
+      - MCPillCanister # /obj/item/storage/pill_bottle
+      - MCHealingItem # /obj/item/stack/medical
+      - MCHypospray # /obj/item/reagent_containers/hypospray
+      - MCAutoInjector
+  - type: FixedItemSizeStorage
+
+- type: entity
+  parent: MCPouchFirstAidSOM
+  id: MCPouchFirstAidSOMFill
+  suffix: Fill
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCPacketPillsBicaridine
+    - id: MCPacketPillsKelotane
+    - id: MCPacketPillsTramadol
+    - id: MCPacketPillsTricordrazine
+    - id: MCSplint
+    - id: MCAutoInjectorInaprovaline

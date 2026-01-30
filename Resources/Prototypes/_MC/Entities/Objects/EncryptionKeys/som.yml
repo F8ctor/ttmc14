@@ -1,0 +1,11 @@
+- type: entity
+  parent: CMEncryptionKey
+  id: MCEncryptionKeySOMCommon
+  name: Sons of Mars encryption key
+  components:
+  - type: EncryptionKey
+    channels:
+    - MCSOMChannel
+    defaultChannel: MCSOMChannel
+  - type: Sprite
+    state: upp_key

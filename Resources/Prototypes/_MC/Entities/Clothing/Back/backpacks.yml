@@ -196,3 +196,64 @@
         whitelist:
           tags:
           - MCWeaponIncineratorFL84
+
+- type: entity
+  parent: MCBackpack
+  id: MCBackpackSOM
+  name: mining rucksack
+  description: A rucksack with origins dating back to the mining colonies.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Back/Backpacks/SOM/lightpack.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Back/Backpacks/SOM/lightpack.rsi
+
+- type: entity
+  parent: MCBackpack
+  id: MCBackpackEngineerSOM
+  name: SOM technician welderpack
+  description: A specialized backpack worn by SOM technicians. It carries a fueltank for quick welder refueling.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Back/Backpacks/SOM/engineer_pack.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Back/Backpacks/SOM/engineer_pack.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,15,1
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 260
+        reagents:
+        - ReagentId: MCNapalm
+          Quantity: 260
+  - type: SolutionTransfer
+    transferAmount: 260
+    maxTransferAmount: 260
+    minTransferAmount: 260
+  - type: RMCSolutionTransferWhitelist
+    popup: rmc-solution-transfer-whitelist-failed-not-welding-tank
+    targetWhitelist:
+      tags:
+      - MCPyroFlamer
+      - MCPyroFlamerMini
+  - type: NoMixingReagents
+  - type: CMStorageVisualizer
+    storageClosed: null
+    storageOpen: null
+  - type: RMCFlamerBackpack
+    solution: tank
+  - type: DetailedExaminableSolution
+    solution: tank
+  - type: DrawableSolution
+    solution: tank
+  - type: RMCRefillSolutionOnStore
+    solution: tank
+  - type: Tag
+    tags:
+    - MCBackpackEngineer
+
+- type: Tag 
+  id: MCBackpackEngineer

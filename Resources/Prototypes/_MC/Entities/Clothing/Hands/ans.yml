@@ -1,0 +1,68 @@
+- type: entity
+  parent: MCClothingHands
+  id: MCClothingHandsANS
+  name: ANS gloves
+  description: Standard red leather gloves with an ANS imprint.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Hands/Gloves/ans_common.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Hands/Gloves/ans_common.rsi
+
+- type: entity
+  parent: MCClothingHands
+  id: MCClothingHandsANSInsulated
+  name: Insulated ANS gloves
+  description: Specialized modified ANS gloves designed for handling energy and flame effects, equipped with full electrical insulation.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Hands/Gloves/ans_insulated.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Hands/Gloves/ans_insulated.rsi
+  - type: Insulated
+    coefficient: 0
+  - type: MCArmor
+    soft:
+      melee: 25
+      bullet: 15
+      laser: 10
+      energy: 30
+      bomb: 15
+      bio: 5
+      fire: 30
+      acid: 15
+
+- type: entity
+  parent: MCClothingHandsHealthanalyzer
+  id: MCClothingHandsANSHealthanalyzer
+  name: ANS HF3 analyzer gloves
+  description: Advanced modified ANS medical gauntlets with a built-in health analyzer, allowing patients to be quickly scanned with a simple touch or wave, while also providing protection against biological and chemical hazards.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Hands/Gloves/ans_medscan.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Hands/Gloves/ans_medscan.rsi
+  - type: MedicallyUnskilledDoAfter
+    min: 1
+    doAfter: 3
+  - type: MCArmor
+    soft:
+      melee: 25
+      bullet: 15
+      laser: 10
+      energy: 15
+      bomb: 15
+      bio: 30
+      fire: 15
+      acid: 30
+
+- type: entity
+  parent: MCClothingHands
+  id: MCClothingHandsANSCommander
+  name: ANS commander gloves
+  description: Black gloves commonly worn by SOM officers.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Hands/Gloves/som_officer.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Hands/Gloves/som_officer.rsi

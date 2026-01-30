@@ -20,24 +20,6 @@
 
 - type: entity
   parent: MCPouchExplosive
-  id: MCPouchExplosiveSOM
-  name: S26 explosive pouch
-  description: A leather pouch for storing grenades, rockets, mine boxes, and other explosives.
-  components:
-  - type: Sprite
-    sprite: _MC/Clothing/Pouches/explosive_som.rsi
-
-- type: entity
-  parent: MCPouchExplosive
-  id: MCPouchExplosiveICC
-  name: S26 explosive pouch
-  description: It can contain grenades, plastiques, mine boxes, and other explosives. Clearly made from with a synthetic tan fiber.
-  components:
-  - type: Sprite
-    sprite: _MC/Clothing/Pouches/explosive_icc.rsi
-
-- type: entity
-  parent: MCPouchExplosive
   id: MCPouchExplosiveLarge
   name: large explosive pouch
   description: It can carry grenades, plastic explosives, mine boxes, and other explosives.
@@ -47,3 +29,32 @@
   - type: Storage
     grid:
     - 0,0,11,1 # 6 slots
+
+- type: entity
+  parent: MCPouchStorage
+  # No VisualizerOpen
+  id: MCPouchExplosiveSOM
+  name: S26 explosive pouch
+  description: A leather pouch for storing grenades, rockets, mine boxes, and other explosives.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Pouches/explosive_som.rsi
+    state: base
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,7,1 # 4 slots
+    whitelist:
+      tags:
+      - MCGrenade
+      - RMCExplosiveBreachingCharge
+  - type: FixedItemSizeStorage
+
+- type: entity
+  parent: MCPouchExplosiveSOM
+  id: MCPouchExplosiveICC
+  name: S26 explosive pouch
+  description: It can contain grenades, plastiques, mine boxes, and other explosives. Clearly made from with a synthetic tan fiber.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Pouches/explosive_icc.rsi

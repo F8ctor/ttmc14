@@ -24,6 +24,31 @@
   - type: FixedItemSizeStorage
 
 - type: entity
+  parent: MCPouchStorage
+  # No VisualizerOpen
+  id: MCPouchMagazineSOM
+  name: magazine pouch
+  description: This pouch can contain three ammo magazines. Made with traditional SOM leather.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Pouches/mag_som.rsi
+    state: base
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,5,1 # 3 slots
+    whitelist:
+      tags:
+      - MCHandful
+      - MCMagazineSidearm
+      - MCMagazineRifle
+      - MCMagazinePepperball
+      - MCMagazineShotgun
+      - MCMagazineSmg
+      - MCBatteryTerra
+  - type: FixedItemSizeStorage
+
+- type: entity
   parent: MCPouchMagazineSmall
   id: MCPouchMagazine
   name: magazine pouch

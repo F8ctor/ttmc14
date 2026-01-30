@@ -1,5 +1,27 @@
 - type: entity
-  parent: RMCShoesLaceup
+  parent: ClothingShoesBase
+  id: MCShoesLaceup
+  name: laceup shoes
+  description: The height of fashion, and they're pre-polished!
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/Shoes/laceup.rsi
+  - type: Clothing
+    sprite: _RMC14/Objects/Clothing/Shoes/laceup.rsi
+  - type: UsableWhileDevoured
+  - type: MCArmor
+    soft:
+      melee: 25
+      bullet: 15
+      laser: 5
+      energy: 5
+      bomb: 5
+      bio: 5
+      fire: 5
+      acid: 20
+
+- type: entity
+  parent: MCShoesLaceup
   id: MCLaceup
   name: laceup shoes
   description: The height of fashion, and they're pre-polished!
@@ -9,15 +31,6 @@
     sprite: _MC/Clothing/Shoes/laceup_old.rsi
   - type: Clothing
     sprite: _MC/Clothing/Shoes/laceup_old.rsi
-  - type: CMArmor
-    melee: 25
-    bullet: 15
-    laser: 5
-    energy: 5
-    bomb: 5
-    bio: 5
-    fire: 5
-    acid: 20
 
 - type: entity
   parent: MCLaceup
@@ -31,12 +44,13 @@
     sprite: _MC/Clothing/Shoes/laceup_old.rsi
   - type: Clothing
     sprite: _MC/Clothing/Shoes/laceup_old.rsi
-  - type: CMArmor
-    melee: 35
-    bullet: 20
-    laser: 20
-    energy: 20
-    bomb: 30
-    bio: 20
-    fire: 20
-    acid: 25
+  - type: MCArmor
+    soft:
+      melee: 35
+      bullet: 20
+      laser: 20
+      energy: 20
+      bomb: 30
+      bio: 20
+      fire: 20
+      acid: 25

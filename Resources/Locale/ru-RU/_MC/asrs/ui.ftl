@@ -22,9 +22,7 @@ asrs-ui-deny-all = Отклонить все
 
 asrs-ui-submit-request = Отправить запрос
 asrs-ui-clear-cart = Очистить корзину
-asrs-ui-reason-label = Причина:
 asrs-ui-reason-placeholder = Причина
-asrs-ui-pending-order = Ожидающий заказ
 
 asrs-ui-search-placeholder = Поиск...
 

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "By F8ctor (github)",
+  "size": {
+    "x": 16,
+    "y": 16
+  },
+  "states": [
+    {
+      "name": "aans"
+    },
+    {
+      "name": "cans"
+    },
+    {
+      "name": "eans"
+    },
+    {
+      "name": "mans"
+    },
+    {
+      "name": "sans"
+    }
+  ]
+}

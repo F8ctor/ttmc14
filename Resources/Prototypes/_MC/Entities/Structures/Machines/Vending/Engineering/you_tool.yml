@@ -16,7 +16,7 @@
     - name: Tools
       entries:
       - id: CMCrowbar
-      - id: CMWelder
+      - id: MCWelder
       - id: CMWirecutter
       - id: CMWrench
       - id: CMScrewdriver

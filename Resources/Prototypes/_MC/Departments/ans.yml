@@ -1,0 +1,15 @@
+- type: department
+  parent: MCDepartment
+  id: MCANS
+  name: department-MCANS
+  description: mc-department-ANS-description
+  color: "#801D18"
+  customName: ANS
+  roles:
+  - MCANSCommander
+  - MCANSWeaponsSpecialist
+  - MCANSEngineer
+  - MCANSMedic
+  - MCANSAssaultRifleman
+  departmentRadio: MCANSChannel
+  headOfDepartment: ANSCommander

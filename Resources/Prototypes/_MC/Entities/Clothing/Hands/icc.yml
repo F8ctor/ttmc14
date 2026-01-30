@@ -32,12 +32,13 @@
     sprite: _MC/Clothing/Hands/Gloves/icc_guard.rsi
   - type: Clothing
     sprite: _MC/Clothing/Hands/Gloves/icc_guard.rsi
-  - type: CMArmor
-    melee: 30
-    bullet: 20
-    laser: 15
-    energy: 20
-    bomb: 15
-    bio: 5
-    fire: 15
-    acid: 15
+  - type: MCArmor
+    soft:
+      melee: 30
+      bullet: 20
+      laser: 15
+      energy: 20
+      bomb: 15
+      bio: 5
+      fire: 15
+      acid: 15

@@ -2,6 +2,7 @@
   parent: ClothingHandsBase
   id: MCClothingHands
   abstract: true
+  categories: [ MCContent ]
   components:
   - type: Sprite
     state: icon

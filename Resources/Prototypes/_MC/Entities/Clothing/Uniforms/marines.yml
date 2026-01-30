@@ -1,5 +1,5 @@
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarine
   name: marine black suit
   description: A easy fitting black suit, somehow exactly your size.
@@ -10,7 +10,7 @@
     sprite:
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineOfficer
   name: marine officer uniform
   description: A kevlar-weaved, hazmat-tested, EMF-augmented, yet extra-soft and extra-light officer uniform. You suspect it's not as extra-fancy as advertised.
@@ -21,7 +21,7 @@
     sprite:
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineWarden
   name: marine officer uniform
   description: A kevlar-weaved, hazmat-tested, EMF-augmented, yet extra-soft and extra-light officer uniform. You suspect it's not as extra-fancy as advertised.
@@ -32,7 +32,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/warden.rsi
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineHos
   name: marine officer uniform
   description: A kevlar-weaved, hazmat-tested, EMF-augmented, yet extra-soft and extra-light officer uniform. You suspect it's not as extra-fancy as advertised.
@@ -43,7 +43,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/hos.rsi
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineWarrant
   name: Command Master at Arms uniform
   description: A standard-issue, kevlar-weaved, hazmat-tested, EMF-augmented uniform worn by lawful-good warrant officers. You suspect it's not as robust-proof as advertised.
@@ -54,7 +54,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/wo.rsi
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineLogistics
   name: marine officer uniform
   description: A standard-issue, kevlar-weaved, hazmat-tested, EMF-augmented uniform worn by logistics officers of the TGMC. Do the corps proud.
@@ -65,7 +65,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/bo.rsi
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineRO
   name: requisition officer suit
   description: A nicely-fitting, kevlar-weaved, hazmat-tested, EMF-augmented requisition officer suit. You suspect it's not as robust-proof as advertised.
@@ -76,7 +76,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/ro.rsi
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarinePilot
   name: pilot officer flightsuit
   description: A standard-issue, kevlar-weaved, hazmat-tested, EMF-augmented, survival-friendly pilot flightsuit. Fly the marines onwards to glory.
@@ -87,7 +87,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/pilot_flightsuit.rsi
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineMech
   name: mech pilot uniform
   description: A standard-issue, kevlar-weaved, hazmat-tested, EMF-augmented uniform worn by mech pilots. Not as impressive as a titanium robot but good enough.
@@ -98,7 +98,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/mech.rsi
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineAssaultCrewman
   name: assault crewman uniform
   description: A standard-issue, carbon fibre uniform optimized for operating heavy equipment. Feels like a hand-me-down from last decade.
@@ -109,7 +109,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/assault_crewman.rsi
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineTransportCrewman
   name: transport crewman uniform
   description: A standard issue comfortable uniform designed for sitting all day.
@@ -120,7 +120,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/transport_crewman.rsi
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineStaffOfficer
   name: staff officer uniform
   description: A standard-issue, kevlar-weaved, hazmat-tested, EMF-augmented staff officer uniform. Do the navy proud.
@@ -131,7 +131,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/so.rsi
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineFieldCommander
   name: field commander uniform
   description: A special-issue, kevlar-weaved, hazmat-tested, EMF-augmented worn by a field-grade officer of the TGMC. You suspect it's not as robust-proof as advertised.
@@ -142,7 +142,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/fc.rsi
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineCaptain
   name: captain uniform
   description: A special-issue, well-ironed, kevlar-weaved, hazmat-tested, EMF-augmented uniform worth of a TerraGov Naval Captain. Even looking at it the wrong way could result in being court-martialed.
@@ -153,7 +153,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/captain.rsi
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineAdmiral
   name: admiral uniform
   description: A uniform worn by a fleet admiral. It comes in a shade of deep black, and has a light shimmer to it. The weave looks strong enough to provide some light protections.
@@ -164,7 +164,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/captain.rsi
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineChiefShipEngineer
   name: chief ship engineer uniform
   description: An engine-friendly, kevlar-weaved, hazmat-tested, EMF-augmented ship engineer uniform. You suspect it's not as robust-proof as advertised.
@@ -175,7 +175,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/cse.rsi
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineEngineer
   name: engineer uniform
   description: An engine-friendly, kevlar-weaved, hazmat-tested, EMF-augmented chief ship engineer uniform. You suspect it's not as robust-proof as advertised.
@@ -186,7 +186,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/engineer.rsi
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineResearcher
   name: researcher clothes
   description: A set of formal, yet comfy, clothing worn by scholars and researchers alike.
@@ -197,7 +197,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/researcher.rsi
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineJaeger
   name: TGMC jaeger undersuit
   description: A standard-issue, kevlar-weaved, hazmat-tested, EMF-augmented marine uniform. You suspect it's not as robust-proof as advertised.
@@ -208,7 +208,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/jaeger.rsi
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineSquad
   name: TGMC uniform
   description: A standard-issue, kevlar-weaved, hazmat-tested, EMF-augmented marine uniform. You suspect it's not as robust-proof as advertised.
@@ -219,7 +219,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/squad.rsi
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineSquadEngineer
   name: TGMC engineer fatigues
   description: A standard-issue, kevlar-weaved, hazmat-tested, EMF-augmented combat engineer fatigues. You suspect it's not as robust-proof as advertised.
@@ -230,7 +230,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/squad_engineer.rsi
 
 - type: entity
-  parent: RMCMarineUniformBase
+  parent: MCUniformBase
   id: MCJumpsuitMarineSquadMedic
   name: TGMC corpsman fatigues
   description: A standard-issue, kevlar-weaved, hazmat-tested, EMF-augmented combat corpsman fatigues. You suspect it's not as robust-proof as advertised.
@@ -241,7 +241,7 @@
     sprite: _MC/Clothing/Uniforms/Marine/squad_medic.rsi
 
 - type: entity
-  parent: [RMCMarineUniformBase, RMCFoldableUniformBase]
+  parent: [MCUniformBase, MCFoldableUniformBase]
   id: MCJumpsuitMedicalScrubsPurple
   name: purple medical scrubs
   description: It's made of a special fiber that provides minor protection against biohazards. This one is in deep purple.

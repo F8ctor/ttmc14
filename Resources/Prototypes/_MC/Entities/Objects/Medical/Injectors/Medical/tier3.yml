@@ -19,17 +19,19 @@
 - type: entity
   parent: MCAutoInjector
   id: MCAutoInjectorRussianRed
-  name: russian red autoinjector
-  description: An autoinjector loaded with 3 doses of Russian Red. Restores a significant amount of stamina and heals a large amount of damage, but causes slight permanent damage.
+  name: emergency autoinjector
+  description: An autoinjector loaded with a single use of Russian Red. Restores a significant amount of stamina and heals a large amount of damage, but causes slight permanent damage.
   components:
   - type: Hypospray
-    transferAmount: 10
+    transferAmount: 15
   - type: SolutionContainerManager
     solutions:
       pen:
         maxVol: 30
         reagents:
         - ReagentId: MCRussianRed
-          Quantity: 30
+          Quantity: 20
+        - ReagentId: MCOxycodone
+          Quantity: 10
   - type: IconLabel
     labelTextLocId: mc-russian-red-container-label-text

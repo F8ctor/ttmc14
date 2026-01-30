@@ -1,0 +1,34 @@
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCANSAssaultRifleman
+  icon:
+    sprite: /Textures/_MC/Interface/job_icons16x16.rsi
+    state: aans
+
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCANSMedic
+  icon:
+    sprite: /Textures/_MC/Interface/job_icons16x16.rsi
+    state: mans
+
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCANSEngineer
+  icon:
+    sprite: /Textures/_MC/Interface/job_icons16x16.rsi
+    state: eans
+
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCANSWeaponsSpecialist
+  icon:
+    sprite: /Textures/_MC/Interface/job_icons16x16.rsi
+    state: sans
+
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCANSCommander
+  icon:
+    sprite: /Textures/_MC/Interface/job_icons16x16.rsi
+    state: cans

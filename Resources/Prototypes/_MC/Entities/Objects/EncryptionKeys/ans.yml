@@ -1,0 +1,11 @@
+- type: entity
+  parent: CMEncryptionKey
+  id: MCEncryptionKeyANSCommon
+  name: Autonomy Nation Sun encryption key
+  components:
+  - type: EncryptionKey
+    channels:
+    - MCANSChannel
+    defaultChannel: MCANSChannel
+  - type: Sprite
+    state: upp_key

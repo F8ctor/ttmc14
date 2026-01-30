@@ -1,0 +1,48 @@
+- type: entity
+  id: FactionANS
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IFFFaction
+  - type: FactionFrequencies
+    channels:
+    - ANSCommon
+
+- type: entity
+  parent: MCDogtag
+  id: MCDogtagANS
+  name: Autonomy Nation Sun dogtag
+  description: Used by the Autonomy Nation Sun.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/MCIDs/dogtag_som.rsi
+    state: icon
+  - type: Clothing
+    sprite: _MC/Objects/MCIDs/dogtag_som.rsi
+  - type: ItemIFF
+    faction: FactionANS
+
+- type: entity
+  parent: MCDogtag
+  id: MCIDCardANS
+  name: ANS identification card
+  description: Identification card for the Autonomy Nation Sun.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/MCIDs/card_ans.rsi
+    state: card
+  - type: Clothing
+    sprite: _MC/Objects/MCIDs/card_ans.rsi
+  - type: ItemIFF
+    faction: FactionANS
+
+- type: entity
+  parent: MCDogtag
+  id: MCIDCardANSBroken
+  name: broken identification card
+  description: A damaged identification card.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/MCIDs/card_ans.rsi
+    state: card_old
+  - type: Clothing
+    sprite: _MC/Objects/MCIDs/card_ans.rsi

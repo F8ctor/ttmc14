@@ -1,0 +1,69 @@
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: MCClothingShoesBase
+  categories: [ MCContent ]
+  components:
+  - type: Clothing
+    slots:
+    - FEET
+  - type: Sprite
+    state: icon
+  - type: Item
+    size: Normal
+  - type: ProtectedFromStepTriggers
+  - type: UsableWhileDevoured
+  - type: MCArmor
+    soft:
+      melee: 25
+      bullet: 15
+      laser: 5
+      energy: 5
+      bomb: 5
+      bio: 5
+      fire: 5
+      acid: 20
+
+- type: entity
+  abstract: true
+  parent: [MCClothingShoesBase, ClothingSlotBase]
+  id: MCClothingShoesSlotKnifeBase
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Shoes/Boots/black.rsi
+    layers:
+    - state: icon
+    - state: filled
+      map: [ "enum.CMItemSlotsLayers.Fill" ]
+  - type: EmitSoundOnDrop
+    sound:
+      collection: RMCEquipArmor
+      params:
+        volume: -4
+  - type: EmitSoundOnLand
+    sound:
+      collection: RMCEquipArmor
+      params:
+        volume: -4
+  - type: Clothing
+    unequipSound:
+      collection: RMCEquipArmor
+    sprite: _MC/Clothing/Shoes/Boots/black.rsi
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      item:
+        name: mc-knife
+        insertSound: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg
+        whitelist:
+          tags:
+          - MCBayonet
+          - MCKnife
+          - MCMeleeWeaponValiKnife
+        startingItem: MCKnifeCombat
+  - type: CMItemSlots
+    startingItem: MCKnifeCombat
+  - type: Appearance

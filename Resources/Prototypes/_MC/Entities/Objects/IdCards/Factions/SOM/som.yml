@@ -1,0 +1,36 @@
+- type: entity
+  id: FactionSOM
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IFFFaction
+  - type: FactionFrequencies
+    channels:
+    - SOMCommon
+
+- type: entity
+  parent: MCDogtag
+  id: MCDogtagSOM
+  name: Sons of Mars dogtag
+  description: Used by the Sons of Mars.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/MCIDs/dogtag_som.rsi
+    state: icon
+  - type: Clothing
+    sprite: _MC/Objects/MCIDs/dogtag_som.rsi
+  - type: ItemIFF
+    faction: FactionSOM
+
+- type: entity
+  parent: MCDogtag
+  id: MCIDCardSOM
+  name: Sons of Mars ID Card
+  description: Identification card for the Sons of Mars.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/MCIDs/card_som.rsi
+    state: icon
+  - type: Clothing
+    sprite: _MC/Objects/MCIDs/card_som.rsi
+  - type: ItemIFF
+    faction: FactionSOM

@@ -1,0 +1,310 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "BLANK"
+    },
+    {
+      "name": "leather",
+      "directions": 4
+    },
+    {
+      "name": "laceups",
+      "directions": 4
+    },
+    {
+      "name": "boots",
+      "directions": 4
+    },
+    {
+      "name": "chef",
+      "directions": 4
+    },
+    {
+      "name": "galoshes",
+      "directions": 4
+    },
+    {
+      "name": "secshoes",
+      "directions": 4
+    },
+    {
+      "name": "jackboots",
+      "directions": 4
+    },
+    {
+      "name": "jackboots-1",
+      "directions": 4
+    },
+    {
+      "name": "swat",
+      "directions": 4
+    },
+    {
+      "name": "swat-1",
+      "directions": 4
+    },
+    {
+      "name": "jackboots_alt",
+      "directions": 4
+    },
+    {
+      "name": "jackboots_alt-1",
+      "directions": 4
+    },
+    {
+      "name": "wizard",
+      "directions": 4
+    },
+    {
+      "name": "tourist",
+      "directions": 4
+    },
+    {
+      "name": "clown",
+      "directions": 4
+    },
+    {
+      "name": "mime",
+      "directions": 4
+    },
+    {
+      "name": "white",
+      "directions": 4
+    },
+    {
+      "name": "red",
+      "directions": 4
+    },
+    {
+      "name": "orange",
+      "directions": 4
+    },
+    {
+      "name": "orange1",
+      "directions": 4
+    },
+    {
+      "name": "yellow",
+      "directions": 4
+    },
+    {
+      "name": "green",
+      "directions": 4
+    },
+    {
+      "name": "blue",
+      "directions": 4
+    },
+    {
+      "name": "purple",
+      "directions": 4
+    },
+    {
+      "name": "rain_bow",
+      "directions": 4
+    },
+    {
+      "name": "brown",
+      "directions": 4
+    },
+    {
+      "name": "black",
+      "directions": 4
+    },
+    {
+      "name": "magboots0",
+      "directions": 4
+    },
+    {
+      "name": "magboots1",
+      "directions": 4
+    },
+    {
+      "name": "cult",
+      "directions": 4
+    },
+    {
+      "name": "reinforced",
+      "directions": 4
+    },
+    {
+      "name": "whitehi",
+      "directions": 4
+    },
+    {
+      "name": "slippers",
+      "directions": 4
+    },
+    {
+      "name": "slippers_worn",
+      "directions": 4
+    },
+    {
+      "name": "winterboots",
+      "directions": 4
+    },
+    {
+      "name": "workboots",
+      "directions": 4
+    },
+    {
+      "name": "cowboy",
+      "directions": 4
+    },
+    {
+      "name": "flippers",
+      "directions": 4
+    },
+    {
+      "name": "y-boots",
+      "directions": 4
+    },
+    {
+      "name": "robocop_shoes",
+      "directions": 4
+    },
+    {
+      "name": "roman",
+      "directions": 4
+    },
+    {
+      "name": "heels_red",
+      "directions": 4
+    },
+    {
+      "name": "heels",
+      "directions": 4
+    },
+    {
+      "name": "sportshoe",
+      "directions": 4
+    },
+    {
+      "name": "skatershoe",
+      "directions": 4
+    },
+    {
+      "name": "wheelys",
+      "directions": 4
+    },
+    {
+      "name": "marine",
+      "directions": 4
+    },
+    {
+      "name": "marine-knife",
+      "directions": 4
+    },
+    {
+      "name": "marine_brown",
+      "directions": 4
+    },
+    {
+      "name": "marine_brown-knife",
+      "directions": 4
+    },
+    {
+      "name": "y-boots1",
+      "directions": 4
+    },
+    {
+      "name": "y-boots2",
+      "directions": 4
+    },
+    {
+      "name": "y-boots3",
+      "directions": 4
+    },
+    {
+      "name": "dknight",
+      "directions": 4
+    },
+    {
+      "name": "marine_armored",
+      "directions": 4
+    },
+    {
+      "name": "marine_armored-1",
+      "directions": 4
+    },
+    {
+      "name": "som",
+      "directions": 4
+    },
+    {
+      "name": "tp_boots",
+      "directions": 4
+    },
+    {
+      "name": "cboots",
+      "directions": 4
+    },
+    {
+      "name": "boots-knife",
+      "directions": 4
+    },
+    {
+      "name": "som-knife",
+      "directions": 4
+    },
+    {
+      "name": "icc",
+      "directions": 4
+    },
+    {
+      "name": "icc-knife",
+      "directions": 4
+    },
+    {
+      "name": "icc_guard",
+      "directions": 4
+    },
+    {
+      "name": "icc_guard-knife",
+      "directions": 4
+    },
+    {
+      "name": "som_officer_boots",
+      "directions": 4
+    },
+    {
+      "name": "commando_boots",
+      "directions": 4
+    },
+    {
+      "name": "commando_boots-knife",
+      "directions": 4
+    },
+    {
+      "name": "headskin",
+      "directions": 4
+    },
+    {
+      "name": "headskin-knife",
+      "directions": 4
+    },
+    {
+      "name": "separatist",
+      "directions": 4
+    },
+    {
+      "name": "separatist-knife",
+      "directions": 4
+    },
+    {
+      "name": "jackboots-knife",
+      "directions": 4
+    },
+    {
+      "name": "swat-knife",
+      "directions": 4
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": ""
+    },
+    {
+      "name": "leather"
+    },
+    {
+      "name": "laceups"
+    },
+    {
+      "name": "boots"
+    },
+    {
+      "name": "boots-knife"
+    },
+    {
+      "name": "chef"
+    },
+    {
+      "name": "jackboots"
+    },
+    {
+      "name": "jackboots-1"
+    },
+    {
+      "name": "jackboots_alt"
+    },
+    {
+      "name": "jackboots_alt-1"
+    },
+    {
+      "name": "galoshes"
+    },
+    {
+      "name": "swat"
+    },
+    {
+      "name": "swat-1"
+    },
+    {
+      "name": "secshoes"
+    },
+    {
+      "name": "wizard"
+    },
+    {
+      "name": "tourist"
+    },
+    {
+      "name": "thongsandal"
+    },
+    {
+      "name": "clown"
+    },
+    {
+      "name": "mime"
+    },
+    {
+      "name": "white"
+    },
+    {
+      "name": "red"
+    },
+    {
+      "name": "orange"
+    },
+    {
+      "name": "orange1"
+    },
+    {
+      "name": "yellow"
+    },
+    {
+      "name": "green"
+    },
+    {
+      "name": "blue"
+    },
+    {
+      "name": "purple"
+    },
+    {
+      "name": "brown"
+    },
+    {
+      "name": "black"
+    },
+    {
+      "name": "rain_bow"
+    },
+    {
+      "name": "magboots0"
+    },
+    {
+      "name": "magboots1"
+    },
+    {
+      "name": "cult"
+    },
+    {
+      "name": "slippers_worn"
+    },
+    {
+      "name": "slippers"
+    },
+    {
+      "name": "flippers"
+    },
+    {
+      "name": "robocop_shoes"
+    },
+    {
+      "name": "reinforced"
+    },
+    {
+      "name": "roman"
+    },
+    {
+      "name": "winterboots"
+    },
+    {
+      "name": "cowboy"
+    },
+    {
+      "name": "workboots"
+    },
+    {
+      "name": "heels_red"
+    },
+    {
+      "name": "heels"
+    },
+    {
+      "name": "sportshoe"
+    },
+    {
+      "name": "skatershoe"
+    },
+    {
+      "name": "wheelys"
+    },
+    {
+      "name": "marine-knife"
+    },
+    {
+      "name": "marine"
+    },
+    {
+      "name": "marine_brown"
+    },
+    {
+      "name": "marine_brown-knife"
+    },
+    {
+      "name": "y-boots1"
+    },
+    {
+      "name": "y-boots2"
+    },
+    {
+      "name": "y-boots3"
+    },
+    {
+      "name": "dknight"
+    },
+    {
+      "name": "dknight-1"
+    },
+    {
+      "name": "marine_armored"
+    },
+    {
+      "name": "marine_armored-knife"
+    },
+    {
+      "name": "som"
+    },
+    {
+      "name": "som-knife"
+    },
+    {
+      "name": "tp_boots",
+      "directions": 4
+    },
+    {
+      "name": "cboots"
+    },
+    {
+      "name": "cboots-knife"
+    },
+    {
+      "name": "icc"
+    },
+    {
+      "name": "icc-knife"
+    },
+    {
+      "name": "icc_guard"
+    },
+    {
+      "name": "icc_guard-knife"
+    },
+    {
+      "name": "som_officer_boots"
+    },
+    {
+      "name": "commando_boots"
+    },
+    {
+      "name": "commando_boots-knife"
+    },
+    {
+      "name": "headskin"
+    },
+    {
+      "name": "headskin-knife"
+    },
+    {
+      "name": "separatist"
+    },
+    {
+      "name": "separatist-knife"
+    },
+    {
+      "name": "jackboots-knife"
+    },
+    {
+      "name": "swat-knife"
+    }
+  ]
+}

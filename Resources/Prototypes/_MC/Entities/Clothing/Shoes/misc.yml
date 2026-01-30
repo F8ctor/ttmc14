@@ -1,6 +1,5 @@
-# White Shoes
 - type: entity
-  parent: RMCShoesLaceup
+  parent: MCShoesLaceup
   id: MCShoesWhite
   name: white shoes
   description: Comfortable-looking shoes.

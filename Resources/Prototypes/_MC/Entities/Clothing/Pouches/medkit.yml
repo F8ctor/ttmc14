@@ -44,12 +44,14 @@
 
 - type: entity
   parent: MCPouchStorage
-  id: MCPouchStorageSOM
+  # No VisualizerOpen
+  id: MCPouchMedkitSOM
   name: medkit pouch
   description: A standard use medkit pouch that can contain all kinds of medical supplies and equipment. Made with traditional SOM leather.
   components:
   - type: Sprite
     sprite: _MC/Clothing/Pouches/medkit_som.rsi
+    state: base
   - type: Storage
     maxItemSize: Normal
     grid:

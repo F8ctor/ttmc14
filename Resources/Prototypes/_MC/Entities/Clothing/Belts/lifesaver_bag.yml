@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: MCClothingBeltStorageBase
   id: MCBeltMedicBag
   name: M276 pattern lifesaver bag
   description: The M276 is the standard load-bearing equipment of the TGMC. This configuration mounts a duffel bag filled with a range of injectors and light medical supplies and is common among medics.
@@ -22,7 +22,6 @@
       - MCAutoInjector
       - MCGauze
       - MCSplint
-      - Ointments
       - MCOintment
       - MCTraumaKit
       - MCBurnKit
@@ -65,10 +64,108 @@
     - id: MCPillCanisterQuickClot
     # alkysine pill bottle
     # spaceacillin pill bottle
+    - id: MCTraumaKit # по 1 MCTraumaKit и MCBurnKit убирайте если добавите пилл боттлы сюда
+      amount: 4
+    - id: MCBurnKit
+      amount: 4
+    - id: MCSplint
+      amount: 2
+    - id: MCHealthAnalyzer
+
+- type: entity
+  parent: MCClothingBeltStorageBase
+  id: MCBeltMedicBagSOM
+  name: S17 lifesaver bag
+  description: A belt with heavy origins from the belt used by paramedics and doctors in the old mining colonies.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/medic_bag_som.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/medic_bag_som.rsi
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,13,5
+    whitelist:
+      tags:
+      - MCHealthAnalyzer
+      - MCBottle
+      - MCPillCanister
+      - MCSyringe
+      - MCCaseSyringe
+      - MCAutoInjector
+      - MCGauze
+      - MCSplint
+      - MCOintment
+      - MCTraumaKit
+      - MCBurnKit
+      - MCPill
+      - MCPacketPills
+      components:
+      - Pill
+  - type: FixedItemSizeStorage
+  - type: IgnoreContentsSize
+    items:
+      tags:
+      - MCPillCanister
+      - MCCaseSyringe
+      - MCPacketPills
+      - MCPill
+  - type: Tag
+    tags:
+    - RMCBeltMedical
+    - MCBeltMedical
+
+- type: entity
+  parent: MCBeltMedicBagSOM
+  id: MCBeltMedicBagSOMERTFull
+  suffix: ERT, Full
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCPillCanisterBicaridine
+    - id: MCPillCanisterKelotane
+    - id: MCPillCanisterTramadol
+    - id: MCPillCanisterTricordrazine
+    - id: MCPillCanisterDylovene
+    - id: MCPillCanisterInaprovaline
+    - id: MCPillCanisterDexalin
+    - id: MCPillCanisterQuickClot
+    - id: MCPillCanisterHypervene
+    - id: MCPillCanisterMeralyne
+    - id: MCPillCanisterDermaline
     - id: MCTraumaKit
       amount: 3
     - id: MCBurnKit
       amount: 3
     - id: MCSplint
-      amount: 2
+      amount: 3
+    - id: MCHealthAnalyzer
+
+- type: entity
+  parent: MCBeltMedicBagSOM
+  id: MCBeltMedicBagSOMFull
+  suffix: Full
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCPillCanisterBicaridine
+    - id: MCPillCanisterKelotane
+    - id: MCPillCanisterTramadol
+    - id: MCPillCanisterTricordrazine
+    - id: MCPillCanisterDylovene
+    - id: MCPillCanisterInaprovaline
+    # - id: /obj/item/storage/pill_bottle/spaceacillin
+    # - id: /obj/item/storage/pill_bottle/alkysine
+    - id: MCPillCanisterImidazoline
+    - id: MCPillCanisterQuickClot
+    - id: MCPillCanisterHypervene
+    - id: MCPillCanisterMeralyne
+    - id: MCPillCanisterDermaline
+    - id: MCTraumaKit # по 1 MCTraumaKit и MCBurnKit убирайте если добавите пилл боттлы сюда
+      amount: 3
+    - id: MCBurnKit
+      amount: 3
+    - id: MCSplint
+      amount: 3
     - id: MCHealthAnalyzer

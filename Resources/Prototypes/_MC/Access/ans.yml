@@ -1,0 +1,4 @@
+#define ACCESS_ANS_COMMON
+- type: accessLevel
+  id: MCAccessANS
+  name: mc-access-ans

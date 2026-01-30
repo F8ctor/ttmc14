@@ -1,0 +1,36 @@
+- type: entity
+  abstract: true
+  parent: Clothing
+  id: MCClothingBeltBase
+  categories: [ MCContent ]
+  components:
+  - type: Sprite
+    state: icon
+  - type: Item
+    size: Large
+  - type: Clothing
+    slots: [belt]
+    equipSound:
+      path: /Audio/Items/belt_equip.ogg
+    quickEquip: false
+
+- type: entity
+  abstract: true
+  parent: MCClothingBeltBase
+  id: MCClothingBeltStorageBase
+  components:
+  - type: Storage
+    maxItemSize: Normal
+    defaultStorageOrientation: Vertical
+    grid:
+    - 0,0,7,1
+  - type: Item
+    size: Ginormous
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
