@@ -1,0 +1,65 @@
+- type: entity
+  parent: MCArmorModularSOM
+  id: MCArmorModularSuitMarineSOM
+  name: S12 hauberk
+  description: A heavily modified piece of mining equipment remade for general purpose combat use. It's light but practically gives no armor.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/SOM/Suits/common.rsi
+  - type: MCArmor
+    soft:
+      melee: 50
+      bullet: 55
+      laser: 55
+      energy: 55
+      bomb: 55
+      bio: 55
+      fire: 55
+      acid: 55
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+
+- type: entity
+  parent: MCArmorModularSOM
+  id: MCArmorModularSuitLeaderSOM
+  name: S13 leader hauberk
+  description: A heavily modified modified piece of mining equipment remade for general purpose combat use. Modified extensively than other pieces like it but heavier because of it.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/SOM/Suits/leader.rsi
+  - type: MCArmor
+    soft:
+      melee: 55
+      bullet: 50
+      laser: 40
+      energy: 55
+      bomb: 55
+      bio: 55
+      fire: 55
+      acid: 60
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+
+- type: entity
+  parent: MCArmorModularSOM
+  id: MCArmorModularSuitVeteranSOM
+  name: S12 combat Hauberk
+  description: A heavily modified piece of mining equipment remade for general purpose combat use. Seems to have been modifed much further than other pieces like it. Heavier but tougher because of it.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/SOM/Suits/veteran.rsi
+  - type: MCArmor
+    soft:
+      melee: 65
+      bullet: 70
+      laser: 70
+      energy: 55
+      bomb: 55
+      bio: 55
+      fire: 55
+      acid: 60
+  - type: ClothingSpeedModifier
+    walkModifier: 0.65
+    sprintModifier: 0.65

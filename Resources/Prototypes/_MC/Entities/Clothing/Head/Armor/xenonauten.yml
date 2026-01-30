@@ -2,6 +2,7 @@
   parent: RMCHelmetBase
   id: MCArmorHelmetModularXenonauten
   abstract: true
+  categories: [ MCContent ]
   components:
   - type: Sprite
   - type: Clothing

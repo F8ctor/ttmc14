@@ -1,0 +1,159 @@
+- type: entity
+  parent: RMCHelmetBase
+  id: MCArmorHelmetModularSOM
+  categories: [ MCContent ]
+  abstract: true
+  components:
+  - type: Sprite
+  - type: Clothing
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+    - HeadSide
+    - Snout
+  - type: RMCBulkyArmor
+
+- type: entity
+  parent: MCArmorHelmetModularSOM
+  id: MCArmorHelmetModularHadesSOM
+  name: Hades Helmet System
+  description: A helmet paired with the 'Hades' armor module, designed for significantly improved protection from fire, without compromising normal durability.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/SOM/Armor/Modular/hades.rsi
+  - type: MCArmor
+    soft:
+      melee: 35
+      bullet: 65
+      laser: 60
+      energy: 60
+      bomb: 50
+      bio: 50
+      fire: 95
+      acid: 40
+
+- type: entity
+  parent: MCArmorHelmetModularSOM
+  id: MCArmorHelmetModularMediumSOM
+  name: SOM infantry helmet
+  description: The standard combat helmet worn by SOM combat troops. Made using advanced polymers to provide very effective protection without compromising visibility.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/SOM/Armor/Modular/medium.rsi
+  - type: MCArmor
+    soft:
+      melee: 45
+      bullet: 65
+      laser: 60
+      energy: 60
+      bomb: 50
+      bio: 50
+      fire: 55
+      acid: 50
+
+- type: entity
+  parent: MCArmorHelmetModularSOM
+  id: MCArmorHelmetModularEngineerSOM
+  name: SOM engineering helmet
+  description: A specialised helmet designed for use by combat engineers. Its main feature being an integrated welding mask.
+  components:
+  - type: EyeProtection
+  # 	It has the following attachments:
+  #	- the integrated welding visor helmet module.
+  - type: Sprite
+    sprite: _MC/Clothing/Head/SOM/Armor/Modular/engineer.rsi
+  - type: MCArmor
+    soft:
+      melee: 45
+      bullet: 65
+      laser: 60
+      energy: 60
+      bomb: 50
+      bio: 50
+      fire: 55
+      acid: 50
+
+- type: entity
+  parent: MCArmorHelmetModularSOM
+  id: MCArmorHelmetModularBioSOM
+  name: SOM biohazard helmet
+  description: This specialised helmet is worn by SOM personel equipped to deal with dangerous chemical, radiological or otherwise hazard substances. Typical unleashed by the SOM themselves.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/SOM/Armor/Modular/bio.rsi
+  - type: MCArmor
+    soft:
+      melee: 45
+      bullet: 65
+      laser: 60
+      energy: 60
+      bomb: 50
+      bio: 75
+      fire: 50
+      acid: 70
+
+- type: entity
+  parent: MCArmorHelmetModularSOM
+  id: MCArmorHelmetModularVeteranSOM
+  name: SOM veteran helmet
+  description: The standard combat helmet worn by SOM combat specialists. State of the art materials provides more protection for more valuable brains.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/SOM/Armor/Modular/medium.rsi
+  - type: MCArmor
+    soft:
+      melee: 50
+      bullet: 70
+      laser: 65
+      energy: 65
+      bomb: 55
+      bio: 55
+      fire: 60
+      acid: 55
+
+- type: entity
+  parent: MCArmorHelmetModularSOM
+  id: MCArmorHelmetModularLoricaSOM
+  name: Lorica Helmet System
+  description: A bulky helmet paired with the 'Lorica' armor module, designed for outstanding protection at the cost of significant weight and reduced flexibility. Substantial additional armor improves protection against all damage.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/SOM/Armor/Modular/lorica.rsi
+  - type: MCArmor
+    soft:
+      melee: 60
+      bullet: 80
+      laser: 80
+      energy: 80
+      bomb: 65
+      bio: 55
+      fire: 70
+      acid: 60
+
+- type: entity
+  parent: MCArmorHelmetModularSOM
+  id: MCArmorHelmetModularLeaderSOM
+  name: SOM Gorgon pattern helmet
+  description: Made for use with Gorgon pattern assault armor, providing superior protection. Typically seen on SOM leaders or their most elite combat units.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/SOM/Armor/Modular/leader.rsi
+  - type: MCArmor
+    soft:
+      melee: 60
+      bullet: 75
+      laser: 70
+      energy: 70
+      bomb: 60
+      bio: 55
+      fire: 65
+      acid: 55
+
+- type: entity
+  parent: MCArmorHelmetModularLeaderSOM
+  id: MCArmorHelmetModularOfficerSOM
+  description: Made for use with Gorgon pattern assault armor, providing superior protection. This one has gold markings indicating it belongs to a high ranking field officer.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/SOM/Armor/Modular/officer.rsi

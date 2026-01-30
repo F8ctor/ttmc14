@@ -1,6 +1,7 @@
 - type: entity
   parent: RMCHelmetBase
   id: MCArmorHelmetModularJaeger
+  categories: [ MCContent ]
   abstract: true
   components:
   - type: Sprite

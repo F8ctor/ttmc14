@@ -1,0 +1,112 @@
+- type: entity
+  parent: MCArmor
+  id: MCArmorModularSOM
+  abstract: true
+  components:
+  - type: Sprite
+  - type: Clothing
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/armor_overlays.rsi
+        state: lamp-off
+  - type: MCArmorModularClothing
+
+- type: entity
+  parent: MCArmorModularSOM
+  id: MCArmorModularLightSOM
+  name: SOM scout armor
+  description: The M-11 scout armor is a lightweight suit that that allows for minimal encumberance while still providing reasonable protection. Often seen on scouts or other specialist units that aren't normally getting shot at.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/SOM/Armor/som_light_black.rsi
+  - type: MCArmor
+    soft:
+      melee: 35
+      bullet: 55
+      laser: 50
+      energy: 50
+      bomb: 45
+      bio: 45
+      fire: 50
+      acid: 40
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+
+- type: entity
+  parent: MCArmorModularSOM
+  id: MCArmorModularMediumSOM
+  name: medium battle armor
+  description: The M-21 battle armor is typically used by SOM infantry. It utilizes special light-weight alloys that provides good protection with only minor impairment to the users mobility.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/SOM/Armor/som_medium_black.rsi
+  - type: MCArmor
+    soft:
+      melee: 45
+      bullet: 65
+      laser: 60
+      energy: 60
+      bomb: 50
+      bio: 50
+      fire: 55
+      acid: 50
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+
+- type: entity
+  parent: MCArmorModularSOM
+  id: MCArmorModularHeavySOM
+  name: SOM heavy battle armor
+  description: A standard suit of M-31 heavy duty combat armor worn by SOM shock troops. Provides excellent protection however it does reduce mobility somewhat.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/SOM/Armor/som_heavy_black.rsi
+  - type: MCArmor
+    soft:
+      melee: 50
+      bullet: 70
+      laser: 65
+      energy: 65
+      bomb: 55
+      bio: 55
+      fire: 60
+      acid: 55
+  - type: ClothingSpeedModifier
+    walkModifier: 0.65
+    sprintModifier: 0.65
+
+- type: entity
+  parent: MCArmorModularSOM
+  id: MCArmorModularLeaderSOM
+  name: SOM Gorgon pattern assault armor
+  description: A bulky suit of heavy combat armor, the M-35 'Gorgon' armor provides the user with superior protection without severely impacting mobility. Typically seen on SOM leaders or their most elite combat units due to the significant construction and maintenance requirements. You'll need serious firepower to punch through this.
+  components:
+  # siemens_coefficient = 0.4 - IDK Что это
+  # permeability_coefficient = 0.5 - Проницаемость?
+  # gas_transfer_coefficient = 0.5 - Газ?
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/SOM/Armor/som_leader_black.rsi
+  - type: MCArmor
+    soft:
+      melee: 60
+      bullet: 75
+      laser: 70
+      energy: 70
+      bomb: 60
+      bio: 55
+      fire: 65
+      acid: 55
+  - type: ClothingSpeedModifier
+    walkModifier: 0.65
+    sprintModifier: 0.65
+
+- type: entity
+  parent: MCArmorModularLeaderSOM
+  id: MCArmorModularOfficerSOM
+  description: A bulky suit of heavy combat armor, the M-35 'Gorgon' armor provides the user with superior protection without severely impacting mobility. The gold markings on this one signify it is worn by a high ranking field officer. You'll need serious firepower to punch through this. Alt-Click to remove attached items. Use it to toggle the built-in flashlight.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/SOM/Armor/som_officer_black.rsi
