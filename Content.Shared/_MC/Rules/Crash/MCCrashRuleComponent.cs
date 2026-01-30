@@ -30,7 +30,7 @@ public sealed partial class MCCrashRuleComponent : Component, IRulePlanet, IRule
     public ProtoId<JobPrototype> XenoSelectableJob = "MCXenoSelectableXeno";
 
     [DataField, AutoNetworkedField]
-    public EntProtoId LarvaEnt = "MCXenoLarva";
+    public EntProtoId LarvaEnt = "MCXenoRafik";
 
     [DataField, AutoNetworkedField]
     public ResPath Thunderdome = new("/Maps/_RMC14/thunderdome.yml");
@@ -52,17 +52,6 @@ public sealed partial class MCCrashRuleComponent : Component, IRulePlanet, IRule
 
     [DataField, AutoNetworkedField]
     public TimeSpan MarineRespawnTime = TimeSpan.FromMinutes(15);
-
-    // Xenos
-
-    [DataField, AutoNetworkedField]
-    public List<EntProtoId> XenoRestrictedCastes = new();
-
-    [DataField, AutoNetworkedField]
-    public TimeSpan XenoRespawnTime = TimeSpan.FromMinutes(3);
-
-    [DataField, AutoNetworkedField]
-    public TimeSpan XenoSwapTimer = TimeSpan.FromMinutes(5);
 
     [DataField]
     public MCCrashRuleResult Result = MCCrashRuleResult.None;

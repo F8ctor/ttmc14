@@ -9,9 +9,9 @@
   - type: Sprite
     sprite: _MC/Clothing/Pouches/firstaid_injector.rsi
   - type: Storage
-    maxItemSize: Normal
+    maxItemSize: Tiny
     grid:
-    - 0,0,15,1 # 8 slots
+    - 0,0,13,3 # 14 slots
     whitelist:
       tags:
       - MCAutoInjector
@@ -27,9 +27,9 @@
     sprite: _MC/Clothing/Pouches/firstaid_injector_icc.rsi
     state: base
   - type: Storage
-    maxItemSize: Normal
+    maxItemSize: Tiny
     grid:
-    - 0,0,15,1 # 8 slots
+    - 0,0,13,3 # 14 slots
     whitelist:
       tags:
       - MCAutoInjector
@@ -47,12 +47,20 @@
 
 - type: entity
   parent: MCPouchMedicalInjector
-  id: MCPouchMedicalInjectorCorpsmanFull
-  suffix: Corpsman, Full
+  id: MCPouchMedicalInjectorBaseFull
+  suffix: Standart, Full
   components:
   - type: StorageFill
     contents:
-    - id: MCAutoInjectorCombatAdv
+    - id: MCAutoInjectorBicaridine
+      amount: 2
+    - id: MCAutoInjectorKelotane
+      amount: 2
+    - id: MCAutoInjectorTramadol
+      amount: 2
+    - id: MCAutoInjectorTricordrazine
+      amount: 2
+    - id: MCAutoInjectorCombat
       amount: 3
     - id: MCAutoInjectorDexalinPlus
     - id: MCAutoInjectorQuickClotPlus
@@ -90,3 +98,7 @@
       amount: 2
     - id: MCAutoInjectorParacetamol # временно вместо Peridaxon Plus
       amount: 2
+    - id: MCAutoInjectorDylovene
+      amount: 1
+    - id: MCAutoInjectorSalineGlucose
+      amount: 1

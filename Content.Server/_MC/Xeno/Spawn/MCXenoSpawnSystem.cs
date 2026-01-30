@@ -57,6 +57,7 @@ public sealed class MCXenoSpawnSystem : EntitySystem
     public bool SpawnXenoMap<T>(Entity<T> rule) where T : Component, IRulePlanet
     {
         var planet = SelectRandomPlanet();
+
         _lastPlanetMaps.Enqueue(planet.Proto.ID);
         while (_lastPlanetMaps.Count > 0 && _lastPlanetMaps.Count > _mapVoteExcludeLast)
         {
@@ -106,10 +107,10 @@ public sealed class MCXenoSpawnSystem : EntitySystem
         var colorSequence = _rmcAmbientLight.ProcessPrototype(rmcAmbientEffectComp.Sunset);
         _rmcAmbientLight.SetColor((xenoMap, rmcAmbientComp), colorSequence, _sunsetDuration);
 
-        SetFriendlyHives(_mcXenoHive.DefaultHive);
-
         var ev = new MCPlanetMapSpawnEvent(map, planet.Proto);
         RaiseLocalEvent(ref ev);
+
+        SetFriendlyHives(_mcXenoHive.DefaultHive);
 
         return true;
     }

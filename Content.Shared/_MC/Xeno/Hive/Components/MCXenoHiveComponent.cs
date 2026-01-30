@@ -1,17 +1,27 @@
 ﻿using Content.Shared._MC.Xeno.Hive.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._MC.Xeno.Hive.Components;
 
-// TODO: This is a theoretical component that is intended to replace RMC systems in the future.
-// Don’t expect it to actually exist in the game - technically.
-// It does not do anything.
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
 public sealed partial class MCXenoHiveComponent : Component
 {
     [DataField, AutoNetworkedField]
     public Dictionary<ProtoId<MCXenoHivePsypointTypePrototype>, int> Psypoints = new();
+
+    [DataField, AutoNetworkedField]
+    public List<EntityUid> Rulers = new();
+
+    [DataField, AutoNetworkedField]
+    public int LarvaPoints;
+
+    [DataField, AutoNetworkedField]
+    public int LarvaPointsPerBurrowedLarva = 8;
+
+    [DataField, AutoNetworkedField]
+    public MCXenoHiveConfiguration Configuration = new();
 
     [DataField, AutoNetworkedField]
     public TimeSpan RespawnTime = TimeSpan.FromMinutes(3);
@@ -20,32 +30,60 @@ public sealed partial class MCXenoHiveComponent : Component
     public TimeSpan CasteSwapTime = TimeSpan.FromMinutes(5);
 
     [DataField, AutoNetworkedField]
-    public bool CanCollapse = true;
+    public bool Collapsed;
 
-    [DataField, AutoNetworkedField]
-    public bool CanLarvaPoints = true;
+    [DataField]
+    public Dictionary<MCXenoHiveCollapseType, TimeSpan> Collapse = new();
+}
 
-    [DataField, AutoNetworkedField]
-    public bool CanEvolveWithoutLeader;
+[DataDefinition, Serializable, NetSerializable]
+public sealed partial class MCXenoHiveConfiguration
+{
+    [DataField]
+    public MCXenoHiveConfigGeneral General = new();
 
-    [DataField, AutoNetworkedField]
-    public List<EntProtoId> CaseEvolutionBlock = new()
+    [DataField]
+    public MCXenoHiveConfigEvolution Evolution = new();
+}
+
+[DataDefinition, Serializable, NetSerializable]
+public sealed partial class MCXenoHiveConfigGeneral
+{
+    [DataField]
+    public bool AllowCollapse = true;
+
+    [DataField]
+    public bool AllowHarvestLarvaPoints = true;
+
+    [DataField]
+    public bool AllowGenerateLarvaPoint = true;
+
+    [DataField]
+    public Dictionary<int, int> AdditionalSlots = new();
+
+    [DataField]
+    public Dictionary<MCXenoHiveCollapseType, TimeSpan> CollapseTime = new()
     {
-        // "MCXenoHiveMind",
-        "MCXenoWraith",
+        { MCXenoHiveCollapseType.Ruler, TimeSpan.FromMinutes(5) },
+        { MCXenoHiveCollapseType.Silo, TimeSpan.FromMinutes(5) },
     };
+}
 
-    [DataField, AutoNetworkedField]
-    public Dictionary<EntProtoId, int> CasteEvolutionCountRequire = new()
-    {
-        // { "MCXenoHivelord", 5 },
-        { "MCXenoQueen", 10 },
-        { "MCXenoKing", 12 },
-    };
+[DataDefinition, Serializable, NetSerializable]
+public sealed partial class MCXenoHiveConfigEvolution
+{
+    [DataField]
+    public bool WithoutRuler;
 
-    [DataField, AutoNetworkedField]
-    public int BurrowedLarva;
+    [DataField]
+    public HashSet<EntProtoId> BlockedCastes = new();
 
-    [DataField, AutoNetworkedField]
-    public int BurrowedLarvaSlotFactor = 4;
+    [DataField]
+    public Dictionary<EntProtoId, int> RequiredCasteCount = new();
+}
+
+public enum MCXenoHiveCollapseType
+{
+    Silo,
+    Ruler,
 }
