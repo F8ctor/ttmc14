@@ -1,6 +1,8 @@
-﻿using Content.Shared._RMC14.Xenonids;
+﻿using Content.Shared._MC.Xeno.Constructions.Silo;
+using Content.Shared._MC.Xeno.Hive.Components;
+using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Hive;
-using Content.Shared.Chat;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -10,56 +12,45 @@ namespace Content.Shared._MC.Xeno.Hive.Systems;
 public abstract partial class MCSharedXenoHiveSystem : MCEntitySystemSingleton<MCXenoHiveSingletonComponent>
 {
     [Dependency] private readonly MobStateSystem _mobState = null!;
-    [Dependency] private readonly SharedChatSystem _chat = null!;
     [Dependency] private readonly SharedXenoHiveSystem _rmcHive = null!;
+
+    private EntityQuery<MCXenoHiveComponent> _hiveQuery;
+    private EntityQuery<MobStateComponent> _mobStateQuery;
+    private EntityQuery<HiveComponent> _rmcHiveQuery;
+    private EntityQuery<HiveMemberComponent> _rmcHiveMemberQuery;
 
     [ViewVariables]
     public EntityUid? DefaultHive => Inst.Comp.DefaultHive;
-
-    private EntityQuery<HiveComponent> _hiveQuery;
-    private EntityQuery<HiveMemberComponent> _hiveMemberQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        _hiveQuery = GetEntityQuery<HiveComponent>();
-        _hiveMemberQuery = GetEntityQuery<HiveMemberComponent>();
+        _hiveQuery = GetEntityQuery<MCXenoHiveComponent>();
+        _mobStateQuery = GetEntityQuery<MobStateComponent>();
+        _rmcHiveQuery = GetEntityQuery<HiveComponent>();
+        _rmcHiveMemberQuery = GetEntityQuery<HiveMemberComponent>();
 
         InitializeRuler();
     }
 
-
-    public void SetCanEvolveWithoutLeader(Entity<HiveComponent?> entity, bool value)
+    public Entity<MCXenoHiveComponent>? GetHive(Entity<HiveMemberComponent?> member)
     {
-        if (!Resolve(entity, ref entity.Comp))
-            return;
+        if (!_rmcHiveMemberQuery.Resolve(member, ref member.Comp, false))
+            return null;
 
-        entity.Comp.CanEvolveWithoutRuler = value;
-        Dirty(entity);
-    }
+        if (member.Comp.Hive is not { } uid || TerminatingOrDeleted(uid))
+            return null;
 
-    public void SetCanCollapse(Entity<HiveComponent?> entity, bool value)
-    {
-        if (!Resolve(entity, ref entity.Comp))
-            return;
+        if (!_hiveQuery.TryComp(uid, out var comp))
+            return null;
 
-        entity.Comp.CanCollapse = value;
-        Dirty(entity);
-    }
-
-    public void SetCanLarvaPoints(Entity<HiveComponent?> entity, bool value)
-    {
-        if (!Resolve(entity, ref entity.Comp))
-            return;
-
-        entity.Comp.CanLarvaPoints = value;
-        Dirty(entity);
+        return (uid, comp);
     }
 
     public Dictionary<int, int> GetTiers(EntityUid hive)
     {
-        if (!_hiveQuery.TryComp(hive, out var component))
+        if (!_rmcHiveQuery.TryComp(hive, out var component))
             return new Dictionary<int, int>();
 
         var result = new Dictionary<int, int>();
@@ -76,21 +67,6 @@ public abstract partial class MCSharedXenoHiveSystem : MCEntitySystemSingleton<M
         return result;
     }
 
-    public void AddBurrowedLarva(EntityUid hive, int count)
-    {
-        if (!TryComp<HiveComponent>(hive, out var hiveComponent))
-            return;
-
-        _rmcHive.AddBurrowedLarvaCount((hive, hiveComponent), count);
-    }
-
-    public int GetBurrowedLarvaCount(EntityUid hive)
-    {
-        return TryComp<HiveComponent>(hive, out var hiveComponent)
-            ? hiveComponent.BurrowedLarva
-            : 0;
-    }
-
     public int GetLiving(EntityUid hive, int minTier = 1)
     {
         var total = 0;
@@ -100,7 +76,7 @@ public abstract partial class MCSharedXenoHiveSystem : MCEntitySystemSingleton<M
             if (_mobState.IsDead(uid))
                 continue;
 
-            if (_hiveMemberQuery.TryComp(uid, out var hiveMemberComponent) && hiveMemberComponent.Hive != hive)
+            if (_rmcHiveMemberQuery.TryComp(uid, out var hiveMemberComponent) && hiveMemberComponent.Hive != hive)
                 continue;
 
             if (comp.Tier < minTier)
@@ -110,6 +86,36 @@ public abstract partial class MCSharedXenoHiveSystem : MCEntitySystemSingleton<M
         }
 
         return total;
+    }
+
+    public bool HasSilo(Entity<MCXenoHiveComponent> hive)
+    {
+        var query = EntityQueryEnumerator<MCXenoSiloComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (!IsMember(uid, hive))
+                continue;
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool IsMember(Entity<HiveMemberComponent?> entity, EntityUid hiveUid)
+    {
+        return _rmcHive.IsMember(entity, hiveUid);
+    }
+
+    public void SetHive(Entity<HiveMemberComponent?> entity, EntityUid? hive)
+    {
+        _rmcHive.SetHive(entity, hive);
+    }
+
+    public void SetSameHive(Entity<HiveMemberComponent?> src, Entity<HiveMemberComponent?> dest)
+    {
+        if (GetHive(src) is {} hive)
+            SetHive(dest, hive);
     }
 }
 
