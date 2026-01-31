@@ -2,6 +2,7 @@
   parent: ClothingMaskPullableBase
   id: MCBaseMask
   abstract: true
+  categories: [ MCContent ]
   components:
   - type: HideLayerClothing
     layers:

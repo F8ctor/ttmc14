@@ -1,5 +1,5 @@
-﻿- type: entity
-  parent: RMCHeadsetShip
+- type: entity
+  parent: MCHeadsetShip
   id: MCHeadsetPMC
   name: pmc radio headset
   description: A standard military radio headset.

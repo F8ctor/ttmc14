@@ -2,6 +2,7 @@
   parent: MCItem
   id: MCWebbing
   name: webbing
+  categories: [ MCContent ]
   abstract: true
   components:
   - type: Sprite

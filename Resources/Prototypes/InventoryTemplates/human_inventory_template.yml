@@ -95,8 +95,8 @@
       uiWindowPos: 2,0
       strippingWindowPos: 2,5
       dependsOn: outerClothing
-      dependsOnComponents:
-      - type: AllowSuitStorage
+     # dependsOnComponents:
+     # - type: AllowSuitStorage ШЛО ОНО НАХУЙ БЛЯТЬ
       displayName: Suit Storage
     - name: id
       slotTexture: id

@@ -1,6 +1,7 @@
 - type: entity
   parent: RMCLabcoat
   id: MCLabcoatBase
+  categories: [ MCContent ]
   suffix: MC
   name: labcoat
   description: A suit that protects against minor chemical spills.

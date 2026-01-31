@@ -32,6 +32,12 @@
   - type: IntegratedVisors
     visorsToAdd:
     - RMCVisorSquadIntegrated
+  - type: MCArmorModularClothing
+    slots:
+    - id: main_helmet
+      whitelist:
+        tags:
+        - MCArmorModuleHead
   - type: RMCBulkyArmor
   - type: OverwatchCamera
 

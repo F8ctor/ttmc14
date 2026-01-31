@@ -1,5 +1,5 @@
 - type: entity
-  parent: RMCHeadsetShip
+  parent: MCHeadsetShip
   id: MCHeadsetCommand
   name: marine command radio headset
   description: A standard military radio headset.
@@ -15,7 +15,7 @@
     keySlots: 2
 
 - type: entity
-  parent: RMCHeadsetShip
+  parent: MCHeadsetShip
   id: MCHeadsetResearch
   name: research radio headset
   description: A standard military radio headset.
@@ -31,7 +31,7 @@
     keySlots: 2
 
 - type: entity
-  parent: RMCHeadsetShip
+  parent: MCHeadsetShip
   id: MCHeadsetMedical
   name: medical radio headset
   description: A standard military radio headset.

@@ -13,6 +13,12 @@
     - HeadSide
     - Snout
   - type: RMCBulkyArmor
+  - type: MCArmorModularClothing
+    slots:
+    - id: main_helmet
+      whitelist:
+        tags:
+        - MCArmorModuleHead
 
 - type: entity
   parent: MCArmorHelmetModularSOM

@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: RMCHeadsetShip
+  parent: MCHeadsetShip
   id: MCHeadsetANS
   name: ans radio headset
   description: A standard military faction ANS radio headset.

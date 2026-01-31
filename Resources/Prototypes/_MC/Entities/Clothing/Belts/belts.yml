@@ -332,9 +332,10 @@
   components:
   - type: Sprite
     sprite: _MC/Clothing/Belt/sparepouch.rsi
-    slots: 
-    - belt
+  - type: Clothing
+    slots:
     - suitStorage
+    - Belt
   - type: Storage
     maxItemSize: Normal
     grid:

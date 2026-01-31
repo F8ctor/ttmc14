@@ -1,5 +1,5 @@
 - type: entity
-  parent: RMCHeadsetShip
+  parent: MCHeadsetShip
   id: MCHeadsetSOM
   name: miners' headset
   components:
