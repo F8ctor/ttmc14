@@ -553,7 +553,7 @@
   - type: RMCSprayAmmoProvider
   - type: Spray
     transferAmount: 5
-    sprayedPrototype: RMCExtinguisherSpray
+    sprayedPrototype: MCExtinguisherSpraySpec
     vaporAmount: 1
     sprayDistance: 6
     sprayVelocity: 8

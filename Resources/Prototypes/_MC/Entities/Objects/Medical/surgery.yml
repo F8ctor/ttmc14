@@ -1,6 +1,7 @@
 # Base
 - type: entity
   parent: BaseToolSurgery
+  categories: [ MCContent ]
   id: MCBaseToolSurgery
   suffix: MC
   abstract: true

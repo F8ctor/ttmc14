@@ -73,3 +73,12 @@
   components:
   - type: Sprite
     sprite: _MC/Clothing/Back/Satchels/SOM/satchel.rsi
+
+- type: entity
+  parent: MCSatchel
+  id: MCSatchelANS
+  name: operative satchel
+  description: A tactical satchel for quick access to basic items, belonging to ANS soldiers.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Back/Satchels/ANS/ans.rsi

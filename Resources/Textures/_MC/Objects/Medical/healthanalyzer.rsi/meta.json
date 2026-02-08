@@ -5,7 +5,7 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from https://github.com/tgstation/tgstation/commit/f07f847706d85b7cfa4b398e5175732212b69a63 and recolored, in-hand sprites by SeamLesss (github), https://github.com/tgstation/TerraGov-Marine-Corps/blob/master/icons/obj/device.dmi modifed by F8ctor (Github)",
+    "copyright": "Taken from https://github.com/tgstation/tgstation/commit/f07f847706d85b7cfa4b398e5175732212b69a63 and recolored, in-hand sprites by SeamLesss (github), https://github.com/tgstation/TerraGov-Marine-Corps/blob/master/icons/obj/device.dmi modified by F8ctor (Github)",
     "states": [
         {
             "name": "analyzer",

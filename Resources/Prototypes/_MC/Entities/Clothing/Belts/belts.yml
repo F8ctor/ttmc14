@@ -58,6 +58,33 @@
   - type: Clothing
     sprite: _MC/Clothing/Belt/icc.rsi
 
+- type: entity
+  parent: MCClothingBeltMarine
+  id: MCClothingBeltANS
+  name: tactical ammo belt
+  description: Tactical belt. The primary function of this belt is to provide quick access to ammunition during combat operations. Although it is a modified version of the S18 ammo belt, an additional pouch has been added for greater modularity, allowing it to hold almost all types of ammunition and equipment.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/ans.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/ans.rsi
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,17,1 # 9 slots
+    whitelist:
+      tags:
+      - MCHandful
+      - MCMagazineSidearm
+      - MCMagazineRifle
+      - MCMagazinePepperball
+      - MCMagazineShotgun
+      - MCMagazineSmg
+      - MCBatteryTerra
+      - MCGrenade
+      - MCFlamerTank
+  - type: FixedItemSizeStorage
+
 # shotgun
 - type: entity
   parent: MCClothingBeltStorageBase
@@ -100,6 +127,17 @@
   - type: Clothing
     sprite: _MC/Clothing/Belt/shotgun_icc.rsi
 
+- type: entity
+  parent: MCClothingBeltShotgun
+  id: MCClothingBeltShotgunANS
+  name: shotgun shell load rig
+  description: A cartridge belt intended for holding shotgun shells or individual buckshot rounds, manufactured from black synthetic fiber material.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/shotgun_ans.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/shotgun_ans.rsi
+
 # grenade
 - type: entity
   parent: MCClothingBeltStorageBase
@@ -130,6 +168,27 @@
     sprite: _MC/Clothing/Belt/grenade_som.rsi
   - type: Clothing
     sprite: _MC/Clothing/Belt/grenade_som.rsi
+
+- type: entity
+  parent: MCClothingBeltGrenade
+  id: MCClothingBeltGrenadeANS
+  name: A1 pattern grenade rig
+  description: This version is designed to carry bulk quantities of grenades. Manufactured from black synthetic fiber material.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/grenade_ans.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/grenade_ans.rsi
+
+- type: entity
+  parent: MCClothingBeltGrenadeANS
+  id: MCClothingBeltGrenadeANSV2
+  name: A2 pattern grenade rig
+  description: This version is designed to carry even larger quantities of grenades. Manufactured from black synthetic fiber material.
+  components:
+  - type: Storage
+    grid:
+    - 0,0,15,3 # 16 slots
 
 - type: entity
   parent: MCClothingBeltGrenade
@@ -221,6 +280,7 @@
       - MCOintment
       - MCTraumaKit
       - MCBurnKit
+      - MCHealingItem
       - MCAutoInjector
       - MCRollerItem
       - MCBodyBag
@@ -236,7 +296,7 @@
       - MCPillCanister
       - MCPacketPills
       - MCCaseSyringe
-      - MCHypospra
+      - MCHypospray
       - MCDefibrillator
       - MCPill
   - type: FixedItemSizeStorage
@@ -349,3 +409,12 @@
   components:
   - type: Sprite
     sprite: _MC/Clothing/Belt/sparepouch_som.rsi
+
+- type: entity
+  parent: MCBeltSparepouch
+  id: MCBeltSparepouchANS
+  name: tactical utility pouch
+  description: A small, lightweight tactical pouch that can be attached to body armor to provide additional storage space for various equipment, as well as box and drum magazines. Made from ANS.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/sparepouch_ans.rsi

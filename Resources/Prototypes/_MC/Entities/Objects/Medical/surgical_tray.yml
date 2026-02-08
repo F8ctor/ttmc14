@@ -1,6 +1,7 @@
 - type: entity
   parent: CMSurgicalCase
   id: MCSurgicalTrayEmpty
+  categories: [ MCContent ]
   suffix: MC
   name: surgical tray
   description: A small metallic tray covered in sterile tarp. Intended to store surgical tools in a neat and clean fashion.

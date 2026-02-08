@@ -1,0 +1,114 @@
+- type: entity
+  parent: RMCHelmetBase
+  id: MCArmorHelmetANS
+  categories: [ MCContent ]
+  abstract: true
+  components:
+  - type: Sprite
+  - type: Clothing
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+    - HeadSide
+    - Snout
+  - type: RMCBulkyArmor
+
+- type: entity
+  parent: MCArmorHelmetANS
+  id: MCArmorHelmetHadesANS
+  name: ANS Hades II Helmet System
+  description: A modified helmet paired with the 'Hades II' Iarmor module, designed for significantly improved protection from fire, without compromising normal durability.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/ANS/Armor/Modular/spec.rsi
+  - type: MCArmor
+    soft:
+      melee: 40
+      bullet: 60
+      laser: 70
+      energy: 50
+      bomb: 70
+      bio: 45
+      fire: 100
+      acid: 40
+
+- type: entity
+  parent: MCArmorHelmetANS
+  id: MCArmorHelmetModularMediumANS
+  name: ANS assault medic helmet
+  description: The standard SOM combat helmet was soon modified by ANS forces and is now worn exclusively by combat medics due to the helmet’s unreliability in active combat. It was originally made using older polymers, providing a high level of protection without compromising visibility.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/ANS/Armor/Modular/medic.rsi
+  - type: MCArmor
+    soft:
+      melee: 40
+      bullet: 45
+      laser: 60
+      energy: 60
+      bomb: 45
+      bio: 70
+      fire: 45
+      acid: 70
+
+- type: entity
+  parent: MCArmorHelmetANS
+  id: MCArmorHelmetModularEngineerANS
+  name: ANS engineering helmet
+  description: A specialised helmet designed for use by combat engineers ANS. Its main feature being an integrated welding mask.
+  components:
+  - type: EyeProtection
+  # 	It has the following attachments:
+  #	- the integrated welding visor helmet module.
+  - type: Sprite
+    sprite: _MC/Clothing/Head/ANS/Armor/Modular/engineer.rsi
+  - type: MCArmor
+    soft:
+      melee: 60
+      bullet: 65
+      laser: 65
+      energy: 70
+      bomb: 60
+      bio: 50
+      fire: 65
+      acid: 50
+
+- type: entity
+  parent: MCArmorHelmetANS
+  id: MCArmorHelmetModularLoricaANS
+  name: ANS Lorica II Helmet System
+  description: A bulky helmet paired with the 'Lorica II' armor module, designed for outstanding protection at the cost of significant weight and reduced flexibility. Substantial modified additional armor improves protection against all damage.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/ANS/Armor/Modular/commander.rsi
+  - type: MCArmor
+    soft:
+      melee: 70
+      bullet: 80
+      laser: 80
+      energy: 80
+      bomb: 70
+      bio: 60
+      fire: 70
+      acid: 60
+
+- type: entity
+  parent: MCArmorHelmetANS
+  id: MCArmorHelmetModularAssaultANS
+  name: ANS Gorgon II pattern helmet
+  description: Designed for use with the 'Gorgon II' assault armor, but quickly transitioned by ANS to issuance for regular assault riflemen, providing superior protection. However, as always, it was modified by ANS.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/ANS/Armor/Modular/assault.rsi
+  - type: MCArmor
+    soft:
+      melee: 65
+      bullet: 75
+      laser: 75
+      energy: 65
+      bomb: 65
+      bio: 50
+      fire: 75
+      acid: 50
+

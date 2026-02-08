@@ -1,4 +1,5 @@
 - type: entity
+  categories: [ MCContent ]
   parent: MCItem
   id: MCPill
   name: pill

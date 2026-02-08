@@ -5,6 +5,7 @@
   parent: BaseDeployFoldable
   id: MCBodyBag
   name: body bag
+  categories: [ MCContent ]
   suffix: MC
   description: A folded bag designed for the storage and transportation of cadavers.
   components:

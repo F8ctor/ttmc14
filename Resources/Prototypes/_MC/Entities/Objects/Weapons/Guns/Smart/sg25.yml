@@ -99,7 +99,6 @@
           - MCAttachmentSuppressor
           - MCAttachmentBayonet
           - MCAttachmentRecoilCompensator
-          - MCAttachmentMiniFlamethrower
       mc-slot-underbarrel:
         whitelist:
           tags:

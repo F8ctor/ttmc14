@@ -100,7 +100,7 @@
     ears: MCHeadsetANS
     eyes: MCGlassesHudHealth
 #    back:
-#    belt:
+    belt: MCBeltMedicBagANSFull
 
 - type: job
   parent: MCJob

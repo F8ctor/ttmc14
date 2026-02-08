@@ -56,3 +56,183 @@
     contents:
     - id: MCPillRyetalyn
       amount: 8
+
+- type: entity
+  parent: MCPacketPills
+  id: MCPacketPillsBicaridine
+  name: bicaridine pill packet
+  description: This packet contains bicaridine pills. Used to treat minor lacerations. Once you take them out they don't go back in. No more than 2 pills at once.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/packet_canister.rsi
+    layers:
+    - state: packet_canister
+    - state: packet_canister1
+      map: ["packet_canister1"]
+      visible: false
+      color: "#ed4847"
+    - state: packet_canister2
+      map: ["packet_canister2"]
+      visible: false
+      color: "#ed4847"
+    - state: packet_canister3
+      map: ["packet_canister3"]
+      visible: false
+      color: "#ed4847"
+    - state: packet_canister4
+      map: ["packet_canister4"]
+      visible: false
+      color: "#ed4847"
+    - state: packet_canister5
+      map: ["packet_canister5"]
+      visible: false
+      color: "#ed4847"
+    - state: packet_canister6
+      map: ["packet_canister6"]
+      visible: false
+      color: "#ed4847"
+    - state: packet_canister7
+      map: ["packet_canister7"]
+      visible: false
+      color: "#ed4847"
+    - state: packet_canister8
+      map: ["packet_canister8"]
+      visible: false
+      color: "#ed4847"
+  - type: StorageFill
+    contents:
+    - id: MCPillBicaridine
+      amount: 8
+
+- type: entity
+  parent: MCPacketPills
+  id: MCPacketPillsKelotane
+  name: kelotane pill packet
+  description: This packet contains kelotane pills. Used to treat surface burns. Once you take them out they don't go back in. No more than 2 pills at once.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/packet_canister.rsi
+    layers:
+    - state: packet_canister
+    - state: packet_canister1
+      map: ["packet_canister1"]
+      visible: false
+      color: "#f5e123"
+    - state: packet_canister2
+      map: ["packet_canister2"]
+      visible: false
+      color: "#f5e123"
+    - state: packet_canister3
+      map: ["packet_canister3"]
+      visible: false
+      color: "#f5e123"
+    - state: packet_canister4
+      map: ["packet_canister4"]
+      visible: false
+      color: "#f5e123"
+    - state: packet_canister5
+      map: ["packet_canister5"]
+      visible: false
+      color: "#f5e123"
+    - state: packet_canister6
+      map: ["packet_canister6"]
+      visible: false
+      color: "#f5e123"
+    - state: packet_canister7
+      map: ["packet_canister7"]
+      visible: false
+      color: "#f5e123"
+    - state: packet_canister8
+      map: ["packet_canister8"]
+      visible: false
+      color: "#f5e123"
+  - type: StorageFill
+    contents:
+    - id: MCPillKelotane
+      amount: 8
+
+- type: entity
+  parent: MCPacketPills
+  id: MCPacketPillsTramadol
+  name: tramadol pill packet
+  description: This packet contains tramadol pills. Used as a medium-strength painkiller. Once you take them out they don't go back in. No more than 2 pills at once.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/packet_canister.rsi
+    layers:
+    - state: packet_canister
+    - state: packet_canister1
+      map: ["packet_canister1"]
+      visible: false
+      color: "#8a8686"
+    - state: packet_canister2
+      map: ["packet_canister2"]
+      visible: false
+      color: "#8a8686"
+    - state: packet_canister3
+      map: ["packet_canister3"]
+      visible: false
+      color: "#8a8686"
+    - state: packet_canister4
+      map: ["packet_canister4"]
+      visible: false
+      color: "#8a8686"
+    - state: packet_canister5
+      map: ["packet_canister5"]
+      visible: false
+      color: "#8a8686"
+    - state: packet_canister6
+      map: ["packet_canister6"]
+      visible: false
+      color: "#8a8686"
+    - state: packet_canister7
+      map: ["packet_canister7"]
+      visible: false
+      color: "#8a8686"
+    - state: packet_canister8
+      map: ["packet_canister8"]
+      visible: false
+      color: "#8a8686"
+  - type: StorageFill
+    contents:
+    - id: MCPillKelotane
+      amount: 8
+
+- type: entity
+  parent: MCPacketPills
+  id: MCPacketPillsTricordrazine
+  name: tricordrazine pill packet
+  description: This packet contains tricordrazine pills. Heals all types of damage slightly. Once you take them out they don't go back in. No more than 2 pills at once.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/packet_canister.rsi
+    layers:
+    - state: packet_canister
+    - state: packet_canister1
+      map: ["packet_canister1"]
+      visible: false
+    - state: packet_canister2
+      map: ["packet_canister2"]
+      visible: false
+    - state: packet_canister3
+      map: ["packet_canister3"]
+      visible: false
+    - state: packet_canister4
+      map: ["packet_canister4"]
+      visible: false
+    - state: packet_canister5
+      map: ["packet_canister5"]
+      visible: false
+    - state: packet_canister6
+      map: ["packet_canister6"]
+      visible: false
+    - state: packet_canister7
+      map: ["packet_canister7"]
+      visible: false
+    - state: packet_canister8
+      map: ["packet_canister8"]
+      visible: false
+  - type: StorageFill
+    contents:
+    - id: MCPillTricordrazine
+      amount: 8

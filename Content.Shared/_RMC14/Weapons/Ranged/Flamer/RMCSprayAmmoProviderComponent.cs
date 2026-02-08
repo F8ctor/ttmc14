@@ -13,8 +13,8 @@ public sealed partial class RMCSprayAmmoProviderComponent : Component, IShootabl
     public string SolutionId = "spray";
 
     [DataField, AutoNetworkedField]
-    public FixedPoint2 Cost = FixedPoint2.New(5);
+    public FixedPoint2 Cost = FixedPoint2.New(7);
 
     [DataField, AutoNetworkedField]
-    public EntProtoId Spawn = "RMCExtinguisherSpray";
+    public EntProtoId Spawn = "MCExtinguisherSpray"; // Changes by TTMC14
 }

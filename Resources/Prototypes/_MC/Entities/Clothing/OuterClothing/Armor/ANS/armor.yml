@@ -1,0 +1,105 @@
+- type: entity
+  parent: MCArmor
+  id: MCArmorModularANS
+  abstract: true
+  components:
+  - type: Sprite
+  - type: Clothing
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/armor_overlays.rsi
+        state: lamp-off
+  - type: MCArmorModularClothing
+
+- type: entity
+  parent: MCArmorModularANS
+  id: MCArmorModularMediumANS
+  name: modified medium tactical armor
+  description: The modified medium tactical armor used by ANS assault units. It provides minimal movement restriction while maintaining a reliable level of protection.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/ANS/Armor/common.rsi
+  - type: MCArmor
+    soft:
+      melee: 50
+      bullet: 70
+      laser: 60
+      energy: 40
+      bomb: 55
+      bio: 40
+      fire: 55
+      acid: 45
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+
+- type: entity
+  parent: MCArmorModularANS
+  id: MCArmorModularMediumVestANS
+  name: modified medium armored vest
+  description: Modified medium armored vest, used by military medics of the ANS unit. It provides moderate mobility restriction while offering above-average protection against physical damage.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/ANS/Armor/medic.rsi
+  - type: MCArmor
+    soft:
+      melee: 70
+      bullet: 70
+      laser: 50
+      energy: 50
+      bomb: 60
+      bio: 50
+      fire: 50
+      acid: 50
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+
+- type: entity
+  parent: MCArmorModularANS
+  id: MCArmorModularHeavySpecANS
+  name: ANS Volcarion modular heavy armor
+  description: Modular heavy armor for special purpose weaponry ANS. Forged from the heart of molten lava, this armor provides exceptional protection against extreme heat, physical impacts, thermal damage, explosions, and more. 'Literally embedded into the wearer’s body'
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/ANS/Armor/spec.rsi
+  - type: MCArmor
+    soft:
+      melee: 50
+      bullet: 70
+      laser: 80
+      energy: 50
+      bomb: 80
+      bio: 30
+      fire: 80
+      acid: 30
+  - type: ClothingSpeedModifier
+    walkModifier: 0.65
+    sprintModifier: 0.65
+  - type: Unremoveable
+
+- type: entity
+  parent: MCArmorModularANS
+  id: MCArmorModularCommanderANS
+  name: ANS Commander pattern assault armor
+  description: A modified bulky suit of heavy combat armor, the M-35 'Gorgon' was typically worn by SOM leaders. After internal technical upgrades, this armor now provides the wearer with exceptionally superior protection while maintaining the same level of mobility. You'll need massive firepower to penetrate this armor.
+  components:
+  # siemens_coefficient = 0.4 - IDK Что это
+  # permeability_coefficient = 0.5 - Проницаемость?
+  # gas_transfer_coefficient = 0.5 - Газ?
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/ANS/Armor/commander.rsi
+  - type: MCArmor
+    soft:
+      melee: 80
+      bullet: 80
+      laser: 60
+      energy: 60
+      bomb: 60
+      bio: 50
+      fire: 60
+      acid: 50
+  - type: ClothingSpeedModifier
+    walkModifier: 0.65
+    sprintModifier: 0.65

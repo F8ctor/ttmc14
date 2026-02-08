@@ -55,7 +55,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        MCBrute: 20
+        MCBrute: 12
   - type: Item
     size: Small
     sprite: _MC/Objects/Weapons/Melee/bayonetknife.rsi
@@ -73,10 +73,10 @@
     modifiers:
     - conditions:
         wieldedOnly: true
-      accuracyAddMult: -0.5
+      accuracyAddMult: -0.05
     - conditions:
         unwieldedOnly: true
-      accuracyAddMult: -0.10
+      accuracyAddMult: -0.1
   - type: AttachablePrying
   - type: DeleteOnExplosion
 
@@ -104,11 +104,11 @@
     attackRate: 1
     damage:
       types:
-        MCBrute: 30
+        MCBrute: 25
   - type: DamageOtherOnHit
     damage:
       types:
-        MCBrute: 20
+        MCBrute: 12
   - type: Item
     size: Small
     sprite: _MC/Objects/Weapons/Melee/bayonetknife_som.rsi
@@ -126,9 +126,9 @@
     modifiers:
     - conditions:
         wieldedOnly: true
-      accuracyAddMult: -0.5
+      accuracyAddMult: -0.05
     - conditions:
         unwieldedOnly: true
-      accuracyAddMult: -0.10
+      accuracyAddMult: -0.1
   - type: AttachablePrying
   - type: DeleteOnExplosion

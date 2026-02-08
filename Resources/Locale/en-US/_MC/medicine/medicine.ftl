@@ -16,6 +16,7 @@ mc-isotonic-container-label-text = Is
 mc-nanoblood-container-label-text = Na
 mc-sleeptoxin-container-label-text = An
 mc-quickclot-container-label-text = Qk
+mc-ryetalyn-container-label-text = Ry
 mc-oxycodone-container-label-text = Ox
 mc-quickclotplus-container-label-text = Qk+
 mc-russian-red-container-label-text = Rr

@@ -57,11 +57,11 @@
   components:
   - type: Sprite
     sprite: _MC/Clothing/Back/Backpacks/Marines/standard.rsi
-  - type: StorageOpenDoAfter
-    skipInHand: true
-    skipOnGround: true
-  - type: StorageCloseOnMove
-    skipInHand: true
+#  - type: StorageOpenDoAfter [ No Parity, Sorry bro ]
+#    skipInHand: true
+#    skipOnGround: true
+#  - type: StorageCloseOnMove
+#    skipInHand: true
 
 - type: entity
   parent: MCMPersonalStorage

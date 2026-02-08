@@ -9,7 +9,7 @@
   - type: Clothing
     sprite: _MC/Clothing/Belt/medic_bag.rsi
   - type: Storage
-    maxItemSize: Small
+    maxItemSize: Normal
     grid:
     - 0,0,13,5
     whitelist:
@@ -25,6 +25,7 @@
       - MCOintment
       - MCTraumaKit
       - MCBurnKit
+      - MCHealingItem
       - MCPill
       - MCPacketPills
       components:
@@ -64,7 +65,7 @@
     - id: MCPillCanisterQuickClot
     # alkysine pill bottle
     # spaceacillin pill bottle
-    - id: MCTraumaKit # по 1 MCTraumaKit и MCBurnKit убирайте если добавите пилл боттлы сюда
+    - id: MCTraumaKit # по 1 MCTraumaKit или MCBurnKit убирайте если добавляете пилл боттлы сюда
       amount: 4
     - id: MCBurnKit
       amount: 4
@@ -83,7 +84,7 @@
   - type: Clothing
     sprite: _MC/Clothing/Belt/medic_bag_som.rsi
   - type: Storage
-    maxItemSize: Small
+    maxItemSize: Normal
     grid:
     - 0,0,13,5
     whitelist:
@@ -99,6 +100,7 @@
       - MCOintment
       - MCTraumaKit
       - MCBurnKit
+      - MCHealingItem
       - MCPill
       - MCPacketPills
       components:
@@ -162,10 +164,84 @@
     - id: MCPillCanisterHypervene
     - id: MCPillCanisterMeralyne
     - id: MCPillCanisterDermaline
-    - id: MCTraumaKit # по 1 MCTraumaKit и MCBurnKit убирайте если добавите пилл боттлы сюда
+    - id: MCTraumaKit # по 1 MCTraumaKit или MCBurnKit убирайте если добавляете пилл боттлы сюда
       amount: 3
     - id: MCBurnKit
       amount: 3
     - id: MCSplint
       amount: 3
     - id: MCHealthAnalyzer
+
+- type: entity
+  parent: MCClothingBeltStorageBase
+  id: MCBeltMedicBagANS
+  name: tactical lifesaver bag
+  description: Tactical rescue belt, equipped with pouches for medical supplies, medicines, syringes, and more, used by ANS field medics.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/medic_bag_ans.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/medic_bag_ans.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,13,5
+    whitelist:
+      tags:
+      - MCHealthAnalyzer
+      - MCBottle
+      - MCPillCanister
+      - MCSyringe
+      - MCCaseSyringe
+      - MCAutoInjector
+      - MCGauze
+      - MCSplint
+      - MCOintment
+      - MCTraumaKit
+      - MCBurnKit
+      - MCHealingItem
+      - MCPill
+      - MCPacketPills
+      components:
+      - Pill
+  - type: FixedItemSizeStorage
+  - type: IgnoreContentsSize
+    items:
+      tags:
+      - MCPillCanister
+      - MCCaseSyringe
+      - MCPacketPills
+      - MCPill
+  - type: Tag
+    tags:
+    - RMCBeltMedical
+    - MCBeltMedical
+
+- type: entity
+  parent: MCBeltMedicBagANS
+  id: MCBeltMedicBagANSFull
+  suffix: Full
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCPillCanisterMeralyne
+    - id: MCPillCanisterDermaline
+    - id: MCPillCanisterMeraderm
+    - id: MCPillCanisterRussianRed
+    - id: MCPillCanisterOxycodone
+    - id: MCPillCanisterImidazoline
+    - id: MCPillCanisterDylovene
+    - id: MCPillCanisterRyetalyn
+    - id: MCPillCanisterHypervene
+    - id: MCPillCanisterDexalin
+    - id: MCTraumaKitCombat
+      amount: 2
+    - id: MCBurnKitCombat
+      amount: 2
+    - id: MCBottleNanoblood
+      amount: 2
+    - id: MCBottleSalineGlucose
+      amount: 2
+    - id: MCBottleMeralyne
+    - id: MCBottleDermaline
+    - id: MCBottleMeraderm

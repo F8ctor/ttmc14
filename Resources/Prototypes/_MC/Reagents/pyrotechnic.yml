@@ -1,4 +1,4 @@
-﻿- type: reagent
+- type: reagent
   parent: [ MCReagentMedicine, BasePyrotechnic ]
   id: MCPhoron
   name: mc-reagent-name-phoron

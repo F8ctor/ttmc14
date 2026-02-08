@@ -184,10 +184,16 @@
     canUseUnskilled: true
     skills:
       RMCSkillMedical: 1
-    treatBeginSound:
+    healingBeginSound:
       path: "/Audio/_RMC14/Medical/bandage.ogg"
-    treatEndSound:
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     userPopup: cm-gauze-user-popup
     targetPopup: cm-gauze-target-popup
     othersPopup: cm-gauze-others-popup
@@ -261,6 +267,65 @@
     state: burnkit
   spawn: MCBurnKit
   maxCount: 40
+
+- type: entity
+  parent: MCBaseHealingItem
+  id: MCSplintCombat
+  name: combat medical splints
+  description: Used to stabilize broken bones.
+  suffix: MC
+  components:
+  - type: Stack
+    stackType: MCSplintCombat
+    count: 5
+  - type: Tag
+    tags:
+    - MCHealingItem
+    - MCSplint
+  - type: Sprite
+    state: splint_combat
+  - type: Item
+    heldPrefix: splint
+  - type: WoundTreater # Оно не будет работать ибо торнадотех...
+    wound: Brute
+    treats: true
+    group: Brute
+    consumable: true
+    damage: -80
+    unskilledDamage: -50
+    canUseUnskilled: true
+    skills:
+      RMCSkillMedical: 2
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    treatEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    userPopup: cm-trauma-kit-user-popup
+    targetPopup: cm-trauma-kit-target-popup
+    othersPopup: cm-trauma-kit-others-popup
+    noneSelfPopup: cm-trauma-kit-none-self-popup
+    noneOtherPopup: cm-trauma-kit-none-other-popup
+    noWoundsOnUserPopup: cm-wounds-already-treated-self-popup
+    noWoundsOnTargetPopup: cm-wounds-already-treated-target-popup
+  - type: MedicallyUnskilledDoAfter
+    min: 2
+    skilledDelay: 5
+    doAfter: 5
+
+- type: stack
+  id: MCSplintCombat
+  name: combat splint
+  icon:
+    sprite: "/Textures/_MC/Objects/Medical/medical.rsi"
+    state: combat_splint
+  spawn: MCSplintCombat
+  maxCount: 5
 
 - type: entity
   parent: MCBaseHealingItem
@@ -351,10 +416,16 @@
     canUseUnskilled: true
     skills:
       RMCSkillMedical: 1
-    treatBeginSound:
+    healingBeginSound:
       path: "/Audio/_RMC14/Medical/bandage.ogg"
-    treatEndSound:
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     userPopup: cm-gauze-user-popup
     targetPopup: cm-gauze-target-popup
     othersPopup: cm-gauze-others-popup

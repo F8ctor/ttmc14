@@ -37,11 +37,11 @@
     attackRate: 1
     damage:
       types:
-        MCBrute: 40
+        MCBrute: 10 # TGMC 13 PARITY
   - type: DamageOtherOnHit
     damage:
       types:
-        MCBrute: 50
+        MCBrute: 6 # TGMC 13 PARITY
   - type: Item
     size: Small
     sprite: _MC/Objects/Weapons/Guns/Attachments/muzzle.rsi
@@ -54,12 +54,12 @@
     modifiers:
     - bonusDamage:
         types:
-          MCBrute: 50
+          MCBrute: 25 # TGMC 13 PARITY
   - type: AttachableWeaponRangedMods
     modifiers:
     - conditions:
         wieldedOnly: true
-      accuracyAddMult: -0.5
+      accuracyAddMult: -0.05
     - conditions:
         unwieldedOnly: true
       accuracyAddMult: -0.1

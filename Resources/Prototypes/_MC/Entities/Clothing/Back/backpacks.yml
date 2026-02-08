@@ -255,5 +255,63 @@
     tags:
     - MCBackpackEngineer
 
-- type: Tag 
+- type: Tag
   id: MCBackpackEngineer
+
+- type: entity
+  parent: MCBackpack
+  id: MCBackpackEngineerANS
+  name: ANS pyrotechnician fueltank
+  description: A specialized backpack worn by ANS technicians. It is equipped with a unique fuel tank for rapid refueling of a specialized flamethrower.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Back/Backpacks/ANS/engineer_pack.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Back/Backpacks/ANS/engineer_pack.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,15,1
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 260
+        reagents:
+        - ReagentId: MCNapalm
+          Quantity: 260
+  - type: SolutionTransfer
+    transferAmount: 260
+    maxTransferAmount: 260
+    minTransferAmount: 260
+  - type: RMCSolutionTransferWhitelist
+    popup: rmc-solution-transfer-whitelist-failed-not-welding-tank
+    targetWhitelist:
+      tags:
+      - MCPyroFlamer
+      - MCPyroFlamerMini
+  - type: NoMixingReagents
+  - type: CMStorageVisualizer
+    storageClosed: null
+    storageOpen: null
+  - type: RMCFlamerBackpack
+    solution: tank
+  - type: DetailedExaminableSolution
+    solution: tank
+  - type: DrawableSolution
+    solution: tank
+  - type: RMCRefillSolutionOnStore
+    solution: tank
+  - type: Tag
+    tags:
+    - MCBackpackFlamer
+
+- type: entity
+  parent: MCBackpack
+  id: MCBackpackANS
+  name: ANS lightweight rucksack
+  description: A lightweight rucksack worn by ANS personnel.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Back/Backpacks/ANS/lightpack.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Back/Backpacks/ANS/lightpack.rsi

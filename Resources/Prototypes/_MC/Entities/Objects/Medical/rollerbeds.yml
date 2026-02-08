@@ -6,6 +6,7 @@
 
 - type: entity
   id: MCRollerBedDestruction
+  categories: [ MCContent ]
   abstract: true
   components:
   - type: Damageable

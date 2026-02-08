@@ -67,7 +67,6 @@
           - MCAttachmentSuppressor
           - MCAttachmentBayonet
           - MCAttachmentRecoilCompensator
-          # - TODO: M22
           # - TODO: Heavy Barrel
       rmc-aslot-rail:
         whitelist:
@@ -91,6 +90,7 @@
           - MCAttachmentVerticalGrip
           - MCAttachmentAngledGrip
           - MCAttachmentBurstFireAssembly
+          - MCAttachmentUnderbarrelShotgun
           # - TODO: Attached TX-7
           # - TODO: PepperBall mini
   - type: AttachableHolderVisuals

@@ -1,6 +1,6 @@
 - type: entity
   parent: RMCHelmetBase
-  id: MCArmorHelmetModularSOM
+  id: MCArmorHelmetSOM
   categories: [ MCContent ]
   abstract: true
   components:
@@ -13,15 +13,9 @@
     - HeadSide
     - Snout
   - type: RMCBulkyArmor
-  - type: MCArmorModularClothing
-    slots:
-    - id: main_helmet
-      whitelist:
-        tags:
-        - MCArmorModuleHead
 
 - type: entity
-  parent: MCArmorHelmetModularSOM
+  parent: MCArmorHelmetSOM
   id: MCArmorHelmetModularHadesSOM
   name: Hades Helmet System
   description: A helmet paired with the 'Hades' armor module, designed for significantly improved protection from fire, without compromising normal durability.
@@ -40,7 +34,7 @@
       acid: 40
 
 - type: entity
-  parent: MCArmorHelmetModularSOM
+  parent: MCArmorHelmetSOM
   id: MCArmorHelmetModularMediumSOM
   name: SOM infantry helmet
   description: The standard combat helmet worn by SOM combat troops. Made using advanced polymers to provide very effective protection without compromising visibility.
@@ -59,7 +53,7 @@
       acid: 50
 
 - type: entity
-  parent: MCArmorHelmetModularSOM
+  parent: MCArmorHelmetSOM
   id: MCArmorHelmetModularEngineerSOM
   name: SOM engineering helmet
   description: A specialised helmet designed for use by combat engineers. Its main feature being an integrated welding mask.
@@ -81,7 +75,7 @@
       acid: 50
 
 - type: entity
-  parent: MCArmorHelmetModularSOM
+  parent: MCArmorHelmetSOM
   id: MCArmorHelmetModularBioSOM
   name: SOM biohazard helmet
   description: This specialised helmet is worn by SOM personel equipped to deal with dangerous chemical, radiological or otherwise hazard substances. Typical unleashed by the SOM themselves.
@@ -100,7 +94,7 @@
       acid: 70
 
 - type: entity
-  parent: MCArmorHelmetModularSOM
+  parent: MCArmorHelmetSOM
   id: MCArmorHelmetModularVeteranSOM
   name: SOM veteran helmet
   description: The standard combat helmet worn by SOM combat specialists. State of the art materials provides more protection for more valuable brains.
@@ -119,7 +113,7 @@
       acid: 55
 
 - type: entity
-  parent: MCArmorHelmetModularSOM
+  parent: MCArmorHelmetSOM
   id: MCArmorHelmetModularLoricaSOM
   name: Lorica Helmet System
   description: A bulky helmet paired with the 'Lorica' armor module, designed for outstanding protection at the cost of significant weight and reduced flexibility. Substantial additional armor improves protection against all damage.
@@ -138,7 +132,7 @@
       acid: 60
 
 - type: entity
-  parent: MCArmorHelmetModularSOM
+  parent: MCArmorHelmetSOM
   id: MCArmorHelmetModularLeaderSOM
   name: SOM Gorgon pattern helmet
   description: Made for use with Gorgon pattern assault armor, providing superior protection. Typically seen on SOM leaders or their most elite combat units.

@@ -93,3 +93,37 @@
     layers:
     - state: pill20
       map: [ "enum.DamageStateVisualLayers.Base" ]
+
+- type: entity
+  parent: MCPill
+  id: MCPillOxycodone
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: MCOxycodone
+          Quantity: 10
+  - type: Sprite
+    layers:
+    - state: pill21
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+
+- type: entity
+  parent: MCPill
+  id: MCPillRussianRed
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: MCRussianRed
+          Quantity: 10
+        - ReagentId: MCOxycodone
+          Quantity: 5
+  - type: Sprite
+    layers:
+    - state: pill21
+      map: [ "enum.DamageStateVisualLayers.Base" ]

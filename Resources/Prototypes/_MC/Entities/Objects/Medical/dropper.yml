@@ -1,4 +1,5 @@
 ﻿- type: entity
+  categories: [ MCContent ]
   parent: Dropper
   description: A dropper. Transfers 5 units.
   id: MCDropper

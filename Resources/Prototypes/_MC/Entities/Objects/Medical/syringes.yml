@@ -1,6 +1,7 @@
 ﻿- type: entity
   parent: Syringe
   id: MCSyringe
+  categories: [ MCContent ]
   suffix: MC
   components:
   - type: Tag

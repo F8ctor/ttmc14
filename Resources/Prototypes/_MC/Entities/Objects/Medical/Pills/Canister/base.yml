@@ -1,12 +1,10 @@
 - type: entity
   parent: PillCanister
   id: MCPillCanister
+  categories: [ MCContent ]
   name: pill bottle
   description: It's an airtight container for storing medication.
   components:
-  - type: Tag
-    tags:
-    - MCPillCanister
   - type: Sprite
     sprite: _RMC14/Objects/Chemistry/pill_canister.rsi
     layers:
@@ -61,8 +59,11 @@
           Open: { visible: false }
           Closed: { visible: true }
   - type: Appearance
-
-  - type: IconLabel
+  - type: Tag
+    tags:
+    - MCPillCanister
+    - PillCanister
+  - type: MCIconLabel
     textColor: White
     storedOffset: 3, 12
   - type: UserInterface

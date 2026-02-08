@@ -1,5 +1,6 @@
 ﻿- type: entity
   parent: [ StorageTank, StructureWheeled ]
+  categories: [ MCContent ]
   id: MCTankReagentEmpty
   name: reagent tank
   description: A reagent tank, typically used to store large quantities of chemicals.

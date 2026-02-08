@@ -1,0 +1,148 @@
+{
+  "version": 1,
+  "license": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/blob/master/icons/mob/inhands/equipment/medical_right.dmi, https://github.com/tgstation/TerraGov-Marine-Corps/blob/master/icons/mob/inhands/equipment/medical_left.dmi, https://github.com/tgstation/TerraGov-Marine-Corps/blob/master/icons/obj/items/syringe.dmi",
+  "copyright": "CC-BY-SA-3.0",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "autoinjector-9x"
+    },
+    {
+      "name": "autoinjector-10"
+    },
+    {
+      "name": "autoinjector-10x"
+    },
+    {
+      "name": "autoinjector-12"
+    },
+    {
+      "name": "autoinjector-12x"
+    },
+    {
+      "name": "clonefix0"
+    },
+    {
+      "name": "devilpower"
+    },
+    {
+      "name": "devilpowerx"
+    },
+    {
+      "name": "lilac"
+    },
+    {
+      "name": "lilacx"
+    },
+    {
+      "name": "mystery"
+    },
+    {
+      "name": "mysteryx"
+    },
+    {
+      "name": "redgreen"
+    },
+    {
+      "name": "redgreenx"
+    },
+    {
+      "name": "redwhite"
+    },
+    {
+      "name": "redwhitex"
+    },
+    {
+      "name": "redwood"
+    },
+    {
+      "name": "redwoodx"
+    },
+    {
+      "name": "toxic"
+    },
+    {
+      "name": "toxicx"
+    },
+    {
+      "name": "vampirekiss"
+    },
+    {
+      "name": "vampirekissx"
+    },
+    {
+      "name": "viowhite"
+    },
+    {
+      "name": "viowhitex"
+    },
+    {
+      "name": "angel-light"
+    },
+    {
+      "name": "angel-lightx"
+    },
+    {
+      "name": "autoinjector-1"
+    },
+    {
+      "name": "autoinjector-1x"
+    },
+    {
+      "name": "autoinjector-2"
+    },
+    {
+      "name": "autoinjector-2x"
+    },
+    {
+      "name": "autoinjector-3"
+    },
+    {
+      "name": "autoinjector-3x"
+    },
+    {
+      "name": "autoinjector-4"
+    },
+    {
+      "name": "autoinjector-4x"
+    },
+    {
+      "name": "autoinjector-5"
+    },
+    {
+      "name": "autoinjector-5x"
+    },
+    {
+      "name": "autoinjector-6"
+    },
+    {
+      "name": "autoinjector-6x"
+    },
+    {
+      "name": "autoinjector-7"
+    },
+    {
+      "name": "autoinjector-7x"
+    },
+    {
+      "name": "autoinjector-8"
+    },
+    {
+      "name": "autoinjector-8x"
+    },
+    {
+      "name": "autoinjector-9"
+    }
+  ]
+}

@@ -97,7 +97,7 @@
     acid: XenoAcidSprayStrong
     barricadeDamage:
       types:
-        MCHeat: 5
+        MCBurn: 5
   - type: MeleeWeapon
     damage:
       types:
