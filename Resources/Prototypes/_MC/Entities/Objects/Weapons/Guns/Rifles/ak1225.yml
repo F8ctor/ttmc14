@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ MCWeaponRifle, RMCBaseWeaponMagazineVisuals ]
+  parent: [ MCWeaponRifle, MCWeaponMagazineVisuals ]
   id: MCWeaponRifleAK1225
   name: AK1225 asoult rifle
   description: Timeless classic

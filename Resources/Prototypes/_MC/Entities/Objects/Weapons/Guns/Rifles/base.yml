@@ -2,3 +2,12 @@
   parent: CMBaseWeaponRifle
   id: MCWeaponRifle
   abstract: true
+  components:
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        MCBrute: 5
+    soundHit:
+      collection: GenericHit
+

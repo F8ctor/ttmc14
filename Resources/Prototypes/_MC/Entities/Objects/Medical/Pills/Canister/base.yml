@@ -63,7 +63,7 @@
     tags:
     - MCPillCanister
     - PillCanister
-  - type: MCIconLabel
+  - type: IconLabel
     textColor: White
     storedOffset: 3, 12
   - type: UserInterface

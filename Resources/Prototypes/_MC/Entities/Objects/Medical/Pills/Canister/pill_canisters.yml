@@ -19,7 +19,7 @@
     contents:
     - id: MCPillBicaridine
       amount: 16
-  - type: MCIconLabel
+  - type: IconLabel
     labelTextLocId: mc-bicaridine-container-label-text
 
 - type: entity
@@ -43,7 +43,7 @@
     contents:
     - id: MCPillKelotane
       amount: 16
-  - type: MCIconLabel
+  - type: IconLabel
     labelTextLocId: mc-kelotane-container-label-text
 
 - type: entity
@@ -67,7 +67,7 @@
     contents:
     - id: MCPillDexalin
       amount: 16
-  - type: MCIconLabel
+  - type: IconLabel
     labelTextLocId: mc-dexalin-container-label-text
 
 - type: entity
@@ -91,7 +91,7 @@
     contents:
     - id: MCPillTricordrazine
       amount: 16
-  - type: MCIconLabel
+  - type: IconLabel
     labelTextLocId: mc-tricordrazine-container-label-text
 
 - type: entity
@@ -115,7 +115,7 @@
     contents:
     - id: MCPillDylovene
       amount: 16
-  - type: MCIconLabel
+  - type: IconLabel
     labelTextLocId: mc-dylovene-container-label-text
 
 - type: entity
@@ -139,7 +139,7 @@
     contents:
     - id: MCPillInaprovaline
       amount: 16
-  - type: MCIconLabel
+  - type: IconLabel
     labelTextLocId: mc-inaprovaline-container-label-text
 
 - type: entity
@@ -163,7 +163,7 @@
     contents:
     - id: MCPillImidazoline
       amount: 16
-  - type: MCIconLabel
+  - type: IconLabel
     labelTextLocId: mc-imidazoline-container-label-text
 
 - type: entity
@@ -187,7 +187,7 @@
     contents:
     - id: MCPillHypervene
       amount: 16
-  - type: MCIconLabel
+  - type: IconLabel
     labelTextLocId: mc-hypervene-container-label-text
 
 - type: entity

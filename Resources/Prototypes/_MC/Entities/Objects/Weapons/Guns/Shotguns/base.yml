@@ -75,6 +75,13 @@
     rsi:
       sprite: _RMC14/Interface/MousePointer/shotgun_mouse.rsi
       state: all
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        MCBrute: 5
+    soundHit:
+      collection: GenericHit
 
 - type: Tag
   id: MCWeaponShotgun

@@ -33,3 +33,10 @@
     containers:
       gun_magazine: !type:ContainerSlot
   - type: Wieldable
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        MCBrute: 5
+    soundHit:
+      collection: GenericHit

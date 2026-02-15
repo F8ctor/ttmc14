@@ -5,3 +5,11 @@
   - MCAttachableHolder
   id: MCWeaponSmartGun
   abstract: true
+  components:
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        MCBrute: 20
+    soundHit:
+      collection: GenericHit

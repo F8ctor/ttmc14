@@ -28,10 +28,6 @@
     slots:
     - suitStorage
     - Back
-  - type: MeleeWeapon
-    damage:
-      types:
-        MCBrute: 20
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -129,7 +125,7 @@
   id: MCAttachmentStockSG62
 
 - type: entity
-  parent: [ MCAttachmentBaseUnderbarrel, RMCAttachableToggleableBase ]
+  parent: [ MCAttachmentBaseUnderbarrel, MCAttachableToggleableBase ]
   id: MCAttachmentUnderbarrelSG62
   name: SG-153 spotting rifle
   description: An underslung spotting rifle, generally found ontop of another gun.

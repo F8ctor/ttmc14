@@ -10,6 +10,14 @@
     - MCWeaponPistol
   - type: MCAimedShoot
     aimSpeedModifier: 0.65
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        MCBrute: 8
+    soundHit:
+      collection: GenericHit
+
 
 - type: entity
   parent: RMCWeaponRevolverBase
@@ -23,6 +31,13 @@
     - MCWeaponRevolver
   - type: MCAimedShoot
     aimSpeedModifier: 0.65
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        MCBrute: 5
+    soundHit:
+      collection: GenericHit
 
 - type: Tag
   id: MCWeaponSidearm

@@ -28,10 +28,6 @@
     slots:
     - suitStorage
     - Back
-  - type: MeleeWeapon
-    damage:
-      types:
-        MCBrute: 20
   - type: ItemSlots
     slots:
       gun_magazine:

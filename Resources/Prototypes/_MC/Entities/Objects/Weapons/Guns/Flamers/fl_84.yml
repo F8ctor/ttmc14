@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: [ MCWeaponGun, MCItem, RMCBaseAttachableHolder ]
   id: MCWeaponFlamer
   name: FL-84 flamethrower
@@ -101,6 +101,13 @@
   - type: Tag
     tags:
     - MCWeaponIncineratorFL84
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        MCBrute: 5
+    soundHit:
+      collection: GenericHit
 
 - type: entity
   parent: MCWeaponFlamer

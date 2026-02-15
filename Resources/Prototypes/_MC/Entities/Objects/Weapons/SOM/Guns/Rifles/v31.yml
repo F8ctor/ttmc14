@@ -1,0 +1,449 @@
+- type: entity
+  parent: [ MCWeaponRifle, MCWeaponMagazineVisuals ]
+  id: MCWeaponRifleV31
+  name: V-31 assault rifle
+  description: The V-31 was the primary rifle of the Sons of Mars until the introduction of more advanced energy weapons. Nevertheless, the V-31 continues to see common use due to its comparative ease of production and maintenance, and due to the inbuilt low velocity railgun designed for so called 'micro' grenades. Has good handling due to its compact bullpup design, and is generally effective at all ranges. Uses 10x25mm caseless
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/SOM/Guns/v31.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/SOM/Guns/v31.rsi
+  - type: Gun
+    shotsPerBurst: 3
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    - Burst
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Gunshots/som_rifle.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBrute: 15
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - FullAuto
+    - Burst
+    burstFireRateMultiplier: 1
+    burstScatterMult: 4
+    baseFireRate: 5 # fire delay 0.2
+    scatterWielded: -2
+    scatterUnwielded: 40
+    recoilWielded: 0
+    recoilUnwielded: 4
+    modifiers:
+      FullAuto:
+        shotsToMaxScatter: null
+      Burst:
+        shotsToMaxScatter: null
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1
+    accuracyMultiplierUnwielded: 0.55
+  - type: RMCWeaponDamageFalloff
+    falloffMultiplier: 0.7
+  - type: WieldDelay
+    baseDelay: 0.8
+  - type: WieldableSpeedModifiers
+    base: 0.725
+    light: 1
+    medium: 1
+    heavy: 1
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/t18_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/t18_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineRifleV31
+  - type: AttachableHolder
+    slots:
+      mc-aslot-barrel:
+        whitelist:
+          tags:
+          - MCAttachmentBayonet
+          - MCAttachmentExtendedMuzzle
+          - MCAttachmentSuppressor
+          - MCAttachmentRecoilCompensator
+          - MCAttachmentMuzzleCharger
+      mc-aslot-rail:
+        whitelist:
+          tags:
+          - MCAttachmentRedDotSight
+          - MCAttachmentRailFlashlight
+          - MCAttachmentMagneticHarness
+          - MCAttachmentMiniScope
+          - MCAttachmentT47RailScope
+          # - TODO: Tactical Sensor
+      mc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentLaserSight
+          - MCAttachmentVerticalGrip
+          - MCAttachmentGyroscopicStabilizer
+          - MCAttachmentBipod
+          - MCAttachmentUnderbarrelFlashlight
+      mc-aslot-spec:
+        locked: true
+        startingAttachable: MCAttachmentRailVA61
+        whitelist:
+          tags:
+          - MCAttachmentRailVA61
+  - type: AttachableHolderVisuals # ГОСПОДИ БОЖЕ ПОМИЛУЙ
+    offsets:
+      mc-aslot-barrel: 0.46875, 0.03125
+      mc-aslot-rail: -0.3125, 0.125
+      mc-aslot-underbarrel: 0.125, -0.125
+      mc-aslot-spec: 0, 0
+
+- type: entity
+  parent: MCMagazineRifle
+  id: MCMagazineRifleV31
+  name: V-31 magazine (10x24mm)
+  description: A 10mm rifle magazine designed for the V-31.
+  components:
+  - type: Tag
+    tags:
+    - CMMagazineRifle
+    - MCMagazineRifle
+    - MCMagazineRifleV31
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeV31RifleRounds
+    proto: MCCartridgeV31RifleRounds
+    capacity: 50
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/v31.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Appearance
+
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: MCCartridgeV31RifleRounds
+  name: handful of rifle bullet (10x24mm caseless)
+  description: A handful of rounds to reload on the go.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/leicerep.rsi
+    layers:
+    - state: base
+  - type: CartridgeAmmo
+    proto: MCBulletV31RifleRounds
+  - type: Stack
+    count: 8
+    stackType: MCCartridgeV31RifleRounds
+    baseLayer: base
+    layerStates:
+    - GOV1
+    - GOV2
+    - GOV3
+    - GOV4
+    - GOV5
+    - GOV6
+    - GOV7
+    - GOV8
+  - type: Tag
+    tags:
+    - MCHandful
+    - Cartridge
+    - MCCartridgeV31RifleRounds
+
+- type: stack
+  id: MCCartridgeV31RifleRounds
+  name: handful of rifle bullet (10x24mm caseless)
+  icon: { sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/leicerep.rsi, state: GOV1 }
+  spawn: MCCartridgeV31RifleRounds
+  maxCount: 8
+
+- type: entity
+  parent: RMCBaseBullet
+  id: MCBulletV31RifleRounds
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 25
+  - type: CMArmorPiercing
+    amount: 5
+  - type: MCXenoSunderDamageOnHit
+    amount: 0.5
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 12
+      falloff: 9999
+      ignoreModifiers: true
+  - type: RMCProjectileAccuracy
+    accuracy: 105
+    thresholds:
+    - range: 20
+      falloff: 10
+
+- type: entity
+  parent: [ MCAttachmentBaseRail, MCAttachableToggleableBase ]
+  id: MCAttachmentRailVA61
+  name: VA-61 micro rail launcher
+  description: An in-built railgun designed to fire so called 'micro grenades'. By using railgun technology, the projectile does not need any propellant, helping greatly increase usable space for the payload.
+  components:
+  - type: Tag
+    tags:
+    - MCAttachmentRail
+    - MCAttachmentRailVA61
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Attachments/gun.rsi
+    state: icon
+    layers:
+    - state: va61
+      map: [ "enum.BreechVisuals.Open" ]
+  - type: Item
+    size: Large
+  - type: RMCSelectiveFire
+    recoilWielded: 2
+    baseFireRate: 0.675
+    scatterWielded: 0
+    scatterUnwielded: 0
+    recoilUnwielded: 0
+  - type: GunIgnorePrediction
+  - type: GunPointBlank
+  - type: Gun
+    projectileSpeed: 60
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Fire/pred_plasma_shot.ogg
+    resetOnHandSelected: false
+  - type: ShootAtFixedPoint
+    shootArcProj: true
+    maxFixedRange: 12
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: OnShootTriggerAmmoTimer
+    delay: 0.5
+  # Ammo provider
+  - type: AmmoCounter
+  - type: RMCAmmoEject
+  - type: RMCNameItemOnVend
+    item: PrimaryGun
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - LauncherCompatibleGrenade
+    capacity: 3
+    soundInsert:
+      path: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg
+  # Crosshair
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/explosive_mouse.rsi
+      state: all
+  # Attachable
+  - type: AttachableToggleable
+    userOnly: true
+    attachedOnly: true
+    supercedeHolder: true
+    wieldedUseOnly: true
+    activatePopupText: attachable-popup-switch-to-generic
+    deactivatePopupText: attachable-popup-switch-from-generic
+    activateSound:
+      path: /Audio/_RMC14/Attachable/gun_u7_activate.ogg
+      params:
+        volume: -2
+    actionName: Toggle the VA-61 micro rail Launcher
+    icon:
+      sprite: _MC/Objects/Weapons/Guns/Attachments/gun.rsi
+      state: va61
+    iconActive:
+      sprite: _MC/Objects/Weapons/Guns/Attachments/gun.rsi
+      state: va61-on
+
+- type: Tag
+  id: MCAttachmentRailVA61
+
+- type: Tag
+  id: MCCartridgeV31RifleRounds
+
+- type: Tag
+  id: MCMagazineRifleV31
+
+#SHELLS
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: MCBaseMicroGrenade
+  name: air burst grenade
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Explosives/grenade_launcher.rsi
+    layers:
+    - state: grenade_m74_airburst_f
+  - type: Item
+    size: Small
+  - type: Clothing
+    slots:
+    - suitStorage
+  - type: Destructible
+    thresholds: []
+  - type: IgnorePredictionHide
+  - type: Ammo
+
+- type: entity
+  parent: MCBaseMicroGrenade
+  id: MCHandfulMicroGrenadeAirBurst
+  name: handful of airburst micro grenades (10g)
+  description: A handful of rounds to reload on the go.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/micro_grenades.rsi
+    layers:
+    - state: micro_grenade_airburst_1
+      map: [ "base" ]
+  - type: Tag
+    tags:
+    - Grenade
+    - LauncherCompatibleGrenade
+    - RMCAirburstGrenade
+    - RMCGrenadeAGMF
+  - type: Stack
+    count: 3
+    stackType: MCHandfulMicroGrenadeAirBurst
+    baseLayer: base
+    layerStates:
+    - micro_grenade_airburst_1
+    - micro_grenade_airburst_1
+    - micro_grenade_airburst_2
+    - micro_grenade_airburst_3
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+    proto: MCMicroGrenadeAirBurstProjectile
+
+- type: stack
+  id: MCHandfulMicroGrenadeAirBurst
+  name: handful of buckshot shells
+  icon:
+    sprite: /Textures/_MC/Objects/Weapons/Guns/Ammunition/Handful/micro_grenades.rsi
+    state: micro_grenade_airburst_1
+  spawn: MCHandfulMicroGrenadeAirBurst
+  maxCount: 3
+
+- type: entity
+  abstract: true
+  parent: RMCBaseBullet
+  id: MCBaseMicroGrenadeProjectile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnFixedDistanceStop
+    delay: 0
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/airburst_projectiles.rsi
+    layers:
+    - state: hornet_round
+      shader: unshaded
+  - type: CMArmorPiercing
+    amount: 0
+  - type: Projectile
+    deleteOnCollide: false
+    impactEffect: BulletImpactEffect
+    maxFixedRange: 3
+    damage:
+      types:
+        MCBrute: 15
+    soundHit:
+      path: /Audio/Effects/explosion_small1.ogg
+  - type: ClusterLimitHits
+    limit: 0
+    ignoreFirstHit: true
+  - type: CMExplosionEffect
+    maxShrapnel: 0
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.45,0.15,0.15"
+        mask:
+        - ItemMask
+        restitution: 1
+  - type: IgnorePredictionHide
+
+- type: entity
+  parent: MCBaseMicroGrenadeProjectile
+  id: MCMicroGrenadeAirBurstProjectile
+  name: micro grenade airbust
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ProjectileGrenade
+    evenSpread: true
+    minVelocity: 1
+    maxVelocity: 3
+    fillPrototype: MCMicroGrenadeShrapnelAirBust
+    rebounds: true
+    capacity: 6
+    spreadAngle: 60
+  - type: Projectile
+    deleteOnCollide: false
+    impactEffect: BulletImpactEffect
+    maxFixedRange: 1
+    damage:
+      types:
+        MCBrute: 15
+    soundHit:
+      path: /Audio/Effects/explosion_small1.ogg
+  - type: SoundOnTrigger
+    sound: /Audio/Effects/explosion_small1.ogg
+
+- type: entity
+  parent: RMCBaseBullet
+  id: MCBaseAirburstRound
+  categories: [ HideSpawnMenu ]
+  abstract: true
+  components:
+  - type: PreventCollideWithDead
+
+- type: entity
+  parent: MCBaseAirburstRound
+  id: MCMicroGrenadeShrapnelAirBust
+  name: airbust shrapnel
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: bullet
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffect
+    damage:
+      types:
+        MCBrute: 20
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
+  - type: CMArmorPiercing
+    amount: 0
+  - type: RMCProjectileAccuracy
+    accuracy: 100
+    thresholds:
+    - range: 3
+      falloff: 33
