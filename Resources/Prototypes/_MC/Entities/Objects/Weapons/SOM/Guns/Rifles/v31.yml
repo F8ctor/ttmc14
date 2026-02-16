@@ -367,8 +367,6 @@
     damage:
       types:
         MCBrute: 15
-    soundHit:
-      path: /Audio/Effects/explosion_small1.ogg
   - type: ClusterLimitHits
     limit: 0
     ignoreFirstHit: true
@@ -387,6 +385,8 @@
         - ItemMask
         restitution: 1
   - type: IgnorePredictionHide
+  - type: SoundOnTrigger
+    sound: /Audio/Effects/explosion_small1.ogg
 
 - type: entity
   parent: MCBaseMicroGrenadeProjectile
@@ -409,10 +409,9 @@
     damage:
       types:
         MCBrute: 15
-    soundHit:
-      path: /Audio/Effects/explosion_small1.ogg
-  - type: SoundOnTrigger
-    sound: /Audio/Effects/explosion_small1.ogg
+  - type: SpawnOnTerminate
+    spawn: MCSmokeEffect
+    projectileAdjust: false
 
 - type: entity
   parent: RMCBaseBullet

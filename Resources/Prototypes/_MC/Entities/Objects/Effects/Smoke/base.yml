@@ -1,3 +1,4 @@
+# OLD
 - type: entity
   parent: RMCSmoke
   id: MCSmokeDepricated
@@ -20,3 +21,56 @@
 - type: edgeSpreader
   id: MCSmokeAcid
   updatesPerSecond: 2
+
+# NEW
+- type: entity
+  id: MCSmokeTile
+  name: smoke
+  categories: [ MCContent ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCSmoke
+    - HideContextMenu
+  - type: Sprite
+    sprite: _RMC14/Effects/smoke.rsi
+    state: smoke2
+    drawdepth: Effects
+  - type: MCSmoke
+  - type: Transform
+    anchored: true
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        shape: !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        mask:
+        - MobMask
+        - MobLayer
+        - BarricadeImpassable
+        layer:
+        - MidImpassable
+  - type: TimedDespawn
+    lifetime: 12
+
+- type: entity
+  parent: MCSmokeTile
+  id: MCSmoke
+  abstract: true
+  components:
+  - type: MCEdgeSpreader
+
+- type: entity
+  parent: MCSmokeTile
+  id: MCSmokeEffect
+  name: smoke
+  suffix: Effect
+  components:
+  - type: TimedDespawn
+    lifetime: 1
+
+- type: Tag
+  id: MCSmoke
