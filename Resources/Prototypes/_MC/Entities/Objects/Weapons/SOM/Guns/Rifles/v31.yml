@@ -396,11 +396,11 @@
   components:
   - type: ProjectileGrenade
     evenSpread: true
-    minVelocity: 1
-    maxVelocity: 3
+    minVelocity: 0.5
+    maxVelocity: 1
     fillPrototype: MCMicroGrenadeShrapnelAirBust
     rebounds: true
-    capacity: 6
+    capacity: 5
     spreadAngle: 60
   - type: Projectile
     deleteOnCollide: false

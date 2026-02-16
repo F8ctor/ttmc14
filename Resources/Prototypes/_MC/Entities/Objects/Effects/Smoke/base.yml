@@ -70,7 +70,8 @@
   suffix: Effect
   components:
   - type: TimedDespawn
-    lifetime: 1
+    lifetime: 0.3
+  - type: Occluder
 
 - type: Tag
   id: MCSmoke
