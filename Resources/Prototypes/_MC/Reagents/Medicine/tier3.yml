@@ -67,7 +67,7 @@
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
-          min: 16
+          min: 15
         damage:
           types:
             MCToxin: 1
@@ -118,6 +118,69 @@
             MCBrute: 1
             MCBurn: 2
             # brain loss?
+
+- type: reagent
+  parent: MCReagentMedicine
+  id: MCNeuraline # Придётся переносить в C# реагент
+  name: reagent-name-mc-neuraline
+  desc: reagent-desc-mc-neuraline
+  physicalDesc: mc-reagent-physical-desc-liquid
+  color: "#C8A5DC"
+  overdose: 5
+  criticalOverdose: 6
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.4 # No Brain Damage? No Pain? No Unconscious? No blurriness? No Confused? No Timer Coldown 300 sec? No Heal in Crit? No Momental Heal 20% Brute/Burn? - NO, I'm FUCKING CODE
+      effects:
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: ScrambledAccent
+        time: 10
+        type: Remove
+      - !type:GenericStatusEffect
+        key: Drunk
+        time: 5
+        type: Remove
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 5
+        type: Remove
+        refresh: false
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
+        time: 4
+        type: Remove
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 4
+        type: Remove
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 4
+        type: Remove
+      - !type:MCStamina
+        potence: -3 # IDK L.adjustStaminaLoss(-30*effect_str)
+      - !type:HealthChange
+        conditions:
+        damage:
+          types:
+            MCBrute: -7.5
+            MCBurn: -7.5
+            MCToxin: 3.75
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+        damage:
+          types:
+            MCToxin: 2.5
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 6
+        damage:
+          types:
+            MCClone: 10 # УВЫ
 
 - type: reagent
   parent: MCReagentMedicine

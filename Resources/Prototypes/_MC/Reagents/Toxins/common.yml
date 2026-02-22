@@ -8,7 +8,7 @@
   color: "#E895CC"
   overdose: 30
   criticalOverdose: 50
-  physicalDesc: reagent-physical-desc-nondescript
+  physicalDesc: mc-reagent-physical-desc-nondescript
   metabolisms:
     Poison:
       metabolismRate: 0.2
@@ -51,7 +51,7 @@
   group: Toxins
   flavor: bitter
   color: "#CF3600"
-  physicalDesc: reagent-physical-desc-liquid
+  physicalDesc: mc-reagent-physical-desc-liquid
   metabolisms:
     Poison:
       metabolismRate: 0.1
@@ -60,3 +60,97 @@
         damage:
           types:
             MCToxin: 0.35
+
+- type: reagent
+  parent: MCReagentToxins
+  id: MCHydrocyanicAcid
+  name: reagent-name-mc-hydrocyanic-acid
+  desc: reagent-desc-mc-hydrocyanic-acid
+  group: Toxins
+  flavor: bitter
+  color: "#a3a3a3"
+  physicalDesc: mc-reagent-physical-desc-gaseous
+  metabolisms:
+    Poison:
+      metabolismRate: 1.5
+      effects:
+      - !type:MCPurge
+         amount: 5
+         reagents:
+         - MCDexaline
+         - MCInaprovaline
+      - !type:HealthChange
+        damage:
+          types:
+            MCOxygen: 8
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 6
+        damage:
+          types:
+            MCClone: 2
+
+- type: reagent
+  parent: MCReagentToxins
+  id: MCCyanide
+  name: reagent-name-mc-cyanide
+  desc: reagent-desc-mc-cyanide
+  group: Toxins
+  flavor: bitter
+  color: "#CCCCCC"
+  physicalDesc: mc-reagent-physical-desc-crystalline
+  metabolisms:
+    Poison:
+      metabolismRate: 1
+      effects:
+      - !type:MCPurgeGroups
+        amount: 2.5 # Вы думали что сброс медицины можно обойти? Ну... флаг вам в руки...
+        groups:
+        - Medicine
+      - !type:MCPurge
+         amount: 10
+         reagents:
+         - MCDexaline # Обычный дексалин не поможет...
+      - !type:HealthChange
+        damage:
+          types:
+            MCOxygen: 15
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
+        conditions:
+        - !type:ReagentThreshold
+          min: 11
+          max: 11
+        time: 3
+        type: Add
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        damage:
+          types:
+            MCOxygen: 20
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        damage:
+          types:
+            MCOxygen: 50
+      - !type:MCPurgeGroups
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+          max: 15
+        amount: 150 # Ну парни, куда вы без кислорода лечится?
+        groups:
+        - Medicine
+      - !type:MCPurgeGroups
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+          max: 30
+        amount: 300
+        groups:
+        - Medicine

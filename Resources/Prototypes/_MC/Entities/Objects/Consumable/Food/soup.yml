@@ -1,0 +1,61 @@
+- type: entity
+  parent: MCFoodInjectableBase
+  id: MCFoodBowlBase
+  abstract: true
+  components:
+  - type: Item
+    storedRotation: -90
+  - type: Extractable
+    grindableSolutionName: food
+  - type: Food
+    trash:
+    - FoodBowlBig
+    utensil: Spoon
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bowl.rsi
+  - type: DamageOnLand
+    damage:
+      types:
+        MCBrute: 0.5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        MCBrute: 0.5
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Tag
+    tags:
+    - Soup
+
+- type: entity
+  name: Larva Soup
+  parent: MCFoodBowlBase
+  id: MCLarvaFoodSoup # Parity tgstation TGMC13
+  description: Liquified larva.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - jelly
+      - acid
+  - type: Sprite
+    sprite: _MC/Objects/Consumable/Food/bowl.rsi
+    state: larvasoup
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+          - ReagentId: MCLarvaJellyPrepared 
+            Quantity: 1
+          - ReagentId: Nutriment
+            Quantity: 4
+  - type: Tag
+    tags:
+    - Soup

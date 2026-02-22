@@ -1,4 +1,4 @@
-﻿- type: reagent
+- type: reagent
   id: MCWater
   name: mc-reagent-name-water
   parent: BaseDrink
@@ -86,3 +86,47 @@
       effects:
       - !type:SatiateThirst
         factor: -0.5
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCLarvaJelly
+  group: Foods
+  name: mc-reagent-name-larva-jelly
+  desc: mc-reagent-desc-larva-jelly
+  physicalDesc: mc-reagent-physical-desc-mucus-like
+  flavor: jelly
+  color: "#66801e"
+  metabolisms:
+    Food:
+      metabolismRate: 0.4
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.5
+      - !type:HealthChange
+        damage:
+          types:
+            MCBrute: -0.5
+            MCToxin: 0.5
+            MCBurn: 0.5
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCLarvaJellyPrepared
+  group: Foods
+  name: mc-reagent-name-larva-jelly-prepared
+  desc: mc-reagent-desc-larva-jelly-prepared
+  physicalDesc: mc-reagent-physical-desc-mucus-like
+  flavor: jelly
+  color: "#66801e"
+  metabolisms:
+    Food:
+      metabolismRate: 0.4
+      effects:
+      - !type:AdjustReagent
+        reagent: Nutriment
+        amount: 0.5
+      - !type:HealthChange
+        damage:
+          types:
+            MCBrute: -0.5

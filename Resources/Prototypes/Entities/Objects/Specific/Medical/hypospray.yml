@@ -121,7 +121,7 @@
   id: ChemicalMedipen
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/medipen.rsi
+    sprite: 
     layers:
     - state: firstaid
       map: ["enum.SolutionContainerLayers.Fill"]

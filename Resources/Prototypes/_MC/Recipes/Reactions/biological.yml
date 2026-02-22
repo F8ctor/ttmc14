@@ -40,3 +40,29 @@
   products:
     MCNapalm: 1
 
+- type: reaction
+  id: MCHydrocyanicAcid
+  reactants:
+    MCHydrogen:
+      amount: 1
+    MCAmmonia:
+      amount: 1
+    MCSulphuricAcid:
+      amount: 1
+    MCCarbon:
+      amount: 1
+  products:
+    MCHydrocyanicAcid: 3
+
+- type: reaction
+  id: MCCyanide
+  reactants:
+    MCPhoron:
+      amount: 1.1
+    MCPotassium:
+      amount: 1
+    MCHydrocyanicAcid:
+      amount: 1
+  products:
+    MCCyanide: 1
+    MCPhoron: 1

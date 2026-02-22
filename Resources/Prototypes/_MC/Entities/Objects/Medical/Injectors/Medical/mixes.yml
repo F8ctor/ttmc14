@@ -5,6 +5,15 @@
   name: combat auto-injector
   description: An auto-injector loaded with 2 doses of healing and painkilling chemicals. Intended for use in active combat.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: redgreen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    changeColor: false
+    emptySpriteName: redgreenx
   - type: Hypospray
     transferAmount: 15
   - type: SolutionContainerManager
@@ -30,6 +39,15 @@
   name: meraderm auto-injector
   description: An auto-injector loaded with 2 doses of advanced healing and painkilling chemicals. Intended for use in active combat.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: lilac
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    changeColor: false
+    emptySpriteName: lilacx
   - type: Hypospray
     transferAmount: 15
   - type: SolutionContainerManager
@@ -50,6 +68,15 @@
   name: advanced combat auto-injector
   description: An auto-injector loaded with 2 doses of advanced healing and painkilling chemicals. Intended for use in active combat.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: vampirekiss
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    changeColor: false
+    emptySpriteName: vampirekissx
   - type: Hypospray
     transferAmount: 15
   - type: SolutionContainerManager

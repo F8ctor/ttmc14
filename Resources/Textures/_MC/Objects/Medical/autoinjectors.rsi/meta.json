@@ -8,36 +8,18 @@
   },
   "states": [
     {
-      "name": "inhand-right",
-      "directions": 4
+      "name": "devilpower"
+    },
+    {
+      "name": "devilpowerx"
     },
     {
       "name": "inhand-left",
       "directions": 4
     },
     {
-      "name": "autoinjector-9x"
-    },
-    {
-      "name": "autoinjector-10"
-    },
-    {
-      "name": "autoinjector-10x"
-    },
-    {
-      "name": "autoinjector-12"
-    },
-    {
-      "name": "autoinjector-12x"
-    },
-    {
-      "name": "clonefix0"
-    },
-    {
-      "name": "devilpower"
-    },
-    {
-      "name": "devilpowerx"
+      "name": "inhand-right",
+      "directions": 4
     },
     {
       "name": "lilac"
@@ -143,6 +125,24 @@
     },
     {
       "name": "autoinjector-9"
+    },
+    {
+      "name": "autoinjector-9x"
+    },
+    {
+      "name": "autoinjector-10"
+    },
+    {
+      "name": "autoinjector-10x"
+    },
+    {
+      "name": "autoinjector-12"
+    },
+    {
+      "name": "autoinjector-12x"
+    },
+    {
+      "name": "clonefix0"
     }
   ]
 }

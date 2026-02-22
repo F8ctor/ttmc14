@@ -4,6 +4,15 @@
   name: bicaridine auto-injector
   description: An auto-injector loaded with 3 doses of bicaridine, a common brute and circulatory damage medicine.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: autoinjector-3
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    changeColor: false
+    emptySpriteName: autoinjector-3x
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -20,6 +29,15 @@
   name: kelotane auto-injector
   description: An auto-injector loaded with 3 doses of kelotane, a common burn medicine.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: autoinjector-5
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    changeColor: false
+    emptySpriteName: autoinjector-5x
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -36,6 +54,15 @@
   name: dylovene auto-injector
   description: An auto-injector loaded with 3 doses of dylovene, an anti-toxin agent useful in cases of poisoning, overdoses and toxin build-up.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: autoinjector-1
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    changeColor: false
+    emptySpriteName: autoinjector-1x
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -52,6 +79,15 @@
   name: tricordrazine auto-injector
   description: An auto-injector loaded with 3 doses of tricordrazine, a weak general use medicine for treating damage.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: autoinjector-4
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    changeColor: false
+    emptySpriteName: autoinjector-4x
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -68,6 +104,15 @@
   name: inaprovaline auto-injector
   description: An auto-injector loaded with 2 doses of inaprovaline, an emergency stabilization medicine for patients in critical condition.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: autoinjector-9
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    changeColor: false
+    emptySpriteName: autoinjector-9x
   - type: Hypospray
     transferAmount: 15
   - type: SolutionContainerManager
@@ -86,6 +131,15 @@
   name: dexalin auto-injector
   description: An auto-injector loaded with 3 doses of dexalin, a medicine that oxygenates the body helping those with respiratory issues or low blood.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: autoinjector-2
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    changeColor: false
+    emptySpriteName: autoinjector-2x
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -102,6 +156,15 @@
   name: imidazoline auto-injector
   description: An auto-injector loaded with 3 doses of imidazoline, medicine for fixing eyesight.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: autoinjector-5
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    changeColor: false
+    emptySpriteName: autoinjector-5x
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -118,6 +181,15 @@
   name: hypervene auto-injector
   description: An auto-injector loaded with 3 uses of hypervene, an emergency medicine that rapidly purges chems. Causes pain and vomiting.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: toxic
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    changeColor: false
+    emptySpriteName: toxicx
   - type: Hypospray
     transferAmount: 3
   - type: SolutionContainerManager
@@ -136,6 +208,15 @@
   name: tramadol auto-injector
   description: An auto-injector loaded with 3 doses of tramadol, an effective painkiller for normal wounds.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: autoinjector-10
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    changeColor: false
+    emptySpriteName: autoinjector-10x
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -152,6 +233,15 @@
   name: paracetamol auto-injector
   description: An auto-injector loaded with 2 doses of paracetamol, this chemical is a mild, simple painkiller.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: autoinjector-8
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    changeColor: false
+    emptySpriteName: autoinjector-8x
   - type: Hypospray
     transferAmount: 15
   - type: SolutionContainerManager

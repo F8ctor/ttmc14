@@ -3,7 +3,7 @@
   id: MCPhoron
   name: mc-reagent-name-phoron
   desc: mc-reagent-desc-phoron
-  physicalDesc: reagent-physical-desc-shiny
+  physicalDesc: mc-reagent-physical-desc-shiny
   flavor: bitter
   color: "#E71B00"
   tileReactions:
@@ -32,7 +32,7 @@
   id: MCNapalm
   name: mc-reagent-name-mcnapalm
   desc: mc-reagent-desc-mcnapalm
-  physicalDesc: reagent-physical-desc-shiny
+  physicalDesc: mc-reagent-physical-desc-shiny
   flavor: bitter
   color: "#cc7e93"
   intensity: 30

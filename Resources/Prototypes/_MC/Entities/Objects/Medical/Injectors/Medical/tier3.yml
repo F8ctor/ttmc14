@@ -4,6 +4,15 @@
   name: quick-clot plus auto-injector
   description: An auto-injector loaded with 3 uses of quick-clot plus, a chemical designed to remove internal bleeding. Use with antitoxin. !DO NOT USE IN ACTIVE COMBAT!
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: autoinjector-7
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    changeColor: false
+    emptySpriteName: autoinjector-7x
   - type: Hypospray
     transferAmount: 5
   - type: SolutionContainerManager
@@ -22,6 +31,15 @@
   name: emergency autoinjector
   description: An autoinjector loaded with a single use of Russian Red. Restores a significant amount of stamina and heals a large amount of damage, but causes slight permanent damage.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: redwood
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    changeColor: false
+    emptySpriteName: redwoodx
   - type: Hypospray
     transferAmount: 15
   - type: SolutionContainerManager

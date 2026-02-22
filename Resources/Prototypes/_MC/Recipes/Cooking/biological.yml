@@ -1,0 +1,9 @@
+- type: microwaveMealRecipe
+  id: MCLarvajellyRecipeLarvaSoup
+  name: larva soup recipe
+  result: MCLarvaFoodSoup
+  time: 10
+  group: Soup
+  reagents:
+    MCWater: 5
+    MCLarvaJelly: 5

@@ -140,6 +140,7 @@
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/leicerep.rsi
     layers:
     - state: base
+      map: [ "base" ]
   - type: CartridgeAmmo
     proto: MCBulletV31RifleRounds
   - type: Stack
@@ -361,7 +362,7 @@
   - type: CMArmorPiercing
     amount: 0
   - type: Projectile
-    deleteOnCollide: false
+    deleteOnCollide: true
     impactEffect: BulletImpactEffect
     maxFixedRange: 3
     damage:
@@ -403,7 +404,7 @@
     capacity: 5
     spreadAngle: 60
   - type: Projectile
-    deleteOnCollide: false
+    deleteOnCollide: true
     impactEffect: BulletImpactEffect
     maxFixedRange: 1
     damage:

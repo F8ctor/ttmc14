@@ -246,9 +246,11 @@
     Medicine:
       metabolismRate: 0.2
       effects:
-      # - !type:MCPurge
-      #   reagents:
-      #   - MCLexorin
+      - !type:MCPurge
+        amount: 1
+        reagents:
+        - MCHydrocyanicAcid
+      #  - MCLexorin
       - !type:MCHealthAll
         damageId: MCOxygen
       # Overdose
@@ -530,3 +532,57 @@
         key: KnockedDown
         time: 1
         type: Remove
+
+- type: reagent
+  parent: MCReagentMedicine
+  id: MCSynaptizine # Придётся переносить в C# реагент
+  name: reagent-name-mc-synaptizine
+  desc: reagent-desc-mc-synaptizine
+  physicalDesc: mc-reagent-physical-desc-liquid
+  color: "#C8A5DC"
+  overdose: 5
+  criticalOverdose: 6
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1 # No Pain? No Unconscious? No Timer Coldown 60 sec? No Ticks? - NO, I'm FUCKING CODE
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        conditions:
+        type: Add
+        time: 0.5
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 0.5 # Тут типо максимум снять -10, яхз
+        type: Remove
+        refresh: false
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
+        time: 2
+        type: Remove
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 2
+        type: Remove
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 2
+        type: Remove
+      - !type:MCStamina
+        potence: -1 # IDK Ticks
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 6
+        damage:
+          types:
+            MCToxin: 1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+        damage:
+          types:
+            MCBrute: 1
+            MCBurn: 1
+            MCToxin: 1

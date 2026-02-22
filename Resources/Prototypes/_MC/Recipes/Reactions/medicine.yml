@@ -113,6 +113,29 @@
   products:
     MCCryoxadone: 3
 
+- type: reaction
+  id: MCTylenol
+  reactants:
+    MCParacetamol:
+      amount: 1
+    MCLemoline:
+      amount: 1.1
+  products:
+    MCTylenol: 1
+    MCLemoline: 1
+
+- type: reaction
+  id: MCIbuprofen
+  reactants:
+    MCOxygen:
+      amount: 1
+    MCCarbon:
+      amount: 1
+    MCHydrogen:
+      amount: 1
+  products:
+    MCIbuprofen: 3
+
 # T2
 
 - type: reaction
@@ -287,6 +310,20 @@
     MCOxycodone: 1
     MCPhoron: 1
 
+- type: reaction
+  id: MCSynaptizine
+  reactants:
+    MCLithium:
+      amount: 1
+    MCSugar:
+      amount: 1
+    MCWater:
+      amount: 1
+    MCLemoline:
+      amount: 1
+  products:
+    MCSynaptizine: 4
+
 # T3
 
 - type: reaction
@@ -304,33 +341,44 @@
 - type: reaction
   id: MCDremin # No parity
   reactants:
-    MCDexalinPlus:
-      amount: 1
     MCWater:
       amount: 2
-    MCMercury:
-      amount: 5
     MCPhoron:
-      amount: 2
-    MCLemoline:
-      amount: 0.5
+      amount: 1
+    MCIbuprofen:
+      amount: 1
   products:
     MCDremin: 1
 
 - type: reaction
   id: MCTimeroll # No parity
   reactants:
-    MCDexalin:
-      amount: 5
     MCArithrazine:
       amount: 2
-    MCInaprovaline:
-      amount: 3
     MCPhoron:
-      amount: 5.1
-    MCHydrogen:
       amount: 1.1
+    MCLarvaJelly:
+      amount: 1
+    MCLemoline:
+      amount: 1
   products:
-    MCTimeroll: 2
-    MCPhoron: 5
-    MCHydrogen: 1
+    MCTimeroll: 3
+    MCPhoron: 1
+
+- type: reaction
+  id: MCNeuraline
+  reactants:
+    MCSynaptizine:
+      amount: 1
+    MCArithrazine:
+      amount: 1
+    MCTricordrazine:
+      amount: 1
+    MCLarvaJellyPrepared:
+      amount: 1
+    MCLemoline:
+      amount: 5
+      catalyst: true
+  products:
+    MCNeuraline: 4
+    # MCZombiePowder: 1

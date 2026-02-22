@@ -362,6 +362,124 @@
 
 - type: reagent
   parent: MCReagentMedicine
+  id: MCTylenol
+  name: reagent-name-mc-tylenol
+  desc: reagent-desc-mc-tylenol
+  physicalDesc: mc-reagent-physical-desc-soothing
+  color: "#8a8686"
+  overdose: 15
+  criticalOverdose: 30
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.02
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            MCBrute: -0.5
+            MCBurn: -0.5
+            MCToxin: -0.2
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        type: Add
+        time: 0.5
+        refresh: true
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        damage:
+          types:
+            MCToxin: 1.7
+            MCOxygen: 0.5
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          types:
+            MCToxin: 2.5
+            MCOxygen: 2
+      - !type:AdjustReagent
+        probability: 0.07
+        conditions:
+        - !type:ReagentThreshold
+          reagent: MCTylenol
+          min: 15
+          max: 15
+        reagent: MCCyanide
+        amount: 10
+      - !type:AdjustReagent
+        probability: 0.1
+        conditions:
+        - !type:ReagentThreshold
+          reagent: MCTylenol
+          min: 30
+          max: 30
+        reagent: MCCyanide
+        amount: 15
+
+- type: reagent
+  parent: MCReagentMedicine
+  id: MCIbuprofen
+  name: reagent-name-mc-ibuprofen
+  desc: reagent-desc-mc-ibuprofen
+  physicalDesc: mc-reagent-physical-desc-chalky
+  color: "#D6789A"
+  overdose: 45
+  criticalOverdose: 60
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.015
+      effects:
+      - !type:MCPurge
+        amount: 1
+        reagents:
+        - MCBicaridine
+        - MCTricordrazine
+      - !type:HealthChange
+        damage:
+          types:
+            MCBurn: -0.1
+            MCClone: -0.1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 45
+        damage:
+          types:
+            MCToxin: 0.2
+            MCOxygen: 0.2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 60
+        damage:
+          types:
+            MCBrute: 0.6
+      # Conflicted
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: MCBicaridine
+          min: 0.1
+        damage:
+          types:
+            MCBrute: 2.5
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: MCTricordrazine
+          min: 0.1
+        damage:
+          types:
+            MCBrute: 2.5
+
+- type: reagent
+  parent: MCReagentMedicine
   id: MCSalineGlucose
   name: reagent-name-mc-saline-glucose
   desc: reagent-desc-mc-saline-glucose

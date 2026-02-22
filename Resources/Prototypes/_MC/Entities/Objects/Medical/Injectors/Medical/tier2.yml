@@ -4,6 +4,15 @@
   name: meralyne auto-injector
   description: An auto-injector loaded with 3 doses of meralyne, formulated to heal cuts and bruises, but cause slight pain.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: autoinjector-3
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    changeColor: false
+    emptySpriteName: autoinjector-3x
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -20,6 +29,15 @@
   name: dermaline auto-injector
   description: An auto-injector loaded with 3 doses of dermaline, formulated to heal burns, but cause slight pain.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: autoinjector-5
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    changeColor: false
+    emptySpriteName: autoinjector-5x
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -36,6 +54,15 @@
   name: dexalin plus auto-injector
   description: An auto-injector loaded with 3 uses of dexalin plus, designed to immediately oxygenate the entire body.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: autoinjector-2
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    changeColor: false
+    emptySpriteName: autoinjector-2x
   - type: Hypospray
     transferAmount: 1
   - type: SolutionContainerManager
@@ -54,6 +81,15 @@
   name: isotonic solution auto-injector
   description: An auto-injector loaded with 2 doses of isotonic solution, formulated to quickly recover fluid volume after blood loss or trauma.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: autoinjector-8
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    changeColor: false
+    emptySpriteName: autoinjector-8x
   - type: Hypospray
     transferAmount: 15
   - type: SolutionContainerManager
@@ -72,6 +108,15 @@
   name: quick-clot auto-injector
   description: An auto-injector loaded with 3 doses of quick-clot, a chemical designed to pause all bleeding. Renew doses as needed.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: autoinjector-7
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    changeColor: false
+    emptySpriteName: autoinjector-7x
   - type: Hypospray
     transferAmount: 10
   - type: SolutionContainerManager
@@ -90,6 +135,15 @@
   name: oxycodone auto-injector
   description: An auto-injector loaded with 2 doses of oxycodone, a powerful pankiller intended for life-threatening situations.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: autoinjector-6
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    changeColor: false
+    emptySpriteName: autoinjector-6x
   - type: Hypospray
     transferAmount: 10
   - type: SolutionContainerManager

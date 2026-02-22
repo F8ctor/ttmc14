@@ -283,9 +283,10 @@
     - MCHealingItem
     - MCSplint
   - type: Sprite
-    state: splint_combat
+    state: combat_splint
   - type: Item
-    heldPrefix: splint
+    size: Normal
+    heldPrefix: combat_splint
   - type: WoundTreater # Оно не будет работать ибо торнадотех...
     wound: Brute
     treats: true

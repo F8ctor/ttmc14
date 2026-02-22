@@ -95,3 +95,23 @@
     allowedEmotes: [ "XenoRoar" ]
   # Abilities
   - type: XenoHide
+
+- type: entity
+  id: MCXenoEmbryo
+  parent: BaseItem
+  name: alien embryo
+  description: All slimy and yucky.
+  components:
+    - type: Extractable
+      grindableSolutionName: xeno
+    - type: Sprite
+      sprite: _MC/Mobs/Xenos/embryo.rsi
+      noRot: true
+      state: embryo
+    - type: SolutionContainerManager
+      solutions:
+        xeno:
+          maxVol: 5
+          reagents:
+            - ReagentId: MCLarvaJelly
+              Quantity: 5

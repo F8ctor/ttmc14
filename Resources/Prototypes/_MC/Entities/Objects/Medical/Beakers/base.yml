@@ -70,8 +70,6 @@
     solution: beaker
   - type: SolutionItemStatus
     solution: beaker
-  - type: Drink
-    solution: beaker
   - type: Spillable
     solution: beaker
   - type: SolutionTransfer

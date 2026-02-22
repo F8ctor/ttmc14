@@ -4,6 +4,15 @@
   name: nano machines auto-injector
   description: An auto-injector loaded with medical nanites. A potent new method of healing that that reproduces using a subject's blood and has a brief but potentially dangerous activation period! Beware of Neurotoxin!
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: autoinjector-6
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: autoinjector-6x
   - type: SolutionContainerManager
     solutions:
       pen:

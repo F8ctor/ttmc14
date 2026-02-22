@@ -1,0 +1,49 @@
+- type: entity
+  parent: BaseItem
+  id: MCEdibleBase # Почему я это сделал? - Потому что придётся переписывать механику еды под нас всё-равно.
+  abstract: true   # Чтобы кликами по себе начали кушать и мгновенно пища попадала в желудок
+  categories: [ MCContent ]
+  components:
+  - type: FlavorProfile
+    flavors:
+      - food
+  - type: Food
+  - type: Sprite
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: MCEdibleBase
+  id: MCFoodBase
+  abstract: true
+  components:
+  - type: SpaceGarbage # Мусор
+
+- type: entity
+  parent: MCFoodBase
+  id: MCFoodInjectableBase # База
+  abstract: true
+  components:
+  - type: Extractable
+    grindableSolutionName: food
+  - type: InjectableSolution
+    solution: food
+  - type: RefillableSolution
+    solution: food
+
+- type: entity
+  id: MCFoodOpenableBase # Хз даже понадобится ли
+  abstract: true
+  components:
+  - type: Appearance
+  - type: Sprite
+    layers:
+    - state: icon
+      map: ["icon"]
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        icon:
+          True: {state: "icon-open"}
+          False: {state: "icon"}
+  - type: Openable

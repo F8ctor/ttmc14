@@ -52,7 +52,7 @@ namespace Content.Shared.Body.Components
         ///     transferred to <see cref="BloodstreamComponent"/>
         /// </summary>
         [DataField]
-        public TimeSpan DigestionDelay = TimeSpan.FromSeconds(10);
+        public TimeSpan DigestionDelay = TimeSpan.FromSeconds(0); // TTMC14 Changes
 
         /// <summary>
         ///     A whitelist for what special-digestible-required foods this stomach is capable of eating.

@@ -10,12 +10,15 @@
     - MCAutoInjector
   - type: Appearance
   - type: Sprite
-    sprite: _RMC14/Objects/Medical/auto_injectors.rsi
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
     layers:
-    - state: autoinjector
-    - state: autoinjector1
-      map: [ "enum.SolutionContainerLayers.Fill" ]
-      visible: false
+    - state: autoinjector-1
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    solutionName: pen
+    maxFillLevels: 3
+    changeColor: false
+    emptySpriteName: autoinjector-1x
   - type: Item
     size: Tiny
   - type: Hypospray
@@ -29,17 +32,14 @@
     solutions:
       pen:
         maxVol: 30
-  - type: SolutionContainerVisuals
-    maxFillLevels: 3
-    fillBaseName: autoinjector
-    emptySpriteName: autoinjector
-    changeColor: true
   - type: IconLabel
     textColor: White
-    storedOffset: 0, 12
+    storedOffset: 0, -12
   - type: RMCSmartFridgeInsertable
   - type: ExaminableSolution
     solution: pen
+#  - type: RefillableSolution Кривая визуализация спрайта будет
+#    solution: pen
 
 - type: Tag
   id: MCAutoInjector

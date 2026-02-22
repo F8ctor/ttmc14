@@ -4,6 +4,15 @@
   name: anesthetic auto-injector
   description: An auto-injector loaded with 10 units of sleeping agent. Good to quickly pacify someone, for surgery of course.
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/autoinjectors.rsi
+    layers:
+    - state: autoinjector-8
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: autoinjector-8x
   - type: Hypospray
     transferAmount: 10
   - type: SolutionContainerManager
