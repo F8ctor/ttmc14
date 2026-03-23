@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/blob/master/icons/obj/items/ammo/packet.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "10x24mm"
+    },
+    {
+      "name": "10x24mm_e"
+    },
+    {
+      "name": "10x265mm"
+    },
+    {
+      "name": "10x265mm_e"
+    },
+    {
+      "name": "10x27mm"
+    },
+    {
+      "name": "10x27mm_e"
+    },
+    {
+      "name": "4.92x34mm"
+    },
+    {
+      "name": "4.92x34mm_e"
+    },
+    {
+      "name": "10x25mm"
+    },
+    {
+      "name": "10x25mm_e"
+    },
+    {
+      "name": "45_acp"
+    },
+    {
+      "name": "45_acp_e"
+    },
+    {
+      "name": "454"
+    },
+    {
+      "name": "454_e"
+    },
+    {
+      "name": "9mm"
+    },
+    {
+      "name": "9mm_e"
+    },
+    {
+      "name": "9mm_ap"
+    },
+    {
+      "name": "9mm_ap_e"
+    },
+    {
+      "name": "44_mag"
+    },
+    {
+      "name": "44_mag_e"
+    },
+    {
+      "name": "10x26mm"
+    },
+    {
+      "name": "10x26mm_e"
+    },
+    {
+      "name": "10x20mm"
+    },
+    {
+      "name": "10x20mm_e"
+    },
+    {
+      "name": "10x20mm_ap"
+    },
+    {
+      "name": "10x20mm_ap_e"
+    },
+    {
+      "name": "380_acp"
+    },
+    {
+      "name": "380_acp_e"
+    },
+    {
+      "name": "smartminigun"
+    },
+    {
+      "name": "smartminigun_e"
+    },
+    {
+      "name": "556mm"
+    },
+    {
+      "name": "556mm_e"
+    },
+    {
+      "name": "7.62x39mm"
+    },
+    {
+      "name": "7.62x39mm_e"
+    },
+    {
+      "name": "45-70"
+    },
+    {
+      "name": "45-70_e"
+    },
+    {
+      "name": "86x70mm"
+    },
+    {
+      "name": "86x70mm_e"
+    },
+    {
+      "name": "tx8"
+    },
+    {
+      "name": "tx8_e"
+    },
+    {
+      "name": "t81"
+    },
+    {
+      "name": "t81_e"
+    },
+    {
+      "name": "16g_flech"
+    },
+    {
+      "name": "16g_flech_e"
+    },
+    {
+      "name": "16g_slug"
+    },
+    {
+      "name": "16g_slug_e"
+    },
+    {
+      "name": "smarttargetrifle"
+    },
+    {
+      "name": "smarttargetrifle_e"
+    },
+    {
+      "name": "minimi"
+    },
+    {
+      "name": "minimi_e"
+    },
+    {
+      "name": "7.62"
+    },
+    {
+      "name": "7.62_e"
+    },
+    {
+      "name": ".557"
+    },
+    {
+      "name": ".557_e"
+    },
+    {
+      "name": "derringer"
+    },
+    {
+      "name": "derringer_e"
+    },
+    {
+      "name": "41AE_squash"
+    },
+    {
+      "name": "41AE_squash_e"
+    },
+    {
+      "name": "41AE"
+    },
+    {
+      "name": "41AE_e"
+    },
+    {
+      "name": "smartspottingrifle"
+    },
+    {
+      "name": "smartspottingrifle_e"
+    }
+  ]
+}
