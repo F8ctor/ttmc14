@@ -79,7 +79,7 @@
     - id: MCAutoInjectorTricordrazine
     - id: MCAutoInjectorDylovene
     - id: MCAutoInjectorInaprovaline
-    - id: MCAutoInjectorOxycodone # временно вместо Synaptizine
+    - id: MCAutoInjectorSynaptizine
     - id: MCAutoInjectorRussianRed
 
 - type: entity
@@ -95,7 +95,7 @@
     - id: MCAutoInjectorQuickClotPlus
       amount: 2
     - id: MCAutoInjectorParacetamol # временно вместо Peridaxon Plus
-      amount: 2
+      amount: 1
     - id: MCAutoInjectorDylovene
       amount: 1
     - id: MCAutoInjectorInaprovaline
