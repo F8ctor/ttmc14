@@ -1,4 +1,4 @@
-﻿{
+{
   "version": 1,
   "license": "CC-BY-SA-3.0",
   "copyright": "Taken from cmss13 at htevs/cmss13/blob/ce01adda18ccca3bb010561tps://github.com/cmss13-d5391861567c766330/icons/effects/fire.dmi, purple fire recolored by UnicornOnLSD on github from white fire taken from cmss13 at https://github.com/cmss13-devs/cmss13/blob/ce01adda18ccca3bb0105615391861567c766330/icons/effects/fire.dmi, Taken from https://github.com/tgstation/TerraGov-Marine-Corps/blob/master/icons/effects/fire.dmi, other fire recolder by F8ctor (Github)",
@@ -826,6 +826,39 @@
     },
     {
       "name": "time_2",
+      "delays": [
+        [
+          0.1,
+          0.2,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "hardred_1",
+      "delays": [
+        [
+          0.1,
+          0.2,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "hardred_2",
+      "delays": [
+        [
+          0.1,
+          0.2,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "hardred_3",
       "delays": [
         [
           0.1,
