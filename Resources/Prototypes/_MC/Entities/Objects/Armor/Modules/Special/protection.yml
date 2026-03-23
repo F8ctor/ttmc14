@@ -14,3 +14,16 @@
     visuals:
       sprite: _MC/Clothing/modular.rsi
       state: mod_eshield_a
+  - type: MCModuleShield
+    healthMax: 45
+    rechargeCooldown: 12.5
+  - type: MCArmor
+    soft:
+      melee: -5
+      bullet: -5
+      laser: -5
+      energy: -5
+      bomb: -5
+      bio: -5
+      fire: -5
+      acid: -5

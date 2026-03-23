@@ -1,8 +1,3 @@
-/*
- * This file is sublicensed under MIT License
- * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
- */
-
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared.Actions;
@@ -114,7 +109,7 @@ public sealed partial class CEZLevelsSystem
             if (!TryMapOffset(map.Value, -i, out var mapUidBelow))
                 break;
 
-            var newEye = SpawnAtPosition(_zEyeProto, new EntityCoordinates(mapUidBelow.Value, globalPos));
+            var newEye = SpawnAtPosition(_zEyeProto, new EntityCoordinates(mapUidBelow, globalPos));
 
             Transform(newEye).GridTraversal = false;
             _viewSubscriber.AddViewSubscriber(newEye, actor.PlayerSession);
@@ -124,7 +119,7 @@ public sealed partial class CEZLevelsSystem
         // We constantly load the upper z-level for the client so that you can quickly look up and climb stairs without PVS lag.
         if (TryMapUp(map.Value, out var aboveMapUid))
         {
-            var newEye = SpawnAtPosition(_zEyeProto, new EntityCoordinates(aboveMapUid.Value, globalPos));
+            var newEye = SpawnAtPosition(_zEyeProto, new EntityCoordinates(aboveMapUid, globalPos));
 
             Transform(newEye).GridTraversal = false;
             _viewSubscriber.AddViewSubscriber(newEye, actor.PlayerSession);
