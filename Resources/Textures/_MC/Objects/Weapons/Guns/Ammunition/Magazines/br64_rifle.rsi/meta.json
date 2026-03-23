@@ -1,17 +1,17 @@
 {
-  "version": 1,
+  "version": 2,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/blob/HEAD/icons/obj/items/ammo/rifle.dmi",
+  "copyright": "https://github.com/PMC-Unga-Marines/UngaMarines-13",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "mag-1"
+      "name": "base"
     },
     {
-      "name": "base"
+      "name": "mag-1"
     }
   ]
 }

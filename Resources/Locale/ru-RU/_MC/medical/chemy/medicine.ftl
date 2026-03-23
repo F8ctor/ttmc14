@@ -56,8 +56,6 @@ reagent-name-mc-oxycodone = Оксикодон
 reagent-desc-mc-oxycodone = Эффективное и очень вызывающее привыкание обезболивающее средство.
 reagent-name-mc-doctor-delight = "Радость" доктора
 reagent-desc-mc-doctor-delight = Любимое средство космического доктора. Гарантированно восстанавливает телесные повреждения; побочные эффекты включают тягу к еде и голод.
-reagent-name-mc-synaptizine = Синаптизин
-reagent-desc-mc-synaptizine = Широко используемый препарат для повышения работоспособности с минимальными побочными эффектами.
 
 # T3
 
@@ -71,6 +69,8 @@ reagent-name-mc-russian-red = Красный русский
 reagent-desc-mc-russian-red = Экстренное лечение с крайними побочными эффектами.
 reagent-name-mc-neuraline = Нейралин
 reagent-desc-mc-neuraline = Химический коктейль, разработанный для усиления или ослабления определенных нервных процессов.
+reagent-name-mc-synaptizine = Синаптизин
+reagent-desc-mc-synaptizine = Широко используемый препарат для повышения работоспособности с минимальными побочными эффектами.
 
 # Mixes
 

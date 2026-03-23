@@ -10,4 +10,5 @@
         MCBrute: 5
     soundHit:
       collection: GenericHit
+  - type: MCWeaponZLevelsShoot
 

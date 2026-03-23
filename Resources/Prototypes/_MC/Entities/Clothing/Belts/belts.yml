@@ -1,3 +1,25 @@
+- type: entity
+  parent: ClothingBeltBase
+  id: MCClothingBelt
+  abstract: true
+  components:
+  - type: Storage
+    maxItemSize: Normal
+    defaultStorageOrientation: Vertical
+    grid:
+    - 0,0,7,1
+  - type: Item
+    size: Ginormous
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: RMCStorageEjectHand
+
 # ammo
 - type: entity
   parent: MCClothingBeltStorageBase
@@ -418,3 +440,8 @@
   components:
   - type: Sprite
     sprite: _MC/Clothing/Belt/sparepouch_ans.rsi
+    sprite: _MC/Clothing/Belt/sparepouch.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,9,1 # 9 slots

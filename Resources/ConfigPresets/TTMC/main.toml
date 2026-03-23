@@ -8,7 +8,9 @@ end = "24:00"
 
 [rmc]
 active_input_mover_enabled = false
+hide_player_identities = false
 corrosive_acid_damage_type = "MCBurn"
+planet_map_vote = false
 
 [accessibility]
 screen_shake_intensity = 1
@@ -108,7 +110,7 @@ auto_record_name = "done/{year}_{month}_{day}-{hour}_{minute}-round_{round}.zip"
 
 [server]
 rules_file = "MCRules"
-default_guide = "RMC14"
+default_guide = "MCMain"
 
 [shuttle]
 arrivals_planet = false

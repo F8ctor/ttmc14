@@ -36,11 +36,14 @@
       points: 45
     - type: Skills
       skills:
+        # MC
+        MCSkillCqc: -1
+        MCSkillMeleeWeapons: -1
+        # RMC
         RMCSkillMedical: 4
         RMCSkillSurgery: 3
         RMCSkillCqc: 1
         RMCSkillSmartGun: -4
-        # RMCSkillMelee: -1
         RMCSkillFireman: 1
     - type: JobPrefix
       prefix: mc-job-prefix-researcher
@@ -48,6 +51,8 @@
       icon:
         sprite: /Textures/_MC/Interface/job_icons.rsi
         state: researcher
+    - type: MCASRSCost
+      cost: 150
 
 - type: playTimeTracker
   id: MCResearcher

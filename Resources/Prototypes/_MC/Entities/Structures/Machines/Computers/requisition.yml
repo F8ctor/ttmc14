@@ -30,6 +30,13 @@
         cost: 100
         entities:
         - MCBeaconSupply
+      - name: mc-asrs-entry-rangefinder
+        icon:
+          sprite: _MC/Objects/Devices/binoculars.rsi
+          state: range_finders
+        cost: 25
+        entities:
+        - MCRangefinder
       - name: mc-asrs-entry-orbital-beacon
         icon:
           sprite: _MC/Objects/Items/beacon.rsi
@@ -46,6 +53,76 @@
         - MCASRSExportPad
     - name: mc-asrs-category-weapons
       entries:
+      - name: mc-asrs-entry-sniper-SR26-kit
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Snipers/sr26.rsi
+          state: icon
+        cost: 775
+        entities:
+        - MCWeaponSniperSR26
+      - name: mc-asrs-entry-sniper-SR26-magazine
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr26.rsi
+          state: base
+        cost: 30
+        entities:
+        - MCMagazineSR26
+      - name: mc-asrs-entry-sniper-SR26-magazine-flak
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr26.rsi
+          state: base
+        cost: 50
+        entities:
+        - MCMagazineSR26Flak
+      - name: mc-asrs-entry-sniper-SR26-magazine-incendiary
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr26.rsi
+          state: base
+        cost: 40
+        entities:
+        - MCMagazineSR26Incendiary
+      - name: mc-asrs-entry-sniper-SR81-kit
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Snipers/sr81.rsi
+          state: base
+        cost: 500
+        entities:
+        - MCWeaponSniperSR81
+      - name: mc-asrs-entry-sniper-SR81-magazine
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr81.rsi
+          state: base
+        cost: 30
+        entities:
+        - MCMagazineSR81
+      - name: mc-asrs-entry-br8-Scout-Rifle
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Rifles/br8.rsi
+          state: base
+        cost: 400
+        entities:
+        - MCWeaponRifleBR8
+      - name: mc-asrs-entry-br8-Scout-Rifle-magazine
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
+          state: base
+        cost: 20
+        entities:
+        - MCMagazineRifleBR8
+      - name: mc-asrs-entry-br8-Scout-Rifle-impact-magazine
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
+          state: base
+        cost: 40
+        entities:
+        - MCMagazineRifleBR8Impact
+      - name: mc-asrs-entry-br8-Scout-Rifle-incendiary-magazine
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
+          state: base
+        cost: 40
+        entities:
+        - MCMagazineRifleBR8Incendiary
       - name: mc-asrs-entry-pb12-pepperball
         icon:
           sprite: _MC/Objects/Weapons/Guns/Special/pepperball.rsi
@@ -228,6 +305,103 @@
         entities:
         - MCMagazineSentryFlamer
     - name: mc-asrs-category-explosives
+      entries:
+      - name: mc-asrs-entry-HEDP grenade case
+        icon:
+          sprite: _MC/Objects/Weapons/Grenades/hedp.rsi
+          state: icon
+        cost: 310
+        entities:
+        - MCCaseGrenadeHedp
+      - name: mc-asrs-entry-HEFA grenade case
+        icon:
+          sprite: _MC/Objects/Weapons/Grenades/hefa.rsi
+          state: icon
+        cost: 550
+        entities:
+        - MCCaseGrenadeHefa
+      - name: mc-asrs-entry-HEFA M15 grenade case
+        icon:
+          sprite: _MC/Objects/Weapons/Grenades/hefa_m15.rsi
+          state: icon
+        cost: 350
+        entities:
+        - MCCaseGrenadeHefaM15
+      - name: mc-asrs-entry-HIDP grenade case
+        icon:
+          sprite: _MC/Objects/Weapons/Grenades/hidp.rsi
+          state: icon
+        cost: 350
+        entities:
+        - MCCaseGrenadeHidp
+      - name: mc-asrs-entry-HSDP grenade case
+        icon:
+          sprite: _MC/Objects/Weapons/Grenades/hsdp.rsi
+          state: icon
+        cost: 310
+        entities:
+        - MCCaseGrenadeHsdp
+      - name: mc-asrs-entry-TGas grenade case
+        icon:
+          sprite: _MC/Objects/Weapons/Grenades/pgas.rsi
+          state: icon
+        cost: 700
+        entities:
+        - MCCaseGrenadeTGas
+      - name: mc-asrs-entry-C4 plastic explosive
+        icon:
+          sprite: _RMC/Objects/Weapons/Explosives/plastic_explosives.rsi
+          state: icon
+        cost: 30
+        entities:
+        - RMCExplosivePlastic
+      - name: mc-asrs-entry-T50S mortar crate
+        icon:
+          sprite: _MC/Structures/Machines/mortar.rsi
+          state: mortar_deployed
+        cost: 250
+        entities:
+        - MCMortarKit
+      - name: mc-asrs-entry-T50S mortar HE shell (x2)
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Shells/mortar.rsi
+          state: mortar_he
+        cost: 10
+        entities:
+        - MCMortarShellHE
+        - MCMortarShellHE
+      - name: mc-asrs-entry-T50S mortar incendiary shell (x2)
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Shells/mortar.rsi
+          state: mortar_inc
+        cost: 10
+        entities:
+        - MCMortarShellIncendiary
+        - MCMortarShellIncendiary
+      - name: mc-asrs-entry-T50S mortar flare shell (x2)
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Shells/mortar.rsi
+          state: mortar_flr
+        cost: 5
+        entities:
+        - MCMortarShellFlare
+        - MCMortarShellFlare
+      - name: mc-asrs-entry-T50S mortar smoke shell (x2)
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Shells/mortar.rsi
+          state: mortar_smk
+        cost: 5
+        entities:
+        - MCMortarShellSmoke
+        - MCMortarShellSmoke
+      - name: mc-asrs-entry-T50S mortar tanglefoot shell (x2)
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Shells/mortar.rsi
+          state: mortar_fsh
+        cost: 15
+        entities:
+        - MCMortarShellTanglefoot
+        - MCMortarShellTanglefoot
     - name: mc-asrs-category-armor
       entries:
       - name: mc-asrs-entry-scout-cloak
@@ -358,6 +532,7 @@
         entries:
         - RMCTankReagentWater
     - name: mc-asrs-category-smartguns
+      # SG-29
       entries:
       - name: mc-asrs-entry-sg29
         icon:
@@ -373,6 +548,7 @@
         cost: 50
         entities:
         - MCMagazineSmartGunSG29
+      # SG-25
       - name: mc-asrs-entry-sg25
         icon:
           sprite: _MC/Objects/Weapons/Guns/Smartguns/sg25.rsi
@@ -401,6 +577,29 @@
         cost: 400
         entities:
         - MCBoxBulletsSmartGunSG29
+      # SG-85
+      - name: SG-85 smart gatling gun
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Smartguns/SG85/icon.rsi
+          state: base
+        cost: 400
+        entities:
+        - MCWeaponSmartGunSG85
+      - name: SG-85 Minigun Powerpack
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Powerpacks/sg85.rsi
+          state: base
+        cost: 150
+        entities:
+        - MCPowerpackSG85
+      - name: SG-85 ammo bin
+        icon:
+          sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Boxes/modular_boxes.rsi
+          state: rifle_box
+        cost: 50
+        entities:
+        - MCBoxBulletsSmartGunSG85
+      # SG-26
       - name: mc-asrs-entry-sg62
         icon:
           sprite: _MC/Objects/Weapons/Guns/Smartguns/sg62.rsi
@@ -480,19 +679,19 @@
         - MCMagazineSmartGunSG153Incendiary
     - name: mc-asrs-category-medical
       entries:
-      - name: Emergency medical supplies
+      - name: mc-asrs-entry-emergency-medkit
         icon:
           sprite: _MC/Clothing/Pouches/firstaid_injector.rsi
           state: base
         cost: 80
         entities:
-        - MCPouchMedicalInjectorCorpsmanFull
-        - MCPouchMedicalInjectorCorpsmanFull
-        - MCPouchMedicalInjectorCorpsmanFull
-        - MCPouchMedicalInjectorCorpsmanFull
+        - MCPouchMedkitCorpsmanFill
+        - MCPouchMedkitCorpsmanFill
+        - MCPouchMedkitCorpsmanFill
+        - MCPouchMedkitCorpsmanFill
         # /obj/item/reagent_containers/hypospray/autoinjector/neuraline,
         # /obj/item/stack/nanopaste
-      - name: MEDEVAC system
+      - name: mc-asrs-entry-medevac-stretcher
         icon:
           sprite: _RMC14/Structures/Furniture/rollerbeds.rsi
           state: stretcher_down

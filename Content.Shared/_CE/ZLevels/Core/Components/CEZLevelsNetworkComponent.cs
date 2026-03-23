@@ -1,8 +1,3 @@
-/*
- * This file is sublicensed under MIT License
- * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
- */
-
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Robust.Shared.GameStates;
 
@@ -11,9 +6,19 @@ namespace Content.Shared._CE.ZLevels.Core.Components;
 /// <summary>
 /// Tracker that tracks all maps added to the zLevel network. Usually, entity in Nullspace,
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(CESharedZLevelsSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[Access(typeof(CESharedZLevelsSystem))]
 public sealed partial class CEZLevelsNetworkComponent : Component
 {
-    [DataField, AutoNetworkedField]
-    public Dictionary<int, EntityUid?> ZLevels = new();
+    [ViewVariables, AutoNetworkedField]
+    public readonly Dictionary<int, EntityUid?> ZLevels = new();
+
+    [ViewVariables, AutoNetworkedField]
+    public readonly List<EntityUid> SortedZLevels = new();
+
+    [ViewVariables, AutoNetworkedField]
+    public int SortedMin = 0;
+
+    [ViewVariables, AutoNetworkedField]
+    public int SortedMax = 0;
 }

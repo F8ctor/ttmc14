@@ -31,7 +31,6 @@ asrs-ui-delivery = Доставка
 asrs-ui-approve = Одобрить
 asrs-ui-deny = Отклонить
 asrs-ui-requested-by = Запросил:
-asrs-ui-reason-label = Причина:
 asrs-ui-total-cost = Общая стоимость:
 asrs-ui-contents = Содержимое:
 
