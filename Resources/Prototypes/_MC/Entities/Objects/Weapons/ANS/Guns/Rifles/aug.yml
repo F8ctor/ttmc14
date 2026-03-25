@@ -1,0 +1,143 @@
+- type: entity
+  parent: [ MCWeaponRifle, MCWeaponMagazineVisuals ]
+  id: MCWeaponRifleL88ANS
+  name: modified L-96 assault carbine
+  description: An old, reliable, yet outdated bullpup-style rifle, this model was used by ICCAF reservists but was modified by ANS forces; it is best suited for combat in confined spaces where rapid maneuvering is required; It is equipped with a special built-in foregrip and a non-magnifying sight, which improves accuracy and reduces air resistance. It uses the older 5.56x45mm NATO.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/ANS/Guns/aug.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/ANS/Guns/aug.rsi
+  - type: Gun
+    shotsPerBurst: 3
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    - Burst
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Gunshots/famas.ogg
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - FullAuto
+    - Burst
+    recoilUnwielded: 4
+    scatterWielded: -1
+    scatterUnwielded: 5
+    baseFireRate: 5
+    burstFireRateMultiplier: 1
+    burstScatterMult: 1
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.15
+    accuracyMultiplierUnwielded: 0.6
+  - type: RMCWeaponDamageFalloff
+    falloffMultiplier: 1.5
+  - type: WieldDelay
+    baseDelay: 0.85
+  - type: WieldableSpeedModifiers
+    base: 0.625
+    light: 1
+    medium: 1
+    heavy: 1
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/m16_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/m16_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineRifleL88ANS
+  - type: AttachableHolder
+    slots:
+      mc-aslot-barrel:
+        whitelist:
+          tags:
+          - MCAttachmentBayonet
+          - MCAttachmentSuppressor
+          - MCAttachmentRecoilCompensator
+      mc-aslot-rail:
+        whitelist:
+          tags:
+          - MCAttachmentMagneticHarness
+          - MCAttachmentRailFlashlight
+  - type: AttachableHolderVisuals
+    offsets:
+      mc-aslot-barrel: 0.46875, 0.03125
+      mc-aslot-rail: -0.3125, 0.125
+      mc-aslot-underbarrel: 0.125, -0.125
+
+- type: entity
+  parent: MCMagazineRifle
+  id: MCMagazineRifleL88ANS
+  name: L-96 assault carbine magazine (5.56x45mm)
+  description: A magazine filled with 5.56x45mm rifle rounds for the L-96 series of firearms.
+  components:
+  - type: Tag
+    tags:
+    - CMMagazineRifle
+    - MCMagazineRifle
+    - MCMagazineRifleL88ANS
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeRifle5.56x45mm
+    proto: MCCartridgeRifle5.56x45mm
+    capacity: 30
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/ANS/Ammunition/Magazines/aug.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Appearance
+
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: MCCartridgeRifle5.56x45mm # Придётся всё-равно переходить на оригинальный формат патронов
+  name: патрон (5.56×45mm)
+  description: Винтовочный патрон 5.56×45mm
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - MCCartridgeRifle5.56x45mm
+  - type: CartridgeAmmo
+    proto: MCBulletRifle5.56x45mm
+
+- type: entity
+  parent: RMCBaseBullet
+  id: MCBulletRifle5.56x45mm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 25
+  - type: CMArmorPiercing
+    amount: 5
+  - type: MCXenoSunderDamageOnHit
+    amount: 0.8
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 24
+      falloff: 9999
+      ignoreModifiers: true
+  - type: RMCProjectileAccuracy
+    accuracy: 105
+    thresholds:
+    - range: 16
+      falloff: 10
+
+- type: Tag
+  id: MCMagazineRifleL88ANS
+
+- type: Tag
+  id: MCCartridgeRifle5.56x45mm

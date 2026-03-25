@@ -440,7 +440,6 @@
   components:
   - type: Sprite
     sprite: _MC/Clothing/Belt/sparepouch_ans.rsi
-    sprite: _MC/Clothing/Belt/sparepouch.rsi
   - type: Storage
     maxItemSize: Normal
     grid:

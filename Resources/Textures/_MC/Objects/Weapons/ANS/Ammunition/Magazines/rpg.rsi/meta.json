@@ -8,13 +8,13 @@
   },
   "states": [
     {
-      "name": "shell"
-    },
-    {
-      "name": "shell_le"
+      "name": "shell_he"
     },
     {
       "name": "shell_heat"
+    },
+    {
+      "name": "shell_le"
     },
     {
       "name": "shell_thermobaric"

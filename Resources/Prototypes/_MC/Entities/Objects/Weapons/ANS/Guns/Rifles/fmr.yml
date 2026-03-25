@@ -1,0 +1,123 @@
+- type: entity
+  parent: [ MCWeaponRifle, MCWeaponMagazineVisuals ]
+  id: MCWeaponRifleFMR
+  name: FMR assault carbine
+  description: A lightweight variant of the FAMAS rifle used by ANS forces, characterized by high accuracy and low recoil, designed for combat at medium ranges; a versatile assault rifle with a high rate of fire, equipped with a 24-round magazine and a sight for close-range shooting, designed to fire the older 5.56×45mm NATO rounds at a high rate of fire.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/ANS/Guns/fmr.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/ANS/Guns/fmr.rsi
+  - type: Gun
+    shotsPerBurst: 3
+    burstCooldown: 0.5
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    - Burst
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Gunshots/famas.ogg
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - FullAuto
+    - Burst
+    recoilUnwielded: 4
+    scatterWielded: 2
+    scatterUnwielded: 11
+    baseFireRate: 6.75
+    burstFireRateMultiplier: 2
+    burstScatterMult: 1
+    modifiers:
+      Burst:
+        fireDelay: 0.01
+        useBurstScatterMult: true
+        unwieldedScatterMultiplier: 2
+        shotsToMaxScatter: 3
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 0.8
+    accuracyMultiplierUnwielded: 0.6
+  - type: RMCWeaponDamageFalloff
+    falloffMultiplier: 0.5
+  - type: WieldDelay
+    baseDelay: 0.7
+  - type: WieldableSpeedModifiers
+    base: 0.825
+    light: 1
+    medium: 1
+    heavy: 1
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/m16_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/m16_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineRifleFMR
+  - type: AttachableHolder
+    slots:
+      mc-aslot-barrel:
+        whitelist:
+          tags:
+          - MCAttachmentBayonet
+          - MCAttachmentSuppressor
+          - MCAttachmentRecoilCompensator
+          - MCAttachmentExtendedMuzzle
+      mc-aslot-rail:
+        whitelist:
+          tags:
+          - MCAttachmentMagneticHarness
+          - MCAttachmentRailFlashlight
+      mc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentLaserSight
+          - MCAttachmentVerticalGrip
+          - MCAttachmentAngledGrip
+          - MCAttachmentGyroscopicStabilizer
+          - MCAttachmentBipod
+          - MCAttachmentBurstFireAssembly
+          - MCAttachmentUnderbarrelShotgun
+          - MCAttachmentGrenadeLauncher
+          - MCAttachmentMiniFlamethrower
+  - type: AttachableHolderVisuals
+    offsets:
+      mc-aslot-barrel: 0.46875, 0.03125
+      mc-aslot-rail: -0.3125, 0.125
+      mc-aslot-underbarrel: 0.125, -0.125
+
+- type: entity
+  parent: MCMagazineRifle
+  id: MCMagazineRifleFMR
+  name: FMR magazine (5.56x45mm)
+  description: A magazine filled with 5.56x45mm rifle rounds for the FMR series of firearms.
+  components:
+  - type: Tag
+    tags:
+    - CMMagazineRifle
+    - MCMagazineRifle
+    - MCMagazineRifleFMR
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeRifle5.56x45mm
+    proto: MCCartridgeRifle5.56x45mm
+    capacity: 24
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/ANS/Ammunition/Magazines/fmr.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Appearance
+
+- type: Tag
+  id: MCMagazineRifleFMR

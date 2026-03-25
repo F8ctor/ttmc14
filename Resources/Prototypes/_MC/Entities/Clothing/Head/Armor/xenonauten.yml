@@ -33,12 +33,6 @@
         - MCArmorModuleHead
   - type: RMCBulkyArmor
   - type: OverwatchCamera
-  - type: MCArmorModularClothing
-    slots:
-    - id: main_helmet
-      whitelist:
-        tags:
-        - MCArmorModuleHead
 
 - type: entity
   parent: MCArmorHelmetModularXenonauten

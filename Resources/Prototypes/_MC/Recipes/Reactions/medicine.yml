@@ -310,20 +310,6 @@
     MCOxycodone: 1
     MCPhoron: 1
 
-- type: reaction
-  id: MCSynaptizine
-  reactants:
-    MCLithium:
-      amount: 1
-    MCSugar:
-      amount: 1
-    MCWater:
-      amount: 1
-    MCLemoline:
-      amount: 1
-  products:
-    MCSynaptizine: 4
-
 # T3
 
 - type: reaction
