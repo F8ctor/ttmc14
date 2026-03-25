@@ -1,0 +1,187 @@
+- type: entity
+  parent: [ MCWeaponRifle, MCWeaponMagazineVisuals ]
+  id: MCWeaponRifleSCAR
+  name: CC/67 assault rifle
+  description: Crash Core's next-gen assault rifle, chambered in 10x27mm. Combat and Support worthy, this will pack a kick to anyone standing infront of you.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/ANS/Guns/scar.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/ANS/Guns/scar.rsi
+  - type: Gun
+    shotsPerBurst: 3
+    burstCooldown: 0.25
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    - Burst
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Gunshots/t21.ogg
+    soundEmpty:
+      path: /Audio/_MC/Weapons/Guns/Empty/deagle_empty.ogg
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - FullAuto
+    - Burst
+    recoilUnwielded: 4
+    scatterWielded: 0
+    scatterUnwielded: 13
+    baseFireRate: 2.85
+    burstFireRateMultiplier: 1.5
+    burstScatterMult: 1
+    modifiers:
+      FullAuto:
+        shotsToMaxScatter: null
+      Burst:
+        shotsToMaxScatter: 3
+        maxScatterModifier: 5
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1
+    accuracyMultiplierUnwielded: 0.6
+  - type: RMCWeaponDamageFalloff
+    falloffMultiplier: 0.5
+  - type: WieldDelay
+    baseDelay: 0.9
+  - type: WieldableSpeedModifiers
+    base: 0.625
+    light: 1
+    medium: 1
+    heavy: 1
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/m41a_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/m41a_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineRifleSCAR
+  - type: AttachableHolder
+    slots:
+      mc-aslot-barrel:
+        whitelist:
+          tags:
+          - MCAttachmentBayonet
+          - MCAttachmentSuppressor
+          - MCAttachmentRecoilCompensator
+          - MCAttachmentExtendedMuzzle
+      mc-aslot-rail:
+        whitelist:
+          tags:
+          - MCAttachmentMagneticHarness # /obj/item/attachable/scope
+          - MCAttachmentRailFlashlight # /obj/item/attachable/buildasentry
+          - MCAttachmentRedDotSight
+          - MCAttachmentMuzzleCharger
+          - MCAttachmentMiniScope
+      mc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentVerticalGrip
+          - MCAttachmentGrenadeLauncher
+  - type: AttachableHolderVisuals
+    offsets:
+      mc-aslot-barrel: 0.967, 0.09
+      mc-aslot-rail: -0.05, 0.22
+      mc-aslot-underbarrel: 0.15, -0.06
+
+- type: entity
+  parent: MCMagazineRifle
+  id: MCMagazineRifleSCAR
+  name: CC/67 magazine (10x27mm)
+  description: A 10x27mm rifle magazine.
+  components:
+  - type: Tag
+    tags:
+    - CMMagazineRifle
+    - MCMagazineRifle
+    - MCMagazineRifleSCAR
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridge10x27mmRifleRounds
+    proto: MCCartridge10x27mmRifleRounds
+    capacity: 30
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/ANS/Ammunition/Magazines/scar.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Appearance
+
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: MCCartridge10x27mmRifleRounds
+  name: handful of rifle bullet (10x27mm caseless)
+  description: A handful of rounds to reload on the go.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/leicerep.rsi
+    layers:
+    - state: base
+      map: [ "base" ]
+  - type: CartridgeAmmo
+    proto: MCBullet10x27mmRifleRounds
+  - type: Stack
+    count: 8
+    stackType: MCCartridge10x27mmRifleRounds
+    baseLayer: base
+    layerStates:
+    - GOV1
+    - GOV2
+    - GOV3
+    - GOV4
+    - GOV5
+    - GOV6
+    - GOV7
+    - GOV8
+  - type: Tag
+    tags:
+    - MCHandful
+    - Cartridge
+    - MCCartridge10x27mmRifleRounds
+
+- type: stack
+  id: MCCartridge10x27mmRifleRounds
+  name: handful of rifle bullet (10x27mm caseless)
+  icon: { sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/leicerep.rsi, state: GOV1 }
+  spawn: MCCartridge10x27mmRifleRounds
+  maxCount: 8
+
+- type: entity
+  parent: RMCBaseBullet
+  id: MCBullet10x27mmRifleRounds
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 65
+  - type: CMArmorPiercing
+    amount: 20
+  - type: MCXenoSunderDamageOnHit
+    amount: 2
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 40
+      falloff: 9999
+      ignoreModifiers: true
+  - type: RMCProjectileAccuracy
+    accuracy: 105
+    thresholds:
+    - range: 25
+      falloff: 10
+
+- type: Tag
+  id: MCMagazineRifleSCAR
+
+- type: Tag
+  id: MCCartridge10x27mmRifleRounds

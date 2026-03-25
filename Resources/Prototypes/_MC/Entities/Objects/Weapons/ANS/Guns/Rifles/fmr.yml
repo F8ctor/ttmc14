@@ -27,8 +27,8 @@
     - FullAuto
     - Burst
     recoilUnwielded: 4
-    scatterWielded: 2
-    scatterUnwielded: 11
+    scatterWielded: 4
+    scatterUnwielded: 16
     baseFireRate: 6.75
     burstFireRateMultiplier: 2
     burstScatterMult: 1
@@ -36,8 +36,10 @@
       Burst:
         fireDelay: 0.01
         useBurstScatterMult: true
-        unwieldedScatterMultiplier: 2
         shotsToMaxScatter: 3
+      FullAuto:
+        maxScatterModifier: 12
+        shotsToMaxScatter: 12
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 0.8
     accuracyMultiplierUnwielded: 0.6
@@ -85,12 +87,11 @@
           - MCAttachmentBurstFireAssembly
           - MCAttachmentUnderbarrelShotgun
           - MCAttachmentGrenadeLauncher
-          - MCAttachmentMiniFlamethrower
   - type: AttachableHolderVisuals
     offsets:
-      mc-aslot-barrel: 0.46875, 0.03125
-      mc-aslot-rail: -0.3125, 0.125
-      mc-aslot-underbarrel: 0.125, -0.125
+      mc-aslot-barrel: 0.28, 0.0465
+      mc-aslot-rail: -0.22, 0.25
+      mc-aslot-underbarrel: 0, -0.06
 
 - type: entity
   parent: MCMagazineRifle

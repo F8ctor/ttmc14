@@ -15,6 +15,7 @@
     sprite: _MC/Objects/Weapons/ANS/Guns/aug.rsi
   - type: Gun
     shotsPerBurst: 3
+    burstCooldown: 0.3
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -26,11 +27,22 @@
     - FullAuto
     - Burst
     recoilUnwielded: 4
-    scatterWielded: -1
-    scatterUnwielded: 5
+    scatterWielded: 1
+    scatterUnwielded: 12
     baseFireRate: 5
-    burstFireRateMultiplier: 1
-    burstScatterMult: 1
+    burstFireRateMultiplier: 2
+    burstScatterMult: 2
+    modifiers:
+      Burst:
+        fireDelay: 0.01
+        unwieldedScatterMultiplier: 1
+        useBurstScatterMult: true
+        maxScatterModifier: 5
+        shotsToMaxScatter: 6
+      FullAuto:
+        unwieldedScatterMultiplier: 1
+        maxScatterModifier: 8
+        shotsToMaxScatter: 15
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1.15
     accuracyMultiplierUnwielded: 0.6
@@ -68,9 +80,8 @@
           - MCAttachmentRailFlashlight
   - type: AttachableHolderVisuals
     offsets:
-      mc-aslot-barrel: 0.46875, 0.03125
-      mc-aslot-rail: -0.3125, 0.125
-      mc-aslot-underbarrel: 0.125, -0.125
+      mc-aslot-barrel: 0.467, 0.09
+      mc-aslot-rail: -0.2, 0.31
 
 - type: entity
   parent: MCMagazineRifle
