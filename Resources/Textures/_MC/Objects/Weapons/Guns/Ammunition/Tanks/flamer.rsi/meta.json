@@ -63,6 +63,12 @@
     },
     {
       "name": "flametank_vsd_e"
+    },
+    {
+      "name": "flametank_ans"
+    },
+    {
+      "name": "flametank_ans_e"
     }
   ]
 }

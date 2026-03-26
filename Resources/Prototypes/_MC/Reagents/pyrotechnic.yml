@@ -54,3 +54,9 @@
   parent: MCNapalm
   id: MCNapalmRGB
   fireEntity: MCFireFlamethrowerRGB
+
+- type: reagent
+  parent: MCNapalm
+  id: MCNapalmV
+  fireEntity: MCFireFlamethrowerVolatile
+  color: "#8f0000"

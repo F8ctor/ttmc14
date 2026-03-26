@@ -137,4 +137,37 @@
           Three: { state: dynamic_3 }
           Four: { state: dynamic_4 }
 
+# Volatile Flame
+- type: entity
+  parent: MCFire
+  id: MCFireFlamethrowerVolatile
+  suffix: MC, Volatile
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "base" ]
+      state: hardred_3
+  - type: PointLight
+    color: "#ff0000"
+  - type: RMCIgniteOnCollide
+    maxStacks: 50
+    intensity: 50
+    duration: 10
+    tileDamage:
+      types:
+        MCBurn: 1
+    armorMultiplier: 1
+  - type: TileFire
+    id: MCFireFlamethrowerVolatile
+    duration: 50
+    extinguishInstantly: false
+    sprayExtinguishMultiplier: 5
+    patExtinguishMultiplier: 5
+  - type: GenericVisualizer
+    visuals:
+      enum.TileFireLayers.Base:
+        base:
+          One: { state: hardred_1 }
+          Two: { state: hardred_2 }
+          Three: { state: hardred_3 }
 # No Parity Sector

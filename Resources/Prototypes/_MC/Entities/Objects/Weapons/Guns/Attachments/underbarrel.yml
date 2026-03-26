@@ -312,7 +312,6 @@
     soundGunshot:
       collection: RMCFlamerShoot
   - type: RMCFlamerAmmoProvider
-    range: 4
     spawn: null
   - type: Wieldable
   - type: ShootUseDelay

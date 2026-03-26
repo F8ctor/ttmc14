@@ -17,6 +17,7 @@
         - ReagentId: MCNapalm
           Quantity: 75
   - type: RMCFlamerTank
+    maxRange: 7
   - type: RMCSolutionTransferWhitelist
     popup: rmc-solution-transfer-whitelist-failed-not-reagent-tank
     targetWhitelist:
@@ -56,7 +57,6 @@
         reagents:
         - ReagentId: MCNapalmG
           Quantity: 75
-  - type: RMCFlamerTank
   - type: RMCSolutionTransferWhitelist
     popup: rmc-solution-transfer-whitelist-failed-not-reagent-tank
     targetWhitelist:
@@ -84,7 +84,6 @@
         reagents:
         - ReagentId: MCNapalmX
           Quantity: 75
-  - type: RMCFlamerTank
   - type: RMCSolutionTransferWhitelist
     popup: rmc-solution-transfer-whitelist-failed-not-reagent-tank
     targetWhitelist:
@@ -114,7 +113,6 @@
         reagents:
         - ReagentId: MCNapalmRGB
           Quantity: 75
-  - type: RMCFlamerTank
   - type: RMCSolutionTransferWhitelist
     popup: rmc-solution-transfer-whitelist-failed-not-reagent-tank
     targetWhitelist:
@@ -123,6 +121,37 @@
   - type: Tag
     tags:
     - MCFlamerTank
+
+- type: entity
+  parent: MCTankFlamer
+  id: MCTankFlamerVolatile
+  name: large flamethrower tank (V)
+  description: A large fuel tank containing V-type fuel recreated based on a prototype of a super-viscous combustible chemical that burns at lava-like temperatures is designed for use in the high-volume incineration of biological waste and can be used in an F44-type flamethrower, which has been strictly prohibited since the 2100s. Handle with extreme caution.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/flamer.rsi
+    state: flametank_ans
+  - type: Item
+    size: Normal
+  - type: MCFlamerTankFireType
+    spawn: MCFireFlamethrowerVolatile
+  - type: SolutionContainerManager
+    solutions:
+      rmc_flamer_tank:
+        maxVol: 75
+        reagents:
+        - ReagentId: MCNapalmV
+          Quantity: 75
+  - type: RMCFlamerTank
+    maxRange: 8
+  - type: RMCSolutionTransferWhitelist
+    popup: rmc-solution-transfer-whitelist-failed-not-reagent-tank
+    targetWhitelist:
+      tags:
+      - MCPyroFlamerVolatile
+  - type: Tag
+    tags:
+    - MCTankFlamerVolatile
 
 - type: entity
   parent: MCItem
@@ -145,6 +174,7 @@
         - ReagentId: MCNapalm
           Quantity: 25
   - type: RMCFlamerTank
+    maxRange: 4
   - type: Tag
     tags:
     - MCFlamerTankMini
@@ -193,10 +223,16 @@
   id: MCPyroFlamerRGB
 
 - type: Tag
+  id: MCPyroFlamerVolatile
+
+- type: Tag
   id: MCFlamerTankLargeBlue
 
 - type: Tag
   id: MCFlamerTankLarge
+
+- type: Tag
+  id:  MCTankFlamerVolatile
 
 - type: Tag
   id: MCBackpackFlamer
