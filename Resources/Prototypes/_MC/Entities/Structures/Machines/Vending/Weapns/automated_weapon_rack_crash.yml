@@ -19,14 +19,18 @@
       - id: MCMagazineRifleAR11
       - id: MCWeaponShotgunLeicesterRepeater
       - id: MCBoxGovernmentRounds
-    - name: Energy Weapons
-      entries:
-      - id: MCMagazineBatteryTerra
-      - id: MCWeaponEnergyRifle
-      - id: MCWeaponEnergySniper
-      - id: MCWeaponEnergyCarbine
-      - id: MCWeaponEnergyPistol
-      - id: MCWeaponEnergyMachineGun
+    # Hitscan ванильная хуйня
+    # 100% игнор любой брони
+    # Урон зависит только от Hitscan а не от оружия, так-что не удивляйтесь что лазерный пистолет наносит такой-же урон как и все другие лазерки + у них разный фаеррейт
+    # Нету режимов переключения типов снаряда (их 4)
+    #- name: Energy Weapons
+    #  entries:
+    #  - id: MCMagazineBatteryTerra
+    #  - id: MCWeaponEnergyRifle
+    #  - id: MCWeaponEnergySniper
+    #  - id: MCWeaponEnergyCarbine
+    #  - id: MCWeaponEnergyPistol
+    #  - id: MCWeaponEnergyMachineGun
     - name: SMGs
       entries:
       - id: MCWeaponSMG90

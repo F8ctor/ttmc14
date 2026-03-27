@@ -350,7 +350,7 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
         var normalized = -delta.Normalized();
 
         // to prevent hitting yourself
-        fromCoordinates = fromCoordinates.Offset(normalized * 0.23f);
+        fromCoordinates = fromCoordinates.Offset(normalized * 1f); // Changes 0.23 -> 1 by TTMC14
 
         if (!solutionEnt.Value.Comp.Solution.TryFirstOrNull(out var firstReagent))
             return false;

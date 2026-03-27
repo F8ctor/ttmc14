@@ -1,0 +1,251 @@
+- type: entity
+  parent:
+  - CMBaseWeaponRifleNoDualWieldPenalty
+  - RMCBaseWeaponMagazineVisuals
+  id: MCWeaponShotgunMK34
+  name: MK-34 automatic shotgun
+  description: The MK-34 automatic shotgun is used by the ANS during assault operations to quickly clear areas and is equipped with the most powerful ammunition for any situation. It uses 10-gauge drum magazines holding 12 rounds. Has a modified version of the fire burst
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/ANS/Guns/mk34.rsi
+    state: base
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/ANS/Guns/mk34.rsi
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: GunRequiresWield
+  - type: Gun
+    shotsPerBurst: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - Burst
+    soundGunshot:
+      path: /Audio/_RMC14/Weapons/Guns/Gunshots/gun_shotgun_xm51.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - SemiAuto
+    - Burst
+    recoilWielded: 3
+    recoilUnwielded: 6
+    scatterWielded: 5
+    scatterUnwielded: 20
+    baseFireRate: 1
+  - type: RMCExtraProjectilesDamageMods
+    damageMultiplier: 1
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 2
+    accuracyMultiplierUnwielded: 1
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        insertSound: /Audio/_RMC14/Weapons/Guns/Reload/m41_reload.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/Reload/m41_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineShotgunMK34
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - MCAttachmentMuzzleCharger
+          - MCAttachmentRecoilCompensator
+          - MCAttachmentExtendedMuzzle
+          - MCAttachmentBayonet
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          # tactical sensor
+          - MCAttachmentMagneticHarness
+          - MCAttachmentRedDotSight
+          - MCAttachmentRailFlashlight
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentUnderbarrelFlashlight
+          - MCAttachmentGyroscopicStabilizer
+          - MCAttachmentAngledGrip
+          - MCAttachmentVerticalGrip
+          - MCAttachmentGrenadeLauncher
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-barrel: 0.80, -0.035
+      rmc-aslot-rail: -0.05, 0.03
+      rmc-aslot-underbarrel: 0.3, -0.34
+
+- type: entity
+  parent: MCMagazineRifle
+  id: MCMagazineShotgunMK34
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineShotgun
+    - MCMagazineShotgunMK34
+  - type: BallisticAmmoProvider
+    mayTransfer: false
+    capacity: 12
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/ANS/Ammunition/Magazines/mk34_flechette.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Appearance
+
+- type: Tag
+  id: MCMagazineShotgunMK34
+
+- type: entity
+  parent: MCMagazineShotgunMK34
+  id: MCMagazineShotgunMK34Flechette
+  name: MK-34 Autoshotgun flechette drum magazine (10G)
+  description: A magazine filled with 10G flechette shells for the MK-34.
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - MCShellShotgunFlechette10G
+    proto: MCShellShotgunFlechette10G
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/ANS/Ammunition/Magazines/mk34_flechette.rsi
+
+- type: entity
+  parent: MCMagazineShotgunMK34
+  id: MCMagazineShotgunMK34Frag
+  name: MK-34 Autoshotgun frag drum magazine (10G)
+  description: A magazine filled with 10G fragmentation shells for the MK-34.
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - MCShellShotgunFrag10G
+    proto: MCShellShotgunFrag10G
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/ANS/Ammunition/Magazines/mk34_frag.rsi
+
+# Flechette 10G
+- type: entity
+  parent: CMShellShotgunBase
+  id: MCShellShotgunFlechette10G
+  name: handful of flechette shells (10G)
+  components:
+  - type: Tag
+    tags:
+    - MCShellShotgunFlechette10G
+    - MCShellShotgun
+    - MCHandful
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Handfuls/shotgun_heavy_handfuls.rsi
+    layers:
+    - state: heavy_flechette_1
+      map: [ "base" ]
+  - type: CartridgeAmmo
+    proto: MCBulletShotgunFlechette10G
+
+- type: entity
+  parent: MCBulletShotgun
+  id: MCBulletShotgunFlechette10G
+  name: flechette shell (10G)
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/bullet.rsi
+    layers:
+    - state: large
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 28
+  - type: CMArmorPiercing
+    amount: 20
+  - type: MCXenoSunderDamageOnHit
+    amount: 1
+  - type: ProjectileSpread
+    proto: MCBulletShotgunFlechette10G
+    count: 3
+    spread: 7
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 15
+      falloff: 9999
+      ignoreModifiers: true
+    - range: 0
+      falloff: 1
+
+# Frag 10G
+- type: entity
+  parent: CMShellShotgunBase
+  id: MCShellShotgunFrag10G
+  name: handful of fragmentation shells (10G)
+  components:
+  - type: Tag
+    tags:
+    - MCShellShotgunFrag10G
+    - MCShellShotgun
+    - MCHandful
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Handfuls/shotgun_heavy_handfuls.rsi
+    layers:
+    - state: heavy_dragonsbreath_1
+      map: [ "base" ]
+  - type: CartridgeAmmo
+    proto: MCBulletShotgunFrag10G
+
+- type: entity
+  parent: MCBulletShotgun
+  id: MCBulletShotgunFrag10G
+  name: fragmentation shell (10G)
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/bullet.rsi
+    layers:
+    - state: large
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 16
+  - type: CMArmorPiercing
+    amount: 20
+  - type: MCXenoSunderDamageOnHit
+    amount: 1
+  - type: ProjectileSpread
+    proto: MCBulletShotgunFrag10G
+    count: 3
+    spread: 7
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 15
+      falloff: 9999
+      ignoreModifiers: true
+    - range: 0
+      falloff: 1
+  - type: IgnorePredictionHide
+  - type: ExplodeOnTrigger
+  - type: TriggerOnHit
+  - type: Explosive
+    explosionType: MC
+    maxIntensity: 50
+    intensitySlope: 25
+    totalIntensity: 50
+    maxTileBreak: 0
+
+- type: Tag
+  id: MCShellShotgunFlechette10G
+
+- type: Tag
+  id: MCShellShotgunFrag10G

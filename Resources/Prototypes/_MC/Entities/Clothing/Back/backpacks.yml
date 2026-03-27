@@ -279,20 +279,19 @@
   - type: SolutionContainerManager
     solutions:
       tank:
-        maxVol: 260
+        maxVol: 400
         reagents:
-        - ReagentId: MCNapalm
-          Quantity: 260
+        - ReagentId: MCNapalmV
+          Quantity: 400
   - type: SolutionTransfer
-    transferAmount: 260
-    maxTransferAmount: 260
-    minTransferAmount: 260
+    transferAmount: 400
+    maxTransferAmount: 400
+    minTransferAmount: 400
   - type: RMCSolutionTransferWhitelist
     popup: rmc-solution-transfer-whitelist-failed-not-welding-tank
     targetWhitelist:
       tags:
-      - MCPyroFlamer
-      - MCPyroFlamerMini
+      - MCPyroFlamerVolatile
   - type: NoMixingReagents
   - type: CMStorageVisualizer
     storageClosed: null
@@ -307,7 +306,7 @@
     solution: tank
   - type: Tag
     tags:
-    - MCBackpackFlamer
+    - MCBackpackFlamerVolatile
 
 - type: entity
   parent: MCBackpack
@@ -319,3 +318,68 @@
     sprite: _MC/Clothing/Back/Backpacks/ANS/lightpack.rsi
   - type: Clothing
     sprite: _MC/Clothing/Back/Backpacks/ANS/lightpack.rsi
+
+- type: entity
+  parent: MCBackpack
+  id: MCBackpackScabbardML41A2
+  name: ML41A2 scabbard (10x26mm)
+  description: A backpack holster allowing the storage of any a ML41A2 Assault Machinegun, also carries ammo for the other portion of the system.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Back/Backpacks/ANS/bagmg.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Back/Backpacks/ANS/bagmg.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,15,1
+    whitelist:
+      tags:
+      - MCBoxBulletsMG10x26mm
+  - type: FixedItemSizeStorage
+  - type: IgnoreContentsSize
+    items:
+      tags:
+      - MCBoxBulletsMG10x26mm
+  - type: CMStorageVisualizer
+    storageClosed: null
+    storageOpen: null
+  - type: ItemSlots
+    slots:
+      item:
+        name: ML41A2 Assault Machinegun
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        whitelist:
+          tags:
+          - MCWeaponMachineGunML41A2
+  - type: ItemMapper
+    mapLayers:
+      icon-full:
+        whitelist:
+          tags:
+          - MCWeaponMachineGunML41A2
+  - type: Tag
+    tags:
+    - MCBackpackML41A2
+  - type: CMHolster
+  - type: RMCMagneticItemReceiver
+
+- type: Tag
+  id: MCBackpackML41A2
+
+- type: entity
+  parent: MCBackpackScabbardML41A2
+  id: MCBackpackScabbardML41A2Filled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCBoxBulletsMG10x26mm
+      amount: 5
+  - type: ContainerFill
+    containers:
+      item:
+      - MCWeaponMachineGunML41A2

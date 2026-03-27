@@ -66,7 +66,7 @@
         recommended: true
       # Knives belt
       # Pistol belt
-      - id: MCClothingBeltUtility
+      - id: MCBeltSparepouch
         recommended: true
       # Belt harness
     - name: Pouches

@@ -71,7 +71,7 @@
         MCBelt: 1
       entries:
       - id: MCClothingBeltToolsFill
-      - id: MCClothingBeltUtility
+      - id: MCBeltSparepouch
     - name: Pouches
       choices:
         MCPouch: 2

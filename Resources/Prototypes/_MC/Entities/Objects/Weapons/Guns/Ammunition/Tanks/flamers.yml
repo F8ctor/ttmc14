@@ -138,10 +138,10 @@
   - type: SolutionContainerManager
     solutions:
       rmc_flamer_tank:
-        maxVol: 75
+        maxVol: 80
         reagents:
         - ReagentId: MCNapalmV
-          Quantity: 75
+          Quantity: 80
   - type: RMCFlamerTank
     maxRange: 8
   - type: RMCSolutionTransferWhitelist
@@ -149,6 +149,7 @@
     targetWhitelist:
       tags:
       - MCPyroFlamerVolatile
+      - MCBackpackFlamerVolatile
   - type: Tag
     tags:
     - MCTankFlamerVolatile
@@ -239,3 +240,6 @@
 
 - type: Tag
   id: MCBackpackFlamerX
+
+- type: Tag
+  id: MCBackpackFlamerVolatile

@@ -22,6 +22,8 @@
     - Burst
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Gunshots/t21.ogg
+      params:
+        volume: -1
     soundEmpty:
       path: /Audio/_MC/Weapons/Guns/Empty/deagle_empty.ogg
   - type: RMCSelectiveFire
@@ -157,10 +159,15 @@
   maxCount: 8
 
 - type: entity
-  parent: RMCBaseBullet
+  parent: MCBullet
   id: MCBullet10x27mmRifleRounds
   categories: [ HideSpawnMenu ]
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/bullet.rsi
+    layers:
+    - state: large
+      shader: unshaded
   - type: Projectile
     damage:
       types:

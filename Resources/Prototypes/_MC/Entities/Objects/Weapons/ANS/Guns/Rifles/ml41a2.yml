@@ -1,0 +1,242 @@
+- type: entity
+  parent: MCWeaponMG
+  id: MCWeaponMachineGunML41A2
+  name: ML41A2 assault machine gun
+  description: The ML41A2 is an incredibly lightweight machinegun used by ICCAF forces, being incredibly light for its class allows it to be used in rapid manuevers, at the cost of damage at range and generally high scatter. It uses 10x26mm boxes.
+  components:
+  - type: Item
+    size: Huge
+  - type: AmmoCounter
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/ANS/Guns/ml41a2.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/ANS/Guns/ml41a2.rsi
+    slots: [ suitStorage, back ]
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MCMagazineBoxGPMGML41A2
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/t42_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/t42_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineBoxGPMGML41A2
+  - type: MCBackpackAmmoProvider
+    slot: Belt
+  - type: Tag
+    tags:
+    - MCWeaponMachineGunML41A2
+  # Stats
+  - type: Gun
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Gunshots/gun_mg60.ogg
+      params:
+        volume: -2
+    soundEmpty:
+      path: /Audio/_MC/Weapons/Guns/Empty/m41a_empty.ogg
+  - type: GunIFF
+    enabled: true
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - FullAuto
+    baseFireRate: 6.75
+    scatterWielded: 5
+    scatterUnwielded: 45
+    recoilWielded: 0
+    recoilUnwielded: 4
+    modifiers:
+      FullAuto:
+        shotsToMaxScatter: null
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 0.85
+    accuracyMultiplierUnwielded: 0.4
+  # Wield
+  - type: Wieldable
+  - type: WieldDelay
+    baseDelay: 0.95
+  # Crosshair
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/lmg_mouse.rsi
+      state: all
+  # Attachments
+  - type: AttachableHolder
+    slots:
+      mc-aslot-barrel:
+        whitelist:
+          tags:
+          - MCAttachmentBayonet
+          - MCAttachmentSuppressor
+          - MCAttachmentRecoilCompensator
+          - MCAttachmentExtendedMuzzle
+          - MCAttachmentMuzzleCharger
+      mc-aslot-rail:
+        whitelist:
+          tags:
+          - MCAttachmentMagneticHarness
+          - MCAttachmentRailFlashlight
+          - MCAttachmentMiniScope
+      mc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentLaserSight
+          - MCAttachmentVerticalGrip
+          - MCAttachmentAngledGrip
+          - MCAttachmentGyroscopicStabilizer
+          - MCAttachmentBipod
+          - MCAttachmentBurstFireAssembly
+          - MCAttachmentUnderbarrelShotgun
+          - MCAttachmentGrenadeLauncher
+          - MCAttachmentUnderbarrelFlashlight
+          # /obj/item/attachable/stock/t60stock,
+          # /obj/item/attachable/motiondetector,
+          # /obj/item/attachable/buildasentry,
+  - type: AttachableHolderVisuals
+    offsets:
+      mc-aslot-barrel: 0.28, 0.0465
+      mc-aslot-rail: -0.22, 0.25
+      mc-aslot-underbarrel: 0, -0.06
+
+- type: Tag
+  id: MCWeaponMachineGunML41A2
+
+# Magazine
+- type: entity
+  parent: MCMagazineRifle
+  id: MCGPMGButtpackML41A2
+  name: ML41A2 GPMG buttpack magazine (10x26mm)
+  description: A buttpack for the ML41A2 which carries the ammo inside.
+  components:
+  - type: Tag
+    tags: [ MCGPMGButtpackML41A2 ]
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/ammopouch_ml41a2.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/ammopouch_ml41a2.rsi
+    slots: [ belt ]
+  - type: Item
+    size: Huge
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeMG10x26mm
+    proto: MCCartridgeMG10x26mm
+    capacity: 750
+  - type: MCBackpackAmmo
+    slot: belt
+  - type: RefillableByBulletBox
+    bulletType: MCBoxBulletsMachineGunML41A2
+
+- type: Tag
+  id: MCGPMGButtpackML41A2
+
+- type: entity
+  parent: MCMagazineRifle
+  id: MCMagazineBoxGPMGML41A2
+  name: ML41A2 GPMG box magazine (10x26mm)
+  description: A belt box for the ML41A2 assault machinegun.
+  components:
+  - type: Tag
+    tags:
+    - RMCMagazineLMG
+    - MCMagazineBoxGPMGML41A2
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeMG10x26mm
+    proto: MCCartridgeMG10x26mm
+    capacity: 150
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/ANS/Ammunition/Magazines/ml41a2.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Appearance
+  - type: RefillableByBulletBox
+    bulletType: MCBoxBulletsMachineGunML41A2
+
+- type: Tag
+  id: MCMagazineBoxGPMGML41A2
+
+# Cartridges
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: MCCartridgeMG10x26mm
+  name: handful of machinegun bullet (10x26mm caseless)
+  description: A handful of rounds to reload on the go.
+  components:
+  - type: Tag
+    tags: [ MCCartridgeMG10x26mm ]
+  - type: CartridgeAmmo
+    proto: MCBulletMG10x26mm
+
+- type: Tag
+  id: MCCartridgeMG10x26mm
+
+# Bullets
+- type: entity
+  parent: MCBullet
+  id: MCBulletMG10x26mm
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/bullet.rsi
+    layers:
+    - state: large
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 25
+  - type: CMArmorPiercing
+    amount: 10
+  - type: MCXenoSunderDamageOnHit
+    amount: 0.75
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 1
+      falloff: 0.1
+    - range: 12
+      falloff: 9999
+      ignoreModifiers: true
+  - type: RMCProjectileAccuracy
+    minAccuracy: 100
+
+- type: entity
+  parent: MCBoxBullets
+  id: MCBoxBulletsMG10x26mm
+  name: box of 10x26mm
+  description: A box containing 500 rounds of 10x26mm caseless.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/10x265.rsi
+    state: minimi
+  - type: Tag
+    tags: [ MCBoxBulletsMG10x26mm ]
+  - type: BulletBox
+    bulletType: MCBoxBulletsMachineGunML41A2
+    amount: 500
+    max: 500
+
+- type: Tag
+  id: MCBoxBulletsMG10x26mm

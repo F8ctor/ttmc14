@@ -60,7 +60,7 @@
       choices:
         MCBelt: 1
       entries:
-      - id: MCClothingBeltUtility
+      - id: MCBeltSparepouch
     - name: Pouches
       choices:
         MCPouch: 2

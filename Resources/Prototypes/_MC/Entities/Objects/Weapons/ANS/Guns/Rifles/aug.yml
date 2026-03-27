@@ -124,10 +124,15 @@
     proto: MCBulletRifle5.56x45mm
 
 - type: entity
-  parent: RMCBaseBullet
+  parent: MCBullet
   id: MCBulletRifle5.56x45mm
   categories: [ HideSpawnMenu ]
   components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/bullet.rsi
+    layers:
+    - state: large
+      shader: unshaded
   - type: Projectile
     damage:
       types:

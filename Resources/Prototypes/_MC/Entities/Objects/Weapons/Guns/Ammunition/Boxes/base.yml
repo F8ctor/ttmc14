@@ -7,37 +7,10 @@
   components:
   - type: Item
     size: Huge
-  - type: Sprite
-    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Boxes/modular_boxes.rsi
-    layers:
-    - state: rifle_box
-      color: "#ff0000"
-    - state: rifle_box_marking
-      color: "#00ff00"
-    - state: rifle_ammo_full_rounds_base
-      map: [ "enum.BulletBoxLayers.Fill" ]
-    - state: rifle_ammo_full_rounds_color
-      map: [ "enum.BulletBoxLayers2.Fill" ]
-      color: "#0000ff"
-  - type: GenericVisualizer
-    visuals:
-      enum.BulletBoxLayers.Fill:
-        enum.BulletBoxLayers.Fill:
-          Empty: { state: rifle_ammo_full_rounds_base, visible: false }
-          Low: { state: rifle_ammo_low_rounds_base, visible: true }
-          Medium: { state: rifle_ammo_medium_rounds_base, visible: true }
-          High: { state: rifle_ammo_high_rounds_base, visible: true }
-          Full: { state: rifle_ammo_full_rounds_base, visible: true }
-        enum.BulletBoxLayers2.Fill:
-          Empty: { state: rifle_ammo_full_rounds_color, visible: false }
-          Low: { state: rifle_ammo_low_rounds_color, visible: true }
-          Medium: { state: rifle_ammo_medium_rounds_color, visible: true }
-          High: { state: rifle_ammo_high_rounds_color, visible: true }
-          Full: { state: rifle_ammo_full_rounds_color, visible: true }
+  - type: Sprite # Мы не RMC14
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/10x265.rsi
+    state: 10x265mm
   - type: Appearance
-  - type: RMCUnfoldCardboard
-    spawns:
-    - id: RMCSheetCardboard1
   - type: InteractedBlacklist
     blacklist:
       components:
@@ -46,8 +19,9 @@
     quickEquip: false
     slots:
     - Back
+    - Belt
   - type: DropOnUseInHand
-  - type: BulletBox
+  - type: BulletBox # Хуйня, под MC нужно сделать
   - type: Tag
     tags:
     - MCAmmoBox

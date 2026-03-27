@@ -148,7 +148,9 @@
     - map: [ "base" ]
       state: hardred_3
   - type: PointLight
-    color: "#ff0000"
+    color: "#a6a6a6"
+    radius: 2
+    energy: 3
   - type: RMCIgniteOnCollide
     maxStacks: 50
     intensity: 50

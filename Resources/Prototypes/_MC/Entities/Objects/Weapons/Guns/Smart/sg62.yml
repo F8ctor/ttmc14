@@ -47,7 +47,7 @@
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Fire/t62.ogg
     soundEmpty:
-      path: /Audio/_MC/Weapons/Guns/Fire/m41a_empty.ogg
+      path: /Audio/_MC/Weapons/Guns/Empty/m41a_empty.ogg
   - type: GunIFF
     enabled: true
   - type: RMCSelectiveFire
